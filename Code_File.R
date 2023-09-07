@@ -2,11 +2,6 @@
 # -- Mass datasets
 library(MASS)
 
-# -- Cabbages
-data(cabbages)
-cabbages
-?cabbages
-
 # -- Crabs
 data(crabs)
 crabs
@@ -17,7 +12,6 @@ library(tidyverse)
 data(diamonds)
 ?diamonds
 diamonds
-
 
 #-- Glass 
 library(mlbench)
