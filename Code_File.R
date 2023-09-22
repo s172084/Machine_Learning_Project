@@ -82,7 +82,7 @@ threshold <- 0.9
 xlimits <- c(1, M)
 plot(rho,
      type = "o",
-     main = "Variance explained by principal componenets",
+     main = "Variance explained by principal components",
      xlab = "Principal components",
      ylab = "Variance explained",
      xlim = xlimits,
@@ -106,6 +106,7 @@ V <- S$v
 pcs <- 1:4
 test <- as.data.frame(melt(data.table(V[, pcs])))
 ggplot(test, aes(x = rep(1:10, length(pcs)), y = value, fill=variable)) +
+  ggtitle("Principal directions interpreted in terms of features") +
   geom_bar(position="dodge", stat = "identity") +
   labs(fill="PC", x = "Attributes", y = "Component coefficients")
 
@@ -207,7 +208,7 @@ Z <- S$u %*% diag(S$d)
 Z <- cbind(Z,diamonds$depth)
 
 i <- 1
-j <- 3
+j <- 2
 
 ggplot() +
   ggtitle('Depth') +

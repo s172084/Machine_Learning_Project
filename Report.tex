@@ -81,6 +81,7 @@
     {}%
 }
 \makeatother
+\usepackage{subfig}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -251,28 +252,21 @@ set of observations of that variable.
 
 \end{col}
 
-\begin{col}{0.4\textwidth}
+\begin{col}{0.40\textwidth}
 The new standardized dataset can be now used to perform the Singular
-Value Decomposition (SVD). By the extraction of the diagonal of the
+Value Decomposition (SVD), which gives rise to three different matrices:
+\(U\), \(\Sigma\) and \(V^T\). By the extraction of the diagonal of the
 matrix \(\Sigma\), it can be seen how much variance is explained by each
 principal component. The cumulative explained variance should reach the
 percentage of 90\% in order to describe properly the main features of
 the dataset.
 
-The figure below shows that the first 4 principal components explain
-little less than the 90\% of variance:
+The figure on the left shows that the first 4 principal components
+explain little less than the 90\% of variance
 
 \end{col}
 
 \end{cols}
-
-\section{4) Results: what data have
-shown}\label{results-what-data-have-shown}
-
-\section{Two columns}\label{two-columns}
-
-Below is a Div containing three child Divs side by side. The Div in the
-middle is empty, just to add more space between the left and right Divs.
 
 \begin{cols}
 
@@ -286,17 +280,54 @@ middle is empty, just to add more space between the left and right Divs.
 
 \end{col}
 
-\begin{col}{0.4\textwidth}
-The figure on the left-hand side shows the \texttt{cars} data.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-velit esse cillum dolore eu fugiat nulla pariatur.
+\begin{col}{0.40\textwidth}
+The matrix \(V^T\) contains the ten deca-dimensional vectors defining
+the principal components (PCs). Focusing on the first four PCs, they
+contains the weights associated to each of original component. The
+figure on the left shows the valuea of the weights. It can be noticed
+that the first PC mainly describes the dimensional quantities of the
+diamonds (\emph{carat}, size in \emph{x}, \emph{y}, \emph{z}) and the
+\emph{price}. It seems that these five characteristics alone explain
+half of the variability of the diamonds. As for the second PC, it
+focuses more on the quality characteristics (\emph{cut}, \emph{color},
+\emph{clarity}) and on the \emph{table}.
 
 \end{col}
 
 \end{cols}
+
+\begin{cols}
+
+\begin{col}{0.55\textwidth}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\end{col}
+
+\begin{col}{0.05\textwidth}
+~
+
+\end{col}
+
+\begin{col}{0.40\textwidth}
+Unfortunately, it is impossible to represent data in a four-dimensional
+space, so data are projected onto the bi-dimensional space defined by
+the first two PCs. Coefficients can be projected in this space as well,
+showing the directions followed by original attributes. It can clearly
+be seen that the first PC is eastward oriented, so that it collects very
+well the eastward attributes. Probably, the second PC is southward
+directed so that it collects the southward attributes (with the plus
+sign) and the northward \emph{table} attribute (with the minus sign)
+
+\end{col}
+
+\end{cols}
+
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-1}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-2}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-3}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-4}
+
+\section{4) Results: what data have
+shown}\label{results-what-data-have-shown}
 
 \end{document}

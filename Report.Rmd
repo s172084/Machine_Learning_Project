@@ -7,6 +7,7 @@ date: '2023-09-05'
 output:
   pdf_document:
     keep_tex: true
+    extra_dependencies: "subfig"
     includes:
       in_header: columns.tex
   html_document:
@@ -16,6 +17,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+
 library(MASS)
 library(ggplot2)
 library(data.table)
@@ -118,6 +121,7 @@ Dia$clarity <- as.numeric(Dia$clarity)
 
 N <- dim(Dia)[1] # number of rows of the new one-hot-encoded dataframe
 M <- dim(Dia)[2] # number of columns of the new one-hot-encoded dataframe
+attributeNames <- colnames(Dia)
 
 kable(head(Dia), caption = "Head of the diamonds dataset arranged for the PCA")
 ```
@@ -154,7 +158,7 @@ threshold <- 0.9
 xlimits <- c(1, M)
 plot(rho,
      type = "o",
-     main = "Variance explained by principal componenets",
+     main = "Variance explained by principal components",
      xlab = "Principal components",
      ylab = "Variance explained",
      xlim = xlimits,
@@ -175,23 +179,153 @@ legend("right", # Define position
 
 ::: {.col data-latex="{0.05\textwidth}"}
 \ 
-<!-- an empty Div (with a white space), serving as
-a column separator -->
 :::
 
-::: {.col data-latex="{0.4\textwidth}"}
+::: {.col data-latex="{0.40\textwidth}"}
 
 The new standardized dataset can be now used to perform the Singular Value
-Decomposition (SVD). By the extraction of the diagonal of the matrix $\Sigma$,
+Decomposition (SVD), which gives rise to three different matrices: $U$, $\Sigma$ 
+and $V^T$. By the extraction of the diagonal of the matrix $\Sigma$,
 it can be seen how much variance is explained by each principal component.
 The cumulative explained variance should reach the percentage of 90% in order
 to describe properly the main features of the dataset. 
 
-The figure below shows that the first 4 principal components explain little less 
-than the 90% of variance:
+The figure on the left shows that the first 4 principal components explain 
+little less than the 90% of variance
 :::
 ::::::
 
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.55\textwidth}"}
+```{r, echo=FALSE, fig.width=5, fig.height=4}
+Z <- S$u %*% diag(S$d)
+V <- S$v
+
+pcs <- 1:4
+test <- as.data.frame(melt(data.table(V[, pcs])))
+ggplot(test, aes(x = rep(1:10, length(pcs)), y = value, fill=variable)) +
+  ggtitle("Principal directions interpreted in terms of features") +
+  geom_bar(position="dodge", stat = "identity") +
+  labs(fill="PC", x = "Attributes", y = "Component coefficients")
+```
+:::
+
+::: {.col data-latex="{0.05\textwidth}"}
+\ 
+:::
+
+::: {.col data-latex="{0.40\textwidth}"}
+The matrix $V^T$ contains the ten deca-dimensional vectors defining the principal 
+components (PCs). Focusing on the first four PCs, they contains the weights
+associated to each of original component. The figure on the left shows
+the valuea of the weights. It can be noticed that the first PC mainly describes
+the dimensional quantities of the diamonds (*carat*, size in *x*, *y*, *z*) and
+the *price*. It seems that these five characteristics alone explain half of the
+variability of the diamonds. As for the second PC, it focuses more on the
+quality characteristics (*cut*, *color*, *clarity*) and on the *table*.
+:::
+::::::
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.55\textwidth}"}
+```{r, echo=FALSE, fig.width=5, fig.height=5}
+i <- 1
+j <- 2
+par(mfcol = c(1, 1), pty = "s")
+plot(c(-1, 1), c(-1, 1),
+     xlab = paste("PC", toString(i)), ylab = paste("PC", toString(j)),
+     type = "n",
+     main = "Coefficients in the PC-space"
+)
+arrows(integer(M), integer(M),
+       V[, i], V[, j],
+       length = .1,
+       col = "blue"
+)
+text(V[, i] * 1.1, V[, j] * 1.1, attributeNames, cex = 0.8)
+# Add a unit circle
+th <- seq(0, 2.1 * pi, 0.1)
+lines(cos(th), sin(th))
+```
+:::
+
+::: {.col data-latex="{0.05\textwidth}"}
+\ 
+:::
+
+::: {.col data-latex="{0.40\textwidth}"}
+Unfortunately, it is impossible to represent data in a four-dimensional space, so
+data are projected onto the bi-dimensional space defined by the first two PCs.
+Coefficients can be projected in this space as well, showing the directions
+followed by original attributes. It can clearly be seen that the first PC is
+eastward oriented, so that it collects very well the eastward attributes.
+Probably, the second PC is southward directed so that it collects the southward
+attributes (with the plus sign) and the northward *table* attribute (with the
+minus sign)
+:::
+::::::
+
+```{r, fig.ncol = 2, out.width = "50%"}
+# CUT, PC 1-2
+Z <- S$u %*% diag(S$d)
+Z <- cbind(Z,diamonds$cut)
+
+i <- 1
+j <- 2
+
+ggplot() +
+  ggtitle('Cut') +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
+  labs(x = paste('PC ',i), y = paste('PC ',j)) +
+  xlim(-5,10) + ylim(-5,7.5)
+
+# PRICE
+Z <- S$u %*% diag(S$d)
+Z <- cbind(Z,diamonds$price)
+
+i <- 1
+j <- 2
+
+ggplot() +
+  ggtitle('Price') +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
+  labs(x = paste('PC ',i), y = paste('PC ',j)) +
+  xlim(-5,10) + ylim(-5,7.5)
+
+# CARAT
+Z <- S$u %*% diag(S$d)
+Z <- cbind(Z,diamonds$carat)
+
+i <- 1
+j <- 2
+
+ggplot() +
+  ggtitle('Carat') +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
+  labs(x = paste('PC ',i), y = paste('PC ',j)) +
+  xlim(-5,10) + ylim(-5,7.5)
+
+# COLOR
+Z <- S$u %*% diag(S$d)
+Z <- cbind(Z,diamonds$color)
+
+i <- 2
+j <- 4
+
+ggplot() +
+  ggtitle('Color') +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
+  labs(x = paste('PC ',i), y = paste('PC ',j)) +
+  xlim(-5,10) + ylim(-5,7.5)
+```
 
 
 # 4) Results: what data have shown
+
+
