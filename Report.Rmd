@@ -21,7 +21,37 @@ library(tidyverse)
 library(knitr)
 
 data(diamonds)
+# ctrl + alt + I
 ```
+
+
+Contribution Table 
+===
+------------------------------------------------------------
+
+Task          |     Oriade    |     Pietro    |
+--------------|:-------------:|:-------------:|
+**Student ID**|   s172084     |    s231756    |
+------------- |-------------- | ------------- | 
+Question 1    |       x       |               |   
+------------- | ------------- | ------------- |
+Question 2    |       x       |               | 
+------------- | ------------- | ------------- |
+Question 3    |               |       x       |  
+------------- | ------------- | ------------- |
+Question 4    |               |       x       |
+------------- | ------------- | ------------- |
+Exam Prob 1   |               |       x       | 
+------------- | ------------- | ------------- |
+Exam Prob 2   |       x       |               |
+------------- | ------------- | ------------- |
+Exam Prob 3   |       x       |               |
+------------- | ------------- | ------------- |
+Exam Prob 4   |               |       x       |
+------------- | ------------- | ------------- |
+Exam Prob 5   |               |       x       |
+------------- | ------------- | ------------- |
+Exam Prob 6   |       x       |               |
 
 # 1) Description of the dataset
 
@@ -64,24 +94,18 @@ describing a few representative features (apply common sense).
 
 The aim of the Principal Component Analysis ("PCA" from now on), is to simplify
 the problem dimension by reducing the number of variables which explains the
-behaviour of the diamonds' price.
+behavior of the diamonds' price.
 
-As written before, the goal of the analysis is the regression of the variable
-*price* based on the other attributes of the dataset. For this reason, the
-dataset has to be deprived of the target variable *price*, which has to be
-explained by the other variables.
-
-The PCA requires the dataset to be composed by numeric attributes. The reason is
-that each variable has to be standardized by subtracting the mean and dividing
-by the standard deviation of the whole set of observations of that variable, and
-such operations cannot be carried out for non-numeric values.
-Such requirement leads to trasform the three ordinal variables *cut*, *color*
-and *clarity* into ordinal numbers (from 1 to the upper level number).
+The PCA requires the standardization of the attributes so that the variability of
+each of them is comparable. But such operation cannot be carried out for 
+non-numeric values, like the three ordinal variables *cut*, *color*
+and *clarity*. For these reason they are converted into ordinal numbers 
+(from 1 to the upper level number) according to their ranking.
 
 After these operations, the dataset appears as below:
 
 ```{r}
-Dia <- as.data.frame(diamonds[-7]) # drop the target variable "price"
+Dia <- as.data.frame(diamonds)
 Dia$cut <- as.numeric(Dia$cut)
 Dia$color <- as.numeric(Dia$color)
 Dia$clarity <- as.numeric(Dia$clarity)
@@ -94,21 +118,29 @@ kable(head(Dia), caption = "Head of the diamonds dataset arranged for the PCA")
 
 Now the dataset contains all numeric variables, so the next step is to compare
 the standard deviations of each variable and check whether they are different.
-In case they are different, the dataset has to be standardized so that all
-variables have the same order of magnitude in their values.
 
-The figure below shows the standard deviations of the variables:
+Below the standard deviations of the variables are shown:
 
-```{r fig.cap = "Standard deviations of variables"}
+```{r}
 stds <- apply(Dia, 2, sd)
-par(mfrow = c(1, 1))
-barplot(stds, ylab = "Attribute standard deviation")
+print(round(stds,digits=2))
 ```
 
-The variables have different standard deviations, so they have to be
-standardized.
+Since standard deviation of *price* is some orders of magnitude larger than the 
+others, the dataset has to be standardized by subtracting the mean and dividing
+by the standard deviation of the whole set of observations of that variable.
+```{r}
+D_pca <- t(apply(Dia, 1, "-", colMeans(Dia)))
+D_pca <- t(apply(D_pca, 1, "*", 1 / stds))
+D_pca <- as.data.frame(D_pca)
+```
 
-Now the dataset is ready for the PCA
+The new standardized dataset can be now used to perform the Singular Value
+Decomposition (SVD). By the extraction of the diagonal of the matrix $\Sigma$,
+it can be seen how much variance is explained by each principal component.
+The cumulative explained variance should reach the percentage of 90% in order
+to describe properly the main features of the dataset. 
+
 
 
 # 4) Results: what data have shown

@@ -9,7 +9,8 @@ library(reshape2)
 library(rmarkdown)
 library(tidyverse)
 
-render("C:/Users/Alessandro/Desktop/PIETRO/Università/3_Machine Learning and Data Mining/Project/Machine_Learning_Project/Report.Rmd")
+# setwd("C:/Users/Alessandro/Desktop/PIETRO/Università/3_Machine Learning and Data Mining/Exercises/02450Toolbox_R")
+# render("C:/Users/Alessandro/Desktop/PIETRO/Università/3_Machine Learning and Data Mining/Project/Machine_Learning_Project/Report.Rmd")
 
 # -- Diamonds
 data(diamonds)
@@ -59,6 +60,7 @@ str(Dia)
 # Stardardization of the dataset
 
 stds <- apply(Dia, 2, sd)
+print(round(stds,digits=2))
 par(mfrow = c(1, 1))
 barplot(stds, ylab = "Diamonds: attribute standard deviation")
 
