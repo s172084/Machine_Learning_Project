@@ -8,14 +8,185 @@ library(reshape)
 library(reshape2)
 library(rmarkdown)
 library(tidyverse)
+library(magrittr)
 
 # setwd("C:/Users/Alessandro/Desktop/PIETRO/Università/3_Machine Learning and Data Mining/Exercises/02450Toolbox_R")
 # render("C:/Users/Alessandro/Desktop/PIETRO/Università/3_Machine Learning and Data Mining/Project/Machine_Learning_Project/Report.Rmd")
+
+# -----------------------------------------------------------------------------------------------------------
+# -------------------------------- The Chosen Dataset  ------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
 
 # -- Diamonds
 data(diamonds)
 ?diamonds
 str(diamonds)
+
+# -----------------------------------------------------------------------------------------------------------
+# -------------------------------- Question 1 and Question 2 ------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
+
+# 1. glimpse an overview of the variables
+glimpse(diamonds)
+
+# 2. look at the structure of the dataset
+str(diamonds)
+
+# 3. Summary Statistics about the dataset. 
+summary(diamonds)
+
+# 4. Descriptive Analysis
+perform_descriptive_analysis <- function(the_frame){
+  
+  a = dim(the_frame)
+  b = names(the_frame)
+  c = data.frame(head(the_frame))
+  
+  cat("There are this many rows and columns:", a, "\n")
+  cat("The column names are:", b, "\n")
+  cat("The first part of the table looks like:\n")
+  return(c)
+}
+
+perform_descriptive_analysis(diamonds)
+
+# 5. Are there any missing data? 
+are_there_NAs <- function(D){
+  # check if there are any NAs in the dataframe
+  output <- apply(D, 2, function(x) any(is.na(x)))
+  return(output)
+}
+
+# call the function on the dataset. 
+are_there_NAs(diamonds)
+
+
+# 6. Summary Statistics Function
+calculate_summary_statistics <- function(group) {
+  
+  hist(group, 
+       prob = TRUE, 
+       col = viridisLite::viridis(8, alpha = 0.8))
+  
+  m <- mean(group)
+  cat("\nMEAN: The sample mean value is", m , "\nThis is the center of the data.\n")
+  
+  med <- median(group)
+  cat("\nMEDIAN: The sample median value is", med,"\n\n")
+  
+  v <- var(group)
+  cat("VARIANCE: The variance is", round(v,4), "\n\n")
+  
+  s <- sd(group)
+  cat("STANDARD DEVIATION: The standard deviation is", round(s,3) ,"\nThis is the square root of the variance.\n\n")
+  
+  q <- quantile(group, type = 2)
+  cat("QUARTILES: The five quartiles at \n 0%   25 %   50 %   75 %   100 % are:\n",  q, "\n\n")
+  
+  d <- quantile(group, c(0.2, 0.4, 0.6, 0.8) , type = 2)
+  cat("The Percentiles:\n
+      20%,  40%,   60% ,  80% \n
+      ", d, "\n\n")
+  
+  n <- length(group)
+  cat("SAMPLE SIZE: The sample size is ", n , "\n\n")
+  
+  sem <- sd(group) / sqrt(n)
+  cat("STANDARD ERROR OF THE MEAN: ", round(sem ,4), "\n\n")
+  
+  that_bloody_iqr <- IQR(group, type = 2)
+  cat("The interquartile range is :", that_bloody_iqr, "\n\n")
+  
+  # Empirical density
+  hist(group,
+       prob = TRUE, 
+       main = "Histogram of the group",
+       family = "Avenir",
+       breaks = 10,
+       col = viridisLite::viridis(7, alpha = 0.8))
+  
+  lines(density(group), # density plot
+        lwd = 2, # thickness of line
+        col = "cyan")
+  
+}
+
+# 7. Quickly show me summary statistics
+calculate_summary_statistics(diamonds$carat)
+calculate_summary_statistics(diamonds$depth)
+calculate_summary_statistics(diamonds$x)
+calculate_summary_statistics(diamonds$y)
+calculate_summary_statistics(diamonds$z)
+calculate_summary_statistics(diamonds$table)
+calculate_summary_statistics(diamonds$price)
+
+# 8. The Correlation 
+cor(diamonds$x, diamonds$y)
+cor(diamonds$y, diamonds$z)
+cor(diamonds$x, diamonds$z)
+cor(diamonds$carat, diamonds$x)
+
+
+# 9.Brief Plots
+# Length and Width, Separated by Cut... 
+fig1 <- ggplot(data = diamonds,
+       mapping = aes(x = x, y = y, fill = cut))+
+  geom_point(mapping = aes(fill=color), pch=21)+
+  theme_minimal()+
+  facet_wrap(vars(cut))+
+  labs(title = "The Relationship between Diamond Length and Width",
+       subtitle = "Separated by Cut",
+       caption = "Scatterplot",
+       x = "x",
+       y = "y")
+fig1
+
+# Save the Image. 
+# save for the report. 
+ggsave("Images/figure1.png", fig1, width = 5, height = 5)
+plot.new()
+
+# 10. Relationship Between Carat and Price, Separated by colour. 
+fig2<- ggplot(data = diamonds,
+       mapping = aes(x = carat, y = price, fill = color))+
+  geom_point(mapping = aes(fill=color), pch=21)+
+  theme_minimal()+
+  facet_wrap(vars(color))+
+  labs(title = "Carat vs. Price",
+       subtitle = "Separated by Colour",
+       caption = "Line Plot",
+       x = "carat",
+       y = "price")
+
+fig2
+
+# Save the Image. 
+# save for the report. 
+ggsave("Images/figure2.png", fig2, width = 5, height = 5)
+plot.new()
+
+# 11.Relationship Between Carat and Price, Separated by Clarity.  
+fig3<- ggplot(data = diamonds,
+       mapping = aes(x = carat, y = price, col = clarity))+
+  geom_point(mapping = aes(fill=cut), colour="black", pch=21)+
+  geom_line()+
+  theme_minimal()+
+  facet_wrap(vars(clarity))+
+  labs(title = "Carat vs. Price",
+       subtitle = "Separated by Clarity",
+       caption = "Line Plot",
+       x = "carat",
+       y = "price")
+
+# Save the Image. 
+# save for the report. 
+ggsave("Images/figure3.png", fig3, width = 5, height = 5)
+plot.new()
+
+# -----------------------------------------------------------------------------------------------------------
+# -------------------------------- Question 3 and Question 4 ------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
+
 
 # One-hot-encode for regression of price ###
 # Maybe it is not necessary to transform in one-hot-encode because all the 3 factor
@@ -44,12 +215,12 @@ str(diamonds)
 # head(D)
 
 # PCA ##########################################################################
-
 Dia <- as.data.frame(diamonds)
 Dia$cut <- as.numeric(Dia$cut)
 Dia$color <- as.numeric(Dia$color)
 Dia$clarity <- as.numeric(Dia$clarity)
 
+#dim(diamonds)
 N <- dim(Dia)[1] # number of rows
 M <- dim(Dia)[2] # number of columns
 attributeNames <- colnames(Dia)
@@ -76,10 +247,11 @@ head(D_pca)
 S <- svd(D_pca)
 diagS <- S$d
 rho <- diagS^2 / sum(diagS^2)
-
+rho
 threshold <- 0.9
 
 xlimits <- c(1, M)
+
 plot(rho,
      type = "o",
      main = "Variance explained by principal components",
