@@ -1,22 +1,10 @@
 ---
-output:
-  pdf_document: default
-  html_document: default
----
-
-```{r echo=FALSE, fig.align='right', out.width='40%'}
-knitr::include_graphics(c('Images/DTU Logo.png'))
-```
-
----
 title: "Diamonds"
-title: "Danmarks Tekniske Universitet"
 subtitle: "02450 Introduction to Machine Learning & Data Mining"
 author:
   - "Oriade Simpson (s172084)"
   - "Pietro Lombardo (s231756)"
 date: "From: 2023-09-05 To: 2023-10-03"
-term: "Last compiled on `r format(Sys.time(), '%B %d, %Y')`"
 output:
   pdf_document:
     keep_tex: true
@@ -27,7 +15,6 @@ output:
     df_print: paged
     css: columns.css
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -47,9 +34,12 @@ data(diamonds)
 # ctrl + alt + I
 ```
 
-```{r echo=FALSE, fig.align='default', out.width='40%'}
-knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png'))
+
+```{r echo=FALSE, fig.align='center', out.width='40%'}
+# Include images and pictures..
+knitr::include_graphics(c("Images/Universe2.png"))
 ```
+
 \newpage
 
 Contribution Table 
@@ -79,6 +69,13 @@ Exam Prob 4   |               |       x       |
 Exam Prob 5   |               |       x       |
 ------------- | ------------- | ------------- |
 Exam Prob 6   |       x       |               |
+
+
+```{r echo=FALSE, fig.align='default', out.width='30%'}
+# Include images and pictures..
+
+knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
+```
 
 \newpage
 
@@ -484,8 +481,9 @@ ggplot() +
 
 # 4) Results: what data have shown
 
-### References
 
+References
+===
 1) Grading Loose Diamonds, Diamonds Search Engine, “https://www.diamondse.info/diamonds-grading.asp”,  Accessed 22 September 2023
 
 2) Gemological Institute of America, Learn How a Diamond is Graded, (2009),  YouTube "https://www.youtube.com/watch?v=oqhaty0ny0g"
