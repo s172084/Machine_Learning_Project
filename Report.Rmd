@@ -1,5 +1,5 @@
 ---
-title: "Diamonds analysis"
+title: "Machine Learning : Diamonds"
 author:
   - "Oriade Simpson (s172084)"
   - "Pietro Lombardo (s231756)"
@@ -68,7 +68,7 @@ Question 1
 ===
 
 ### Give an Overview and Introduction to the Dataset 
-The International Diamond Grading System, created by The Gemological Institute of America, focuses on the 4C’s as a means to categorise diamonds. The categories are explained on the Diamonds Search Engine, which contains information about how loose diamonds are graded. 
+The International Diamond Grading System, created by The Gemological Institute of America,focuses on the 4C’s as a means to categorise diamonds. The categories are explained on the Diamonds Search Engine, which contains information about how loose diamonds are graded. 
 
 The Diamonds dataset used in this report is based on the Diamonds Search Engine [1]. 
 
@@ -85,7 +85,7 @@ The Diamonds dataset records 53,940 rows of diamonds and registers 10 attributes
 
 Below, there is a brief overview about the variables in the dataset. 
 
-The length (x) , width (y) and depth (z) of each diamond has been measured. The length ranges from 0 mm to 10.74 mm. The width ranges from 0 mm to 58.9 mm and the depth ranges from 0 to 31.8 mm. 
+The length (**X**) , width (**Y**) and depth (**Z**) of each diamond has been measured. The length ranges from 0 mm to 10.74 mm. The width ranges from 0 mm to 58.9 mm and the depth ranges from 0 to 31.8 mm. 
 
 The carat of a diamond represents the weight of a diamond. The carat ranges from 0.2 to 5.01 carats, where 1 carat is equal to 200 milligrams (1/5 th of a gram). 
 
@@ -127,17 +127,17 @@ Poonam Rao has also performed a brief analysis of the diamonds dataset where she
 
 A regression problem analyses the relationship between a dependent variable and an independent variable. The Regression can be linear regression or multiple linear regression. 
 
-It is possible to analyse the relationship between diamond length (x) and diamond width (y), the carat and the depth(z) in order to understand the relationship between these variables. In the regression problem, we will predict the carat based on the length, width and depth. 
+It is possible to analyse the relationship between diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**) in order to understand the relationship between these variables. In the regression problem, we will predict the carat based on the length, width and depth. 
 
 It is possible to look at the relationship between carat and price for 1 specific colour, cut and clarity of diamond in our regression problem. One could observe the carat of the diamonds that are priced between $10,000 to $20,000 USD. 
 
 
 A classification problem requires a dataset to be classified into two or more categories. 
-One idea is to choose the category of cut and determine if the diamond is very good, premium cut or ideal cut? This can be done using the diamond length (x) and diamond width (y), the carat and the depth(z). 
+One idea is to choose the category of cut and determine if the diamond is very good, premium cut or ideal cut? This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
 
-Another idea is to choose the category of colour and determine if the diamond is D or J. This can be also be done using the diamond length (x) and diamond width (y), the carat and the depth(z). 
+Another idea is to choose the category of colour and determine if the diamond is D or J. This can be also be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(z). 
 
-Finally , it is possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (x) and diamond width (y), the carat and the depth(z). 
+Finally , it is possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
 
 ------------------------------------------------------------
 
@@ -170,12 +170,11 @@ There are no missing values or NAs in any column of the dataset. The data is tid
 ### Include basic summary statistics of the attributes, including correlation
 
 There are many diamonds that have a carat between 0.2 and 1, with the average carat being 0.7.  Therefore it may be interesting to narrow in on the dataset and only look at diamonds that are between 1 and 5 carat, and exclude all diamonds below 1 carat.
-The average length of a diamond (x) is 5.731 mm. It may be interesting to look at diamonds that are between 6 and 10 millimetres long.  
+The average length of a diamond (**X**) is 5.731 mm. It may be interesting to look at diamonds that are between 6 and 10 millimetres long.  
 The average price of a diamond in this dataset is $3,932.8 USD.  There is a lower quantile of $950 dollars and upper quantile of $5,324.5 USD.  It may be interesting to narrow down the price range and focus on diamonds that are between $326 - $5000 USD. However  $5000 - $15,000 USD or $10,000 -  £$20,000 USD may also be suitable ranges to focus on. 
-Many of the diamonds have the average table of approximately 61.7. Diamonds have an average depth of 3.5. It may be interesting to explore diamonds that have a depth (Z) between 5 and 10. 
+Many of the diamonds have the average table of approximately 61.7. Diamonds have an average depth of 3.5. It may be interesting to explore diamonds that have a depth (**Z**) between 5 and 10. 
 It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 and narrow down on the cut to look at only 1 type of cut. There are 21,000 Ideal cut diamonds, which makes this the most common category.  One could choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds to focus on.
 
-## Summary Statistics Table 
 ## Summary Statistics Table 
 
 Table 2. 
@@ -210,10 +209,12 @@ Table 3.
 | X & Z            | 0.9707  |
 | carat & X        | 0.9750  |
 
-There is a positive correlation between Length(X) and Width(Y).
-There is a positive correlation between Width(Y) and Depth(Z).
-There is a positive correlation between Length(X) and Depth(Z).
-There is a positive correlation between carat and Length(X)
+There is a positive correlation between Length(**X**) and Width(**Y**).
+There is a positive correlation between Width(**Y**) and Depth(**Z**).
+There is a positive correlation between Length(**X**) and Depth(**Z**).
+There is a positive correlation between carat and Length(**X**)
+
+------------------------------------------------------------
 
 
 # 3) Data visualization
