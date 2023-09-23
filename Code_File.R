@@ -198,7 +198,7 @@ j <- 2
 
 ggplot() +
   ggtitle('Carat') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=log(Z[,11])), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
@@ -207,8 +207,8 @@ ggplot() +
 Z <- S$u %*% diag(S$d)
 Z <- cbind(Z,diamonds$depth)
 
-i <- 1
-j <- 2
+i <- 2
+j <- 3
 
 ggplot() +
   ggtitle('Depth') +
@@ -222,7 +222,7 @@ Z <- S$u %*% diag(S$d)
 Z <- cbind(Z,diamonds$table)
 
 i <- 1
-j <- 2
+j <- 4
 
 ggplot() +
   ggtitle('Table') +

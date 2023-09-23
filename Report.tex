@@ -322,6 +322,42 @@ sign) and the northward \emph{table} attribute (with the minus sign)
 
 \end{cols}
 
+Data can be projected in all the possible bi-dimensional spaces defined
+by each combination of two of the PCs. By projecting them, some
+insteresting features can be observed, as shown by the four graphs
+below.
+
+\begin{itemize}
+\tightlist
+\item
+  Variable \emph{cut} can assume five possible levels, so it is the
+  easiest one to be visualized. The graph shows that \emph{cut} varies
+  mostly in the direction of the second PC, so the \emph{cut} of
+  diamonds strongly depends on their quality features (the better are
+  \emph{color} and \emph{clarity}, the better will be the cut), and is
+  less affected by the size (\emph{x}, \emph{y} and \emph{z}) and the
+  \emph{carat} (weight);
+\item
+  variable \emph{price} is strongly asymmethrical towards low values,
+  and it is very evident also in the graph where cold blue is
+  predominant with respect to light blue. \emph{Price} strongly varies
+  with the first PC, so it depends on quantity factors of diamonds (the
+  bigger and heavier is the diamond, the more expensive will be) more
+  than on quality ones;
+\item
+  variable \emph{carat} is very concentrated between 0 and 1 and
+  widespread beyond 1. So, in order to have a better visualization, the
+  graph below represent the logarithm of the \emph{carat}. It can be
+  seen that it is correlated to the dimensional quantities explained by
+  the first PC (the more expensive and bigger is the diamond, the
+  heavier will be) more than quality ones;
+\item
+  variable \emph{color} has a better representation if data are
+  projected onto the plan defined by the second and forth PCs. It can be
+  seen that \emph{color} varies with the forth PC, so it is correlated
+  with \emph{clarity}, \emph{cut} and \emph{table}.
+\end{itemize}
+
 \includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-1}
 \includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-2}
 \includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-3}

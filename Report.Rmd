@@ -267,6 +267,29 @@ minus sign)
 :::
 ::::::
 
+Data can be projected in all the possible bi-dimensional spaces defined by each
+combination of two of the PCs. By projecting them, some insteresting features
+can be observed, as shown by the four graphs below.
+
+- Variable *cut* can assume five possible levels, so it is the easiest one to be
+visualized. The graph shows that *cut* varies mostly in the direction of the
+second PC, so the *cut* of diamonds strongly depends on their quality features
+(the better are *color* and *clarity*, the better will be the cut), and is less 
+affected by the size (*x*, *y* and *z*) and the *carat* (weight);
+- variable *price* is strongly asymmethrical towards low values, and it is
+very evident also in the graph where cold blue is predominant with respect to
+light blue. *Price* strongly varies with the first PC, so it depends on
+quantity factors of diamonds (the bigger and heavier is the diamond, the more 
+expensive will be) more than on quality ones;
+- variable *carat* is very concentrated between 0 and 1 and widespread beyond 1.
+So, in order to have a better visualization, the graph below represent the logarithm
+of the *carat*. It can be seen that it is correlated to the dimensional quantities
+explained by the first PC (the more expensive and bigger is the diamond, the 
+heavier will be) more than quality ones;
+- variable *color* has a better representation if data are projected onto the
+plan defined by the second and forth PCs. It can be seen that *color* varies
+with the forth PC, so it is correlated with *clarity*, *cut* and *table*.
+
 ```{r, fig.ncol = 2, out.width = "50%"}
 # CUT, PC 1-2
 Z <- S$u %*% diag(S$d)
@@ -305,7 +328,7 @@ j <- 2
 
 ggplot() +
   ggtitle('Carat') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=log(Z[,11])), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
