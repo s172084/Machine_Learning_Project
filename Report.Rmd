@@ -494,7 +494,7 @@ References
 
 5) Jon Ong, Diamond Data Analysis , (2018), “https://rpubs.com/gokusun327/diamonddatatest" , Accessed 22 September 2023
 
-6) Poonam Rao , ExploratoryData Analytics,  (2020), “https://medium.com/swlh/exploratory-data-analysis-21bbf3887e28" 
+6) Poonam Rao , Exploratory Data Analytics,  (2020), “https://medium.com/swlh/exploratory-data-analysis-21bbf3887e28" 
 
 7) Paul Gian, Beyond 4C’s  - Real Insights to Buying Diamonds , “https://beyond4cs.com/color/", Accessed 22 September 2023
  
