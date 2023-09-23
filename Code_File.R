@@ -139,6 +139,8 @@ fig1 <- ggplot(data = diamonds,
        caption = "Scatterplot",
        x = "x",
        y = "y")
+
+# View the plot >
 fig1
 
 # Save the Image. 
@@ -158,6 +160,7 @@ fig2<- ggplot(data = diamonds,
        x = "carat",
        y = "price")
 
+# View the plot >
 fig2
 
 # Save the Image. 
@@ -178,6 +181,8 @@ fig3<- ggplot(data = diamonds,
        x = "carat",
        y = "price")
 
+# View the plot >
+fig3
 # Save the Image. 
 # save for the report. 
 ggsave("Images/figure3.png", fig3, width = 5, height = 5)
