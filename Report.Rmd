@@ -62,11 +62,158 @@ Exam Prob 5   |               |       x       |
 ------------- | ------------- | ------------- |
 Exam Prob 6   |       x       |               |
 
-# 1) Description of the dataset
+------------------------------------------------------------
+
+Question 1
+===
+
+### Give an Overview and Introduction to the Dataset 
+The International Diamond Grading System, created by The Gemological Institute of America, focuses on the 4C’s as a means to categorise diamonds. The categories are explained on the Diamonds Search Engine, which contains information about how loose diamonds are graded. 
+
+The Diamonds dataset used in this report is based on the Diamonds Search Engine [1]. 
+
+The 4C’s include :
+
+* carat 
+* cut
+* colour and
+* clarity. 
+
+The Diamonds dataset was obtained from the TidyVerse package developed in R by Hadley Wickham and other contributors [4]. 
+
+The Diamonds dataset records 53,940 rows of diamonds and registers 10 attributes , including the 4C’s. 
+
+Below, there is a brief overview about the variables in the dataset. 
+
+The length (x) , width (y) and depth (z) of each diamond has been measured. The length ranges from 0 mm to 10.74 mm. The width ranges from 0 mm to 58.9 mm and the depth ranges from 0 to 31.8 mm. 
+
+The carat of a diamond represents the weight of a diamond. The carat ranges from 0.2 to 5.01 carats, where 1 carat is equal to 200 milligrams (1/5 th of a gram). 
+
+The quality of the cut is categorised into fair, good, very good, premium and ideal. The cut is an important feature because it determines the sparkle and brilliance observed due to light refraction, which potentially has an influence on the price. 
+
+The colour of a diamond is classified from D (best) to J (lowest). The diamonds in group  D are colourless. In the international diamond grading system, colourless diamonds have the highest the grade. Diamonds that are classified as J, often have a yellow tinge. One interesting factor is the colour of the diamond, as many diamonds inside engagement rings are G to J in colour. This colour is offset by a gold or silver band [7].
+
+Clarity is categorised from IF to I1. IF is the best class. Here, F means Flawless - without visible blemishes. Diamonds that contain inclusions that are visible to the naked eye are given the worst class of I1.  
+The last 3 variables or attributes of the dataset include the price, the total depth percentage and the table. 
+
+The price of diamonds in US dollars ranges from $326 to $18,823 US dollars. In the market, the price of diamonds may be based on the carat weight. 
+
+The depth (total depth percentage) is a continuous variable which is the total depth, from top to bottom of each diamond, divided by the mean length and width. 
+
+The table is a continuous variable which is a measurement of the width of the top of a diamond in relation to the widest point.
+
+### What is the Overall Statement of Interest ? 
+
+The idea is to analyse the dataset in order to determine relationships between variables. 
+More specifically, it may be interesting to discover the relationship between two attributes: i.e. the relationship between: 
+ The length and width of a colourless diamond
+ The colour and the table of the diamond
+ The carat and price of a colourless diamond
+ The carat and the table of a colourless diamond 
+ The carat and the length of a colourless diamond 
+ The carat and the width of a colourless diamond 
+ The carat and the depth of a colourless diamond 
+ The price corresponding to the cut of a diamond
+
+### How to Transform Data?
+Ideally the price could be determined in Danish Kroner, Pounds Sterling or Euros, rather the US dollars. It may also be a good idea to transform carats into milligrams to represent the weight of the diamond. The attributes that are recorded in millimetres could also be converted to centimetres. 
+
+What is the Conclusion of previous Analysis?
+In his R publication, Jon Ong has performed a brief analysis of this dataset looking at the relationship between Cut vs. Colour, Price vs. Cut, and Price vs. Clarity. The results show that diamonds with a Premium Cut have the highest carat [5]. 
+
+Poonam Rao has also performed a brief analysis of the diamonds dataset where she performs data visualisation using scatterplots , histograms and box-plots. She explains that diamonds that are categorised in the Ideal group with regard to cut, often have a low weight [6] .  
+
+### What do you aim to learn from the data using Classification and Regression?
+
+A regression problem analyses the relationship between a dependent variable and an independent variable. The Regression can be linear regression or multiple linear regression. 
+
+It is possible to analyse the relationship between diamond length (x) and diamond width (y), the carat and the depth(z) in order to understand the relationship between these variables. In the regression problem, we will predict the carat based on the length, width and depth. 
+
+It is possible to look at the relationship between carat and price for 1 specific colour, cut and clarity of diamond in our regression problem. One could observe the carat of the diamonds that are priced between $10,000 to $20,000 USD. 
 
 
+A classification problem requires a dataset to be classified into two or more categories. 
+One idea is to choose the category of cut and determine if the diamond is very good, premium cut or ideal cut? This can be done using the diamond length (x) and diamond width (y), the carat and the depth(z). 
 
-# 2) Explanation of the attributes of the data
+Another idea is to choose the category of colour and determine if the diamond is D or J. This can be also be done using the diamond length (x) and diamond width (y), the carat and the depth(z). 
+
+Finally , it is possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (x) and diamond width (y), the carat and the depth(z). 
+
+------------------------------------------------------------
+
+Question 2 
+===
+
+
+### Describe if the attributes are discrete/continuous, Nominal/Ordinal/Interval/Ratio
+
+The table below shows the classification of the attributes. 
+The cut, colour, and clarity are ordinal factor variables. 
+
+### Attribute Table 
+Table 1. 
+------------------------------------------------------------
+
+Attribute |     Carat   |     Cut     |     Colour  |   Clarity.  |    Depth    |   Table     |    Price   | Length (X)  | Width(Y)   | Depth  (Z)  |
+----------|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:----------:|:-----------:|:---------: |:-----------:| 
+| Type    | Cont.       | Categ.      | Categ.      | Categ.      | Cont.       |  Cont.      | Discrete   | Cont.       | Cont.      | Cont.       |
+| Type    | Ratio       | Ordinal     | Ordinal     | Ordinal     | Ratio       | Ratio       | Interval   |   Ratio     |   Ratio    |    Ratio    |
+
+
+* Continuous = Cont
+* Categorical = Categ.
+
+### Give an account of whether there are data issues (i.e. missing values or corrupted data)
+
+There are no missing values or NAs in any column of the dataset. The data is tidy from the TidyVerse. In the Premium cut group and Ideal cut group of diamonds, there are some diamonds that have an outlying width, which corresponds to the VS1 ad SI2 clarity groups. 
+
+### Include basic summary statistics of the attributes, including correlation
+
+There are many diamonds that have a carat between 0.2 and 1, with the average carat being 0.7.  Therefore it may be interesting to narrow in on the dataset and only look at diamonds that are between 1 and 5 carat, and exclude all diamonds below 1 carat.
+The average length of a diamond (x) is 5.731 mm. It may be interesting to look at diamonds that are between 6 and 10 millimetres long.  
+The average price of a diamond in this dataset is $3,932.8 USD.  There is a lower quantile of $950 dollars and upper quantile of $5,324.5 USD.  It may be interesting to narrow down the price range and focus on diamonds that are between $326 - $5000 USD. However  $5000 - $15,000 USD or $10,000 -  £$20,000 USD may also be suitable ranges to focus on. 
+Many of the diamonds have the average table of approximately 61.7. Diamonds have an average depth of 3.5. It may be interesting to explore diamonds that have a depth (Z) between 5 and 10. 
+It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 and narrow down on the cut to look at only 1 type of cut. There are 21,000 Ideal cut diamonds, which makes this the most common category.  One could choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds to focus on.
+
+## Summary Statistics Table 
+## Summary Statistics Table 
+
+Table 2. 
+------------------------------------------------------------
+
+ Variable       | No. Obs.   |  Mean      |  Variance       |Standard Dev | Lower Quart | Median  | Upper quart |
+ ---------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
+| Carat.        |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
+| Cut.          |            |            |                 |             |             |         |             |
+| Colour        |            |            |                 |             |             |         |             |
+| Clarity       |            |            |                 |             |             |         |             |
+| Total Depth % |   53,940   |    61.749  |         2.052   |    1.433    |    61       |    61.8 |      62.5   |
+| Table         |   53,940   |    57.457  |         4.992   |    2.234    |    56       |    57.0 |      59.0   |
+| Price         |   53,940   |  3932.80   |  15915629       |    3.83     |    22.59    |   24.69 |      27.64  |
+| Length(X)     |   53,940   |     5.731  |         1.258   |    1.122    |     4.71    |    5.70 |       6.54  |
+| Width (Y)     |   53,940   |     5.734  |         1.305   |    1.142    |     4.72    |    5.71 |       6.54  |
+| Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
+
+The formula for computing correlation is cor()
+
+The pairwise correlation involving x,y and z is:
+
+### Correlation Table 
+
+Table 3. 
+------------------------------------------------------------
+
+| Correlation      | Value   |
+|------------------|---------|
+| X & Y            | 0.9747  |
+| Y & Z            | 0.9520  |
+| X & Z            | 0.9707  |
+| carat & X        | 0.9750  |
+
+There is a positive correlation between Length(X) and Width(Y).
+There is a positive correlation between Width(Y) and Depth(Z).
+There is a positive correlation between Length(X) and Depth(Z).
+There is a positive correlation between carat and Length(X)
 
 
 # 3) Data visualization
@@ -323,4 +470,21 @@ ggplot() +
 
 # 4) Results: what data have shown
 
-### 
+### References
+
+1) Grading Loose Diamonds, Diamonds Search Engine, “https://www.diamondse.info/diamonds-grading.asp”,  Accessed 22 September 2023
+
+2) Gemological Institute of America, Learn How a Diamond is Graded, (2009),  YouTube "https://www.youtube.com/watch?v=oqhaty0ny0g"
+
+3) Diamond Prices Index , “https://www.diamondse.info/diamonds-price-index.asp" Accessed 14 September 2023
+
+4) Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” Journal of Open Source Software, 4(43), 1686. doi:10.21105/joss.01686
+
+5) Jon Ong, Diamond Data Analysis , (2018), “https://rpubs.com/gokusun327/diamonddatatest" , Accessed 22 September 2023
+
+6) Poonam Rao , ExploratoryData Analytics,  (2020), “https://medium.com/swlh/exploratory-data-analysis-21bbf3887e28" 
+
+7) Paul Gian, Beyond 4C’s  - Real Insights to Buying Diamonds , “https://beyond4cs.com/color/", Accessed 22 September 2023
+ 
+
+
