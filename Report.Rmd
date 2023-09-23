@@ -1,9 +1,17 @@
+
+```{r echo=FALSE, fig.align='right', out.width='40%'}
+knitr::include_graphics(c('Images/DTU Logo.png'))
+```
+
 ---
-title: "Machine Learning : Diamonds"
+title: "Diamonds"
+title: "Danmarks Tekniske Universitet"
+subtitle: "02450 Introduction to Machine Learning & Data Mining"
 author:
   - "Oriade Simpson (s172084)"
   - "Pietro Lombardo (s231756)"
-date: '2023-09-05'
+date: "From: 2023-09-05 To: 2023-10-03"
+term: "Last compiled on `r format(Sys.time(), '%B %d, %Y')`"
 output:
   pdf_document:
     keep_tex: true
@@ -14,6 +22,7 @@ output:
     df_print: paged
     css: columns.css
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -33,6 +42,10 @@ data(diamonds)
 # ctrl + alt + I
 ```
 
+```{r echo=FALSE, fig.align='default', out.width='40%'}
+knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png'))
+```
+\newpage
 
 Contribution Table 
 ===
@@ -61,6 +74,8 @@ Exam Prob 4   |               |       x       |
 Exam Prob 5   |               |       x       |
 ------------- | ------------- | ------------- |
 Exam Prob 6   |       x       |               |
+
+\newpage
 
 ------------------------------------------------------------
 
@@ -193,10 +208,6 @@ Table 2.
 | Width (Y)     |   53,940   |     5.734  |         1.305   |    1.142    |     4.72    |    5.71 |       6.54  |
 | Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
 
-The formula for computing correlation is cor()
-
-The pairwise correlation involving x,y and z is:
-
 ### Correlation Table 
 
 Table 3. 
@@ -209,10 +220,7 @@ Table 3.
 | X & Z            | 0.9707  |
 | carat & X        | 0.9750  |
 
-There is a positive correlation between Length(**X**) and Width(**Y**).
-There is a positive correlation between Width(**Y**) and Depth(**Z**).
-There is a positive correlation between Length(**X**) and Depth(**Z**).
-There is a positive correlation between carat and Length(**X**)
+There is a positive correlation between Length(**X**) and Width(**Y**). There is a positive correlation between Width(**Y**) and Depth(**Z**).There is a positive correlation between Length(**X**) and Depth(**Z**). There is a positive correlation between carat and Length(**X**)
 
 ------------------------------------------------------------
 
