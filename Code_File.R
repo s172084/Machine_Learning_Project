@@ -483,3 +483,26 @@ ggplot() +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
+
+# -----------------------------------------------------------------------------------------------------------
+# -------------------------------- Exam Problems         ------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
+
+# Question 2 
+
+# Define your vectors
+a <- c(26, 0, 2, 0, 0, 0, 0)
+b <- c(19, 0, 0, 0, 0, 0, 0)
+
+# Maximum Distance 
+a <- as.matrix(c(26, 0, 2, 0, 0, 0, 0))
+distanz <- norm(a - b, type = "M")
+cat("Maximum p-norm distance:", distanz, "\n")
+
+# Question 3 
+
+
+# Question 6 
+
+
+
