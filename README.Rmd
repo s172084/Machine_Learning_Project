@@ -69,8 +69,3 @@ Report 1 should cover what you have learned in the lectures and exercises of wee
 **4. A discussion explaining what you have learned about the data.**
 
 The report itself should be maximum 10 pages long including figures and tables and give a precise and coherent introduction to and overview of the dataset you have chosen.
-
-![Alt Text]("https://giphy.com/gifs/diamonds-FiR4O9bYEPkBi")
-![Alt Text]("https://giphy.com/embed/FiR4O9bYEPkBi")
-
-

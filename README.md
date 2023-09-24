@@ -96,6 +96,3 @@ including a principal component analysis (PCA)**
 The report itself should be maximum 10 pages long including figures and
 tables and give a precise and coherent introduction to and overview of
 the dataset you have chosen.
-
-![Alt Text](%22https://giphy.com/gifs/diamonds-FiR4O9bYEPkBi%22) ![Alt
-Text](%22https://giphy.com/embed/FiR4O9bYEPkBi%22)
