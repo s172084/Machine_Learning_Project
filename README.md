@@ -1,2 +1,98 @@
-# Machine_Learning_Project
-Machine_Learning_Project
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# Machine Learning
+
+# Report 1
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This repository contains the details, project description, code and
+contents for Report 1.
+
+### The Objective
+
+The objective of this project is to apply the methods learned in the
+first section of the machine learning course to a dataset.
+
+### Data: Feature extraction, and visualization
+
+Feature extraction and visualization shall be performed on the dataset
+to get a basic understanding of the data prior to further analysis in
+project report 2.
+
+### The Material
+
+Use the 02450Toolbox on DTU Inside to see how the various methods
+learned in the course are used in R. Review exercise 1 to 5 to see how
+the various tasks can be carried out.
+
+### The Mandatory section
+
+In order to have the report evaluated, it must contain:
+
+Solutions for at least four of the exam problems. The solutions do not
+have to be long (a couple of lines, perhaps a calculation) but must show
+the gist of your reasoning to verify you have worked independently on
+the problem.
+
+The report must be submitted by a group of 2-3 students and each
+student’s contribution to the report must be clearly specified. For each
+section, specify in a table , who was responsible for what. A report
+must contain this documentation to be accepted.
+
+For reports made by 2 students: Each section must have a student who is
+60% or more responsible. For exam problems students are expected to
+contribute equally, and a student will not get any credit if they only
+contribute to the exam problems.
+
+### The Handin
+
+The handin should consist of exactly two files: **A .pdf file**
+containing the report, and **a .zip file containing the code** you have
+used (extensions: .py, .R or .m;). Do not upload your data. The reports
+are not evaluated based on the quality of the code or comments, etc.,
+however we ask the code is included to avoid any potential issues of
+illegal collaboration between groups. Please do not compress or convert
+these files.
+
+Reports are evaluated based on how well they address the
+questions.Therefore, to get the best evaluation, address all questions.
+
+Use the group handin feature. Do not upload separate reports for each
+team member as this will lead to duplicate work and unhappy instructors.
+
+Deadline for submission is no later than 3 October at 13:00.
+
+### The Scope
+
+Understanding the data you are trying to model well is very important.
+One can apply very sophisticated machine learning methods but if one is
+not aware of potential issues with the data the further modelling will
+be difficult.
+
+Thus, the aim of this first project is to get a thorough understanding
+of the data and describe how you expect the data to be used in the later
+reports.
+
+Report 1 should cover what you have learned in the lectures and
+exercises of week 1 to 4 covering the section ”Data: Feature extraction,
+and visualization”. Your job is to make a useful description of the data
+set for your co-workers and make some basic plots. In particular, the
+report must include the following items and the report will be evaluated
+based on how it addresses each of the questions asked below and an
+overall assessment of the report quality.
+
+**1. A description of your data set.**
+
+**2. A detailed explanation of the attributes of the data.**
+
+**3. Data visualization(s) based on suitable visualization techniques
+including a principal component analysis (PCA)**
+
+**4. A discussion explaining what you have learned about the data.**
+
+The report itself should be maximum 10 pages long including figures and
+tables and give a precise and coherent introduction to and overview of
+the dataset you have chosen.
