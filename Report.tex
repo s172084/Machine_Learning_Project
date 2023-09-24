@@ -153,8 +153,6 @@ Exam Prob 6 & x & \\
 
 \newpage
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \hypertarget{question-1}{%
 \section{Question 1}\label{question-1}}
 
@@ -239,12 +237,26 @@ of the top of a diamond in relation to the widest point.
 The idea is to analyse the dataset in order to determine relationships
 between variables. More specifically, it may be interesting to discover
 the relationship between two attributes: i.e.~the relationship between:
-The length and width of a colourless diamond The colour and the table of
-the diamond The carat and price of a colourless diamond The carat and
-the table of a colourless diamond The carat and the length of a
-colourless diamond The carat and the width of a colourless diamond The
-carat and the depth of a colourless diamond The price corresponding to
-the cut of a diamond
+
+\begin{itemize}
+\tightlist
+\item
+  The length and width of a colourless diamond
+\item
+  The colour and the table of the diamond
+\item
+  The carat and price of a colourless diamond
+\item
+  The carat and the table of a colourless diamond
+\item
+  The carat and the length of a colourless diamond
+\item
+  The carat and the width of a colourless diamond
+\item
+  The carat and the depth of a colourless diamond
+\item
+  The price corresponding to the cut of a diamond
+\end{itemize}
 
 \hypertarget{how-to-transform-data}{%
 \subsubsection{How to Transform Data?}\label{how-to-transform-data}}
@@ -255,11 +267,11 @@ carats into milligrams to represent the weight of the diamond. The
 attributes that are recorded in millimetres could also be converted to
 centimetres.
 
-What is the Conclusion of previous Analysis? In his R publication, Jon
-Ong has performed a brief analysis of this dataset looking at the
-relationship between Cut vs.~Colour, Price vs.~Cut, and Price
-vs.~Clarity. The results show that diamonds with a Premium Cut have the
-highest carat {[}5{]}.
+\textbf{What is the Conclusion of previous Analysis?} In his R
+publication, Jon Ong has performed a brief analysis of this dataset
+looking at the relationship between Cut vs.~Colour, Price vs.~Cut, and
+Price vs.~Clarity. The results show that diamonds with a Premium Cut
+have the highest carat {[}5{]}.
 
 Poonam Rao has also performed a brief analysis of the diamonds dataset
 where she performs data visualisation using scatterplots , histograms
@@ -482,48 +494,41 @@ Width(\textbf{Y}) and Depth(\textbf{Z}).There is a positive correlation
 between Length(\textbf{X}) and Depth(\textbf{Z}). There is a positive
 correlation between carat and Length(\textbf{X})
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{data-visualization}{%
-\section{3) Data visualization}\label{data-visualization}}
-
-\hypertarget{representation-of-the-data-set}{%
-\subsection{Representation of the data
-set}\label{representation-of-the-data-set}}
-
-The data set is composed by different type of data as discussed above.
-In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
-\emph{clarity}), they can be converted into ordinal numbers (from 1 to
-the upper level number) according to their ranking.
-
-After the conversion, the data set appears as below:
-
-\begin{longtable}[]{@{}rrrrrrrrrr@{}}
-\caption{Head of the diamonds dataset arranged for the
-PCA}\tabularnewline
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{0.8472}}@{}}
 \toprule\noalign{}
-carat & cut & color & clarity & depth & table & price & x & y & z \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-carat & cut & color & clarity & depth & table & price & x & y & z \\
-\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0.23 & 5 & 2 & 2 & 61.5 & 55 & 326 & 3.95 & 3.98 & 2.43 \\
-0.21 & 4 & 2 & 3 & 59.8 & 61 & 326 & 3.89 & 3.84 & 2.31 \\
-0.23 & 2 & 2 & 5 & 56.9 & 65 & 327 & 4.05 & 4.07 & 2.31 \\
-0.29 & 4 & 6 & 4 & 62.4 & 58 & 334 & 4.20 & 4.23 & 2.63 \\
-0.31 & 2 & 7 & 2 & 63.3 & 58 & 335 & 4.34 & 4.35 & 2.75 \\
-0.24 & 3 & 7 & 6 & 62.8 & 57 & 336 & 3.94 & 3.96 & 2.48 \\
-\end{longtable}
-
+\# 3) Data visualization \\
+\#\# Representation of the data set \\
+The data set is composed by different type of data as discussed above.
+In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
+\emph{clarity}), they can be converted into ordinal numbers (from 1 to
+the upper level number) according to their ranking. \\
+After the conversion, the data set appears as below: \\
+Table: Head of the diamonds dataset arranged for the PCA \\
+\textbar{} carat\textbar{} cut\textbar{} color\textbar{}
+clarity\textbar{} depth\textbar{} table\textbar{} price\textbar{}
+x\textbar{} y\textbar{} z\textbar{}
+\textbar-----:\textbar---:\textbar-----:\textbar-------:\textbar-----:\textbar-----:\textbar-----:\textbar----:\textbar----:\textbar----:\textbar{}
+\textbar{} 0.23\textbar{} 5\textbar{} 2\textbar{} 2\textbar{}
+61.5\textbar{} 55\textbar{} 326\textbar{} 3.95\textbar{} 3.98\textbar{}
+2.43\textbar{} \textbar{} 0.21\textbar{} 4\textbar{} 2\textbar{}
+3\textbar{} 59.8\textbar{} 61\textbar{} 326\textbar{} 3.89\textbar{}
+3.84\textbar{} 2.31\textbar{} \textbar{} 0.23\textbar{} 2\textbar{}
+2\textbar{} 5\textbar{} 56.9\textbar{} 65\textbar{} 327\textbar{}
+4.05\textbar{} 4.07\textbar{} 2.31\textbar{} \textbar{} 0.29\textbar{}
+4\textbar{} 6\textbar{} 4\textbar{} 62.4\textbar{} 58\textbar{}
+334\textbar{} 4.20\textbar{} 4.23\textbar{} 2.63\textbar{} \textbar{}
+0.31\textbar{} 2\textbar{} 7\textbar{} 2\textbar{} 63.3\textbar{}
+58\textbar{} 335\textbar{} 4.34\textbar{} 4.35\textbar{} 2.75\textbar{}
+\textbar{} 0.24\textbar{} 3\textbar{} 7\textbar{} 6\textbar{}
+62.8\textbar{} 57\textbar{} 336\textbar{} 3.94\textbar{} 3.96\textbar{}
+2.48\textbar{} \\
 To have a general idea of the distribution of the values assumed by the
-attributes, a list of histograms can be displayed:
-
-\includegraphics{Report_files/figure-latex/unnamed-chunk-4-1.pdf}
-
+attributes, a list of histograms can be displayed: \\
+\includegraphics{Report_files/figure-latex/unnamed-chunk-4-1.pdf} \\
 Some of the histograms seem to be affected by outliers in the data. It
 can be seen by looking at the horizontal axis of each graph and by
 noticing that bins do not cover all the axis values but only a limited
@@ -535,178 +540,117 @@ to the largest value of the same attribute. By doing so, it can be
 selected the 99.99 percentile, which corresponds to the highest
 observations of the data set sorted by one of the attributes. If the
 values assumed by the attribute are not physical or are very different
-from the other values, the specific observation can be discarded.
-
+from the other values, the specific observation can be discarded. \\
 The 99.99th percentile of the data set sorted by the \emph{table} shows
-the following data:
-
-\begin{verbatim}
-##       carat cut color clarity depth table price    x    y    z
-## 24933  2.01   1     3       3  58.6    95 13387 8.32 8.31 4.87
-## 50774  0.81   1     3       2  68.8    79  2301 5.26 5.20 3.58
-## 51343  0.79   1     4       3  65.3    76  2362 5.52 5.13 3.35
-\end{verbatim}
-
+the following data: \\
+\texttt{\#\#\ \ \ \ \ \ \ carat\ cut\ color\ clarity\ depth\ table\ price\ \ \ \ x\ \ \ \ y\ \ \ \ z\ \#\#\ 24933\ \ 2.01\ \ \ 1\ \ \ \ \ 3\ \ \ \ \ \ \ 3\ \ 58.6\ \ \ \ 95\ 13387\ 8.32\ 8.31\ 4.87\ \#\#\ 50774\ \ 0.81\ \ \ 1\ \ \ \ \ 3\ \ \ \ \ \ \ 2\ \ 68.8\ \ \ \ 79\ \ 2301\ 5.26\ 5.20\ 3.58\ \#\#\ 51343\ \ 0.79\ \ \ 1\ \ \ \ \ 4\ \ \ \ \ \ \ 3\ \ 65.3\ \ \ \ 76\ \ 2362\ 5.52\ 5.13\ 3.35}
 The first row has a value of \emph{table} very far from the other two
 rows. It is very unlikely that, considering a data set of 53940, there
 is a diamond with the \emph{table} 16 percentage points bigger than the
-second-biggest \emph{table} diamond.
-
-\hypertarget{principal-component-analysis}{%
-\subsection{Principal component
-analysis}\label{principal-component-analysis}}
-
+second-biggest \emph{table} diamond. \\
+\#\# Principal component analysis \\
 The aim of the Principal Component Analysis (``PCA'' from now on), is to
 simplify the problem dimension by reducing the number of variables which
-explains the behavior of the diamonds' price.
-
-Below the standard deviations of the variables are shown:
-
-\begin{verbatim}
-##   carat     cut   color clarity   depth   table   price       x       y       z 
-##    0.47    1.12    1.70    1.65    1.43    2.23 3989.44    1.12    1.14    0.71
-\end{verbatim}
-
+explains the behavior of the diamonds' price. \\
+Below the standard deviations of the variables are shown: \\
+\texttt{\#\#\ \ \ carat\ \ \ \ \ cut\ \ \ color\ clarity\ \ \ depth\ \ \ table\ \ \ price\ \ \ \ \ \ \ x\ \ \ \ \ \ \ y\ \ \ \ \ \ \ z\ \#\#\ \ \ \ 0.47\ \ \ \ 1.12\ \ \ \ 1.70\ \ \ \ 1.65\ \ \ \ 1.43\ \ \ \ 2.23\ 3989.44\ \ \ \ 1.12\ \ \ \ 1.14\ \ \ \ 0.71} \\
 Since standard deviation of \emph{price} is some orders of magnitude
 larger than the others, the dataset has to be standardized by
 subtracting the mean and dividing by the standard deviation of the whole
-set of observations of that variable.
-
-\begin{cols}
-
-\begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-8-1.pdf}
-
-\end{col}
-
-\begin{col}{0.05\textwidth}
-~
-
-\end{col}
-
-\begin{col}{0.40\textwidth}
+set of observations of that variable. \\
+:::::: \{.cols data-latex=``\,``\} \\
+::: \{.col data-latex=``\{0.55\textwidth\}''\}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-8-1.pdf} ::: \\
+\begin{minipage}[t]{\linewidth}\raggedright
+::: \{.col data-latex=``\{0.05\textwidth\}''\}\\
+:::\strut
+\end{minipage} \\
+::: \{.col data-latex=``\{0.40\textwidth\}''\} \\
 The new standardized dataset can be now used to perform the Singular
 Value Decomposition (SVD), which gives rise to three different matrices:
 \(U\), \(\Sigma\) and \(V^T\). By the extraction of the diagonal of the
 matrix \(\Sigma\), it can be seen how much variance is explained by each
 principal component. The cumulative explained variance should reach the
 percentage of 90\% in order to describe properly the main features of
-the dataset.
-
+the dataset. \\
 The figure on the left shows that the first 4 principal components
-explain little less than the 90\% of variance
-
-\end{col}
-
-\end{cols}
-
-\begin{cols}
-
-\begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf}
-
-\end{col}
-
-\begin{col}{0.05\textwidth}
-~
-
-\end{col}
-
-\begin{col}{0.40\textwidth}
-The matrix \(V^T\) contains the ten deca-dimensional vectors defining
-the principal components (PCs). Focusing on the first four PCs, they
-contains the weights associated to each of original component. The
-figure on the left shows the valuea of the weights. It can be noticed
-that the first PC mainly describes the dimensional quantities of the
-diamonds (\emph{carat}, size in \emph{x}, \emph{y}, \emph{z}) and the
+explain little less than the 90\% of variance ::: :::::: \\
+:::::: \{.cols data-latex=``\,``\} \\
+::: \{.col data-latex=``\{0.55\textwidth\}''\}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf} ::: \\
+\begin{minipage}[t]{\linewidth}\raggedright
+::: \{.col data-latex=``\{0.05\textwidth\}''\}\\
+:::\strut
+\end{minipage} \\
+::: \{.col data-latex=``\{0.40\textwidth\}''\} The matrix \(V^T\)
+contains the ten deca-dimensional vectors defining the principal
+components (PCs). Focusing on the first four PCs, they contains the
+weights associated to each of original component. The figure on the left
+shows the valuea of the weights. It can be noticed that the first PC
+mainly describes the dimensional quantities of the diamonds
+(\emph{carat}, size in \emph{x}, \emph{y}, \emph{z}) and the
 \emph{price}. It seems that these five characteristics alone explain
 half of the variability of the diamonds. As for the second PC, it
 focuses more on the quality characteristics (\emph{cut}, \emph{color},
-\emph{clarity}) and on the \emph{table}.
-
-\end{col}
-
-\end{cols}
-
-\begin{cols}
-
-\begin{col}{0.55\textwidth}
+\emph{clarity}) and on the \emph{table}. ::: :::::: \\
+:::::: \{.cols data-latex=``\,``\} \\
+::: \{.col data-latex=``\{0.55\textwidth\}''\}
 \includegraphics{Report_files/figure-latex/unnamed-chunk-10-1.pdf}
-
-\end{col}
-
-\begin{col}{0.05\textwidth}
-~
-
-\end{col}
-
-\begin{col}{0.40\textwidth}
-Unfortunately, it is impossible to represent data in a four-dimensional
-space, so data are projected onto the bi-dimensional space defined by
-the first two PCs. Coefficients can be projected in this space as well,
-showing the directions followed by original attributes. It can clearly
-be seen that the first PC is eastward oriented, so that it collects very
-well the eastward attributes. Probably, the second PC is southward
-directed so that it collects the southward attributes (with the plus
-sign) and the northward \emph{table} attribute (with the minus sign)
-
-\end{col}
-
-\end{cols}
-
+::: \\
+\begin{minipage}[t]{\linewidth}\raggedright
+::: \{.col data-latex=``\{0.05\textwidth\}''\}\\
+:::\strut
+\end{minipage} \\
+::: \{.col data-latex=``\{0.40\textwidth\}''\} Unfortunately, it is
+impossible to represent data in a four-dimensional space, so data are
+projected onto the bi-dimensional space defined by the first two PCs.
+Coefficients can be projected in this space as well, showing the
+directions followed by original attributes. It can clearly be seen that
+the first PC is eastward oriented, so that it collects very well the
+eastward attributes. Probably, the second PC is southward directed so
+that it collects the southward attributes (with the plus sign) and the
+northward \emph{table} attribute (with the minus sign) ::: :::::: \\
 Data can be projected in all the possible bi-dimensional spaces defined
 by each combination of two of the PCs. By projecting them, some
 insteresting features can be observed, as shown by the four graphs
-below.
-
-\begin{itemize}
-\tightlist
-\item
-  Variable \emph{cut} can assume five possible levels, so it is the
-  easiest one to be visualized. The graph shows that \emph{cut} varies
-  mostly in the direction of the second PC, so the \emph{cut} of
-  diamonds strongly depends on their quality features (the better are
-  \emph{color} and \emph{clarity}, the better will be the cut), and is
-  less affected by the size (\emph{x}, \emph{y} and \emph{z}) and the
-  \emph{carat} (weight);
-\item
-  variable \emph{price} is strongly asymmethrical towards low values,
-  and it is very evident also in the graph where cold blue is
-  predominant with respect to light blue. \emph{Price} strongly varies
-  with the first PC, so it depends on quantity factors of diamonds (the
-  bigger and heavier is the diamond, the more expensive will be) more
-  than on quality ones;
-\item
-  variable \emph{carat} is very concentrated between 0 and 1 and
-  widespread beyond 1. So, in order to have a better visualization, the
-  graph below represent the logarithm of the \emph{carat}. It can be
-  seen that it is correlated to the dimensional quantities explained by
-  the first PC (the more expensive and bigger is the diamond, the
-  heavier will be) more than quality ones;
-\item
-  variable \emph{color} has a better representation if data are
-  projected onto the plan defined by the second and forth PCs. It can be
-  seen that \emph{color} varies with the forth PC, so it is correlated
-  with \emph{clarity}, \emph{cut} and \emph{table}.
-\end{itemize}
-
+below. \\
+- Variable \emph{cut} can assume five possible levels, so it is the
+easiest one to be visualized. The graph shows that \emph{cut} varies
+mostly in the direction of the second PC, so the \emph{cut} of diamonds
+strongly depends on their quality features (the better are \emph{color}
+and \emph{clarity}, the better will be the cut), and is less affected by
+the size (\emph{x}, \emph{y} and \emph{z}) and the \emph{carat}
+(weight); - variable \emph{price} is strongly asymmethrical towards low
+values, and it is very evident also in the graph where cold blue is
+predominant with respect to light blue. \emph{Price} strongly varies
+with the first PC, so it depends on quantity factors of diamonds (the
+bigger and heavier is the diamond, the more expensive will be) more than
+on quality ones; - variable \emph{carat} is very concentrated between 0
+and 1 and widespread beyond 1. So, in order to have a better
+visualization, the graph below represent the logarithm of the
+\emph{carat}. It can be seen that it is correlated to the dimensional
+quantities explained by the first PC (the more expensive and bigger is
+the diamond, the heavier will be) more than quality ones; - variable
+\emph{color} has a better representation if data are projected onto the
+plan defined by the second and forth PCs. It can be seen that
+\emph{color} varies with the forth PC, so it is correlated with
+\emph{clarity}, \emph{cut} and \emph{table}. \\
 \includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-1}
 \includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-2}
 \includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-3}
 \includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-4}
+\# 4) Results: what data have shown \\
+\end{longtable}
 
-\hypertarget{results-what-data-have-shown}{%
-\section{4) Results: what data have
-shown}\label{results-what-data-have-shown}}
+\hypertarget{exam-problems}{%
+\section{Exam Problems}\label{exam-problems}}
 
 \textbf{Question 2} \textbar{} Spring 2019 question 2 Consider again the
 Urban Traffic dataset from table 1 and in particular the 14 and 18th
 observation . Which of the following statements about the p-norm
-distance dp (.,.) is correct ?
+distance is correct?
 
-a = {[} 26,0,2,0,0,0,0{]} and b = {[}19, 0,0,0,0,0,0{]}
-
-Answer A :The Maximum Norm Distance is 7.0
+Answer \textbf{A} :The Maximum Norm Distance is 7.0
 
 \hypertarget{references}{%
 \section{References}\label{references}}
