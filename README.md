@@ -88,7 +88,7 @@ overall assessment of the report quality.
 
 **2. A detailed explanation of the attributes of the data.**
 
-**3. Data visualization(s) based on suitable visualization techniques
+**3. Data visualization based on suitable visualization techniques
 including a principal component analysis (PCA)**
 
 **4. A discussion explaining what you have learned about the data.**
