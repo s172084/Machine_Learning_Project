@@ -89,17 +89,28 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Diamonds analysis},
+  pdftitle={Diamonds},
   pdfauthor={Oriade Simpson (s172084); Pietro Lombardo (s231756)},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{Diamonds analysis}
+\title{Diamonds}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{02450 Introduction to Machine Learning \& Data Mining}
 \author{Oriade Simpson (s172084) \and Pietro Lombardo (s231756)}
-\date{2023-09-05}
+\date{From: 2023-09-05 To: 2023-10-03}
 
 \begin{document}
 \maketitle
+
+\begin{center}\includegraphics[width=0.4\linewidth]{Images/Universe2} \end{center}
+
+\newpage
 
 \section{Contribution Table}\label{contribution-table}
 
@@ -135,73 +146,339 @@ Exam Prob 5 & & x \\
 Exam Prob 6 & x & \\
 \end{longtable}
 
-\section{1) Description of the
-dataset}\label{description-of-the-dataset}
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+
+\newpage
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Question 1}\label{question-1}
+
+\subsubsection{Give an Overview and Introduction to the
+Dataset}\label{give-an-overview-and-introduction-to-the-dataset}
+
+The International Diamond Grading System, created by The Gemological
+Institute of America,focuses on the 4C's as a means to categorise
+diamonds. The categories are explained on the Diamonds Search Engine,
+which contains information about how loose diamonds are graded.
+
+The Diamonds dataset used in this report is based on the Diamonds Search
+Engine {[}1{]}.
+
+The 4C's include :
 
 \begin{itemize}
 \tightlist
 \item
-  Explain what your data is about. I.e. what is the overall problem of
-  interest?
+  carat
 \item
-  Provide a reference to where you obtained the data.
+  cut
 \item
-  Summarize previous analysis of the data. (i.e.~go through one or two
-  of the original source papers and read what they did to the data and
-  summarize their results).
+  colour and
 \item
-  You will be asked to apply (1) classification and (2) regression on
-  your data in the next report. For now, we want you to consider how
-  this should be done. Therefore: Explain, in the context of your
-  problem of interest, what you hope to accomplish/learn from the data
-  using these techniques?. Explain which attribute you wish to predict
-  in the regression based on which other attributes? Which class label
-  will you predict based on which other attributes in the classification
-  task? If you need to transform the data in order to carry out these
-  tasks, explain roughly how you plan to do this.
+  clarity.
 \end{itemize}
 
-One of these tasks (1)--(5) is likely more relevant than the rest and
-will be denoted the main machine learning aim in the following. The
-purpose of the following questions, which asks you to describe/visualize
-the data, is to allow you to reflect on the feasibility of this task.
+The Diamonds dataset was obtained from the TidyVerse package developed
+in R by Hadley Wickham and other contributors {[}4{]}.
 
-\section{2) Explanation of the attributes of the
-data}\label{explanation-of-the-attributes-of-the-data}
+The Diamonds dataset records 53,940 rows of diamonds and registers 10
+attributes , including the 4C's.
+
+Below, there is a brief overview about the variables in the dataset.
+
+The length (\textbf{X}) , width (\textbf{Y}) and depth (\textbf{Z}) of
+each diamond has been measured. The length ranges from 0 mm to 10.74 mm.
+The width ranges from 0 mm to 58.9 mm and the depth ranges from 0 to
+31.8 mm.
+
+The carat of a diamond represents the weight of a diamond. The carat
+ranges from 0.2 to 5.01 carats, where 1 carat is equal to 200 milligrams
+(1/5 th of a gram).
+
+The quality of the cut is categorised into fair, good, very good,
+premium and ideal. The cut is an important feature because it determines
+the sparkle and brilliance observed due to light refraction, which
+potentially has an influence on the price.
+
+The colour of a diamond is classified from D (best) to J (lowest). The
+diamonds in group D are colourless. In the international diamond grading
+system, colourless diamonds have the highest the grade. Diamonds that
+are classified as J, often have a yellow tinge. One interesting factor
+is the colour of the diamond, as many diamonds inside engagement rings
+are G to J in colour. This colour is offset by a gold or silver band
+{[}7{]}.
+
+Clarity is categorised from IF to I1. IF is the best class. Here, F
+means Flawless - without visible blemishes. Diamonds that contain
+inclusions that are visible to the naked eye are given the worst class
+of I1.\\
+The last 3 variables or attributes of the dataset include the price, the
+total depth percentage and the table.
+
+The price of diamonds in US dollars ranges from \$326 to \$18,823 US
+dollars. In the market, the price of diamonds may be based on the carat
+weight.
+
+The depth (total depth percentage) is a continuous variable which is the
+total depth, from top to bottom of each diamond, divided by the mean
+length and width.
+
+The table is a continuous variable which is a measurement of the width
+of the top of a diamond in relation to the widest point.
+
+\subsubsection{What is the Overall Statement of Interest
+?}\label{what-is-the-overall-statement-of-interest}
+
+The idea is to analyse the dataset in order to determine relationships
+between variables. More specifically, it may be interesting to discover
+the relationship between two attributes: i.e.~the relationship between:
+The length and width of a colourless diamond The colour and the table of
+the diamond The carat and price of a colourless diamond The carat and
+the table of a colourless diamond The carat and the length of a
+colourless diamond The carat and the width of a colourless diamond The
+carat and the depth of a colourless diamond The price corresponding to
+the cut of a diamond
+
+\subsubsection{How to Transform Data?}\label{how-to-transform-data}
+
+Ideally the price could be determined in Danish Kroner, Pounds Sterling
+or Euros, rather the US dollars. It may also be a good idea to transform
+carats into milligrams to represent the weight of the diamond. The
+attributes that are recorded in millimetres could also be converted to
+centimetres.
+
+What is the Conclusion of previous Analysis? In his R publication, Jon
+Ong has performed a brief analysis of this dataset looking at the
+relationship between Cut vs.~Colour, Price vs.~Cut, and Price
+vs.~Clarity. The results show that diamonds with a Premium Cut have the
+highest carat {[}5{]}.
+
+Poonam Rao has also performed a brief analysis of the diamonds dataset
+where she performs data visualisation using scatterplots , histograms
+and box-plots. She explains that diamonds that are categorised in the
+Ideal group with regard to cut, often have a low weight {[}6{]} .
+
+\subsubsection{What do you aim to learn from the data using
+Classification and
+Regression?}\label{what-do-you-aim-to-learn-from-the-data-using-classification-and-regression}
+
+A regression problem analyses the relationship between a dependent
+variable and an independent variable. The Regression can be linear
+regression or multiple linear regression.
+
+It is possible to analyse the relationship between diamond length
+(\textbf{X}) and diamond width (\textbf{Y}), the carat and the
+depth(\textbf{Z}) in order to understand the relationship between these
+variables. In the regression problem, we will predict the carat based on
+the length, width and depth.
+
+It is possible to look at the relationship between carat and price for 1
+specific colour, cut and clarity of diamond in our regression problem.
+One could observe the carat of the diamonds that are priced between
+\$10,000 to \$20,000 USD.
+
+A classification problem requires a dataset to be classified into two or
+more categories. One idea is to choose the category of cut and determine
+if the diamond is very good, premium cut or ideal cut? This can be done
+using the diamond length (\textbf{X}) and diamond width (\textbf{Y}),
+the carat and the depth(\textbf{Z}).
+
+Another idea is to choose the category of colour and determine if the
+diamond is D or J. This can be also be done using the diamond length
+(\textbf{X}) and diamond width (\textbf{Y}), the carat and the depth(z).
+
+Finally , it is possible to choose the category of clarity and determine
+if the diamond is IF , VS1 or I1 . This can be done using the diamond
+length (\textbf{X}) and diamond width (\textbf{Y}), the carat and the
+depth(\textbf{Z}).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Question 2}\label{question-2}
+
+\subsubsection{Describe if the attributes are discrete/continuous,
+Nominal/Ordinal/Interval/Ratio}\label{describe-if-the-attributes-are-discretecontinuous-nominalordinalintervalratio}
+
+The table below shows the classification of the attributes. The cut,
+colour, and clarity are ordinal factor variables.
+
+\subsubsection{Attribute Table}\label{attribute-table}
+
+\subsection{Table 1.}\label{table-1.}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0730}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0876}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0803}}
+  >{\centering\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0949}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Attribute
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Carat
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Cut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Colour
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Clarity.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Depth
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Table
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Price
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Length (X)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Width(Y)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Depth (Z)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Type & Cont. & Categ. & Categ. & Categ. & Cont. & Cont. & Discrete &
+Cont. & Cont. & Cont. \\
+Type & Ratio & Ordinal & Ordinal & Ordinal & Ratio & Ratio & Interval &
+Ratio & Ratio & Ratio \\
+\end{longtable}
 
 \begin{itemize}
 \tightlist
 \item
-  Describe if the attributes are discrete/continuous,
-  Nominal/Ordinal/Interval/ Ratio,
+  Continuous = Cont
 \item
-  Give an account of whether there are data issues (i.e.~missing values
-  or corrupted data) and describe them if so.
-\item
-  Include basic summary statistics of the attributes.
+  Categorical = Categ.
 \end{itemize}
 
-If your data set contains many similar attributes, you may restrict
-yourself to describing a few representative features (apply common
-sense).
+\subsubsection{Give an account of whether there are data issues
+(i.e.~missing values or corrupted
+data)}\label{give-an-account-of-whether-there-are-data-issues-i.e.-missing-values-or-corrupted-data}
+
+There are no missing values or NAs in any column of the dataset. The
+data is tidy from the TidyVerse. In the Premium cut group and Ideal cut
+group of diamonds, there are some diamonds that have an outlying width,
+which corresponds to the VS1 ad SI2 clarity groups.
+
+\subsubsection{Include basic summary statistics of the attributes,
+including
+correlation}\label{include-basic-summary-statistics-of-the-attributes-including-correlation}
+
+There are many diamonds that have a carat between 0.2 and 1, with the
+average carat being 0.7. Therefore it may be interesting to narrow in on
+the dataset and only look at diamonds that are between 1 and 5 carat,
+and exclude all diamonds below 1 carat. The average length of a diamond
+(\textbf{X}) is 5.731 mm. It may be interesting to look at diamonds that
+are between 6 and 10 millimetres long.\\
+The average price of a diamond in this dataset is \$3,932.8 USD. There
+is a lower quantile of \$950 dollars and upper quantile of \$5,324.5
+USD. It may be interesting to narrow down the price range and focus on
+diamonds that are between \$326 - \$5000 USD. However \$5000 - \$15,000
+USD or \$10,000 - £\$20,000 USD may also be suitable ranges to focus on.
+Many of the diamonds have the average table of approximately 61.7.
+Diamonds have an average depth of 3.5. It may be interesting to explore
+diamonds that have a depth (\textbf{Z}) between 5 and 10. It may be
+interesting to choose diamonds with a specific clarity, IF, SI2, VS1 and
+narrow down on the cut to look at only 1 type of cut. There are 21,000
+Ideal cut diamonds, which makes this the most common category. One could
+choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds
+to focus on.
+
+\subsection{Summary Statistics Table}\label{summary-statistics-table}
+
+\subsection{Table 2.}\label{table-2.}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1442}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1154}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1154}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1635}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0865}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+No.~Obs.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Variance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Standard Dev
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Lower Quart
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Median
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Upper quart
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Carat. & 53,940 & 0.797 & 0.2247 & 0.474 & 0.4 & 0.7 & 1.04 \\
+Cut. & & & & & & & \\
+Colour & & & & & & & \\
+Clarity & & & & & & & \\
+Total Depth \% & 53,940 & 61.749 & 2.052 & 1.433 & 61 & 61.8 & 62.5 \\
+Table & 53,940 & 57.457 & 4.992 & 2.234 & 56 & 57.0 & 59.0 \\
+Price & 53,940 & 3932.80 & 15915629 & 3.83 & 22.59 & 24.69 & 27.64 \\
+Length(X) & 53,940 & 5.731 & 1.258 & 1.122 & 4.71 & 5.70 & 6.54 \\
+Width (Y) & 53,940 & 5.734 & 1.305 & 1.142 & 4.72 & 5.71 & 6.54 \\
+Depth(Z) & 53,940 & 3.538 & 0.498 & 0.706 & 2.91 & 3.53 & 4.04 \\
+\end{longtable}
+
+\subsubsection{Correlation Table}\label{correlation-table}
+
+\subsection{Table 3.}\label{table-3.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Correlation & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+X \& Y & 0.9747 \\
+Y \& Z & 0.9520 \\
+X \& Z & 0.9707 \\
+carat \& X & 0.9750 \\
+\end{longtable}
+
+There is a positive correlation between Length(\textbf{X}) and
+Width(\textbf{Y}). There is a positive correlation between
+Width(\textbf{Y}) and Depth(\textbf{Z}).There is a positive correlation
+between Length(\textbf{X}) and Depth(\textbf{Z}). There is a positive
+correlation between carat and Length(\textbf{X})
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \section{3) Data visualization}\label{data-visualization}
 
-\subsection{Principal component
-analysis}\label{principal-component-analysis}
+\subsection{Representation of the data
+set}\label{representation-of-the-data-set}
 
-The aim of the Principal Component Analysis (``PCA'' from now on), is to
-simplify the problem dimension by reducing the number of variables which
-explains the behavior of the diamonds' price.
+The data set is composed by different type of data as discussed above.
+In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
+\emph{clarity}), they can be converted into ordinal numbers (from 1 to
+the upper level number) according to their ranking.
 
-The PCA requires the standardization of the attributes so that the
-variability of each of them is comparable. But such operation cannot be
-carried out for non-numeric values, like the three ordinal variables
-\emph{cut}, \emph{color} and \emph{clarity}. For these reason they are
-converted into ordinal numbers (from 1 to the upper level number)
-according to their ranking.
-
-After these operations, the dataset appears as below:
+After the conversion, the data set appears as below:
 
 \begin{longtable}[]{@{}rrrrrrrrrr@{}}
 \caption{Head of the diamonds dataset arranged for the
@@ -224,9 +501,40 @@ carat & cut & color & clarity & depth & table & price & x & y & z \\
 0.24 & 3 & 7 & 6 & 62.8 & 57 & 336 & 3.94 & 3.96 & 2.48 \\
 \end{longtable}
 
-Now the dataset contains all numeric variables, so the next step is to
-compare the standard deviations of each variable and check whether they
-are different.
+To have a general idea of the distribution of the values assumed by the
+attributes, a list of histograms can be displayed:
+
+\includegraphics{Report_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+Some of the histograms seem to be affected by outliers in the data. It
+can be seen by looking at the horizontal axis of each graph and by
+noticing that bins do not cover all the axis values but only a limited
+range. This is very evident in the attributes \emph{table} and in the
+dimensions \emph{y} and \emph{z}. This attributes contain very extreme
+values that wrongly set the axis limits. In order to detect them, the
+data set can be sorted from the smallest value of a specific attribute
+to the largest value of the same attribute. By doing so, it can be
+selected the 99.99 percentile, which corresponds to the highest
+observations of the data set sorted by one of the attributes. If the
+values assumed by the attribute are not physical or are very different
+from the other values, the specific observation can be discarded.
+
+The 99.99th percentile of the data set sorted by the \emph{table} shows
+the following data:
+
+\begin{verbatim}
+##       carat cut color clarity depth table price    x    y    z
+## 24933  2.01   1     3       3  58.6    95 13387 8.32 8.31 4.87
+## 50774  0.81   1     3       2  68.8    79  2301 5.26 5.20 3.58
+## 51343  0.79   1     4       3  65.3    76  2362 5.52 5.13 3.35
+\end{verbatim}
+
+\subsection{Principal component
+analysis}\label{principal-component-analysis}
+
+The aim of the Principal Component Analysis (``PCA'' from now on), is to
+simplify the problem dimension by reducing the number of variables which
+explains the behavior of the diamonds' price.
 
 Below the standard deviations of the variables are shown:
 
@@ -243,7 +551,7 @@ set of observations of that variable.
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-4-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 \end{col}
 
@@ -271,7 +579,7 @@ explain little less than the 90\% of variance
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-5-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \end{col}
 
@@ -299,7 +607,7 @@ focuses more on the quality characteristics (\emph{cut}, \emph{color},
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-6-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-10-1.pdf}
 
 \end{col}
 
@@ -358,12 +666,46 @@ below.
   with \emph{clarity}, \emph{cut} and \emph{table}.
 \end{itemize}
 
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-1}
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-2}
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-3}
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-7-4}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-1}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-2}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-3}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-4}
 
 \section{4) Results: what data have
 shown}\label{results-what-data-have-shown}
+
+\section{References}\label{references}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  Grading Loose Diamonds, Diamonds Search Engine,
+  ``\url{https://www.diamondse.info/diamonds-grading.asp}'', Accessed 22
+  September 2023
+\item
+  Gemological Institute of America, Learn How a Diamond is Graded,
+  (2009), YouTube ``\url{https://www.youtube.com/watch?v=oqhaty0ny0g}''
+\item
+  Diamond Prices Index ,
+  ``\url{https://www.diamondse.info/diamonds-price-index.asp}'' Accessed
+  14 September 2023
+\item
+  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R,
+  Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller
+  E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V,
+  Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). ``Welcome to
+  the tidyverse.''~Journal of Open Source Software,~4(43),
+  1686.~\url{doi:10.21105/joss.01686}
+\item
+  Jon Ong, Diamond Data Analysis , (2018),
+  ``\url{https://rpubs.com/gokusun327/diamonddatatest}'' , Accessed 22
+  September 2023
+\item
+  Poonam Rao , Exploratory Data Analytics, (2020),
+  ``\url{https://medium.com/swlh/exploratory-data-analysis-21bbf3887e28}''
+\item
+  Paul Gian, Beyond 4C's - Real Insights to Buying Diamonds ,
+  ``\url{https://beyond4cs.com/color/}'', Accessed 22 September 2023
+\end{enumerate}
 
 \end{document}
