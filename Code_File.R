@@ -246,7 +246,7 @@ for (m in 1:M)
 
 # The argument ylim ensures that all histograms are plotted on the same y-axis
 {
-  par(mfrow = c(2, 2))
+  par(mfrow = c(2, 5))
   hist(Dia[, 1], main = attributeNames[1], xlab = NULL, ylim = c(min(yvals), max(yvals)))
   hist(Dia[, 2], main = attributeNames[2], xlab = NULL, ylim = c(min(yvals), max(yvals)), breaks=0.5+seq(0,5))
   hist(Dia[, 3], main = attributeNames[3], xlab = NULL, ylim = c(min(yvals), max(yvals)), breaks=0.5+seq(0,7))
@@ -281,7 +281,7 @@ for (m in 1:M)
 
 # The argument ylim ensures that all histograms are plotted on the same y-axis
 {
-  par(mfrow = c(2, 2))
+  par(mfrow = c(2, 5))
   hist(Dia[, 1], main = attributeNames[1], xlab = NULL, ylim = c(min(yvals), max(yvals)))
   hist(Dia[, 2], main = attributeNames[2], xlab = NULL, ylim = c(min(yvals), max(yvals)), breaks=0.5+seq(0,5))
   hist(Dia[, 3], main = attributeNames[3], xlab = NULL, ylim = c(min(yvals), max(yvals)), breaks=0.5+seq(0,7))
@@ -483,6 +483,9 @@ ggplot() +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
+
+library(patchwork)
+(A | B) /  (C | D)
 
 # -----------------------------------------------------------------------------------------------------------
 # -------------------------------- Exam Problems         ------------------------------------------------

@@ -260,7 +260,7 @@ attributes, a list of histograms can be displayed:
 
 ```{r echo=FALSE, fig.align='center', out.width='60%'}
 # Include images and pictures..
-knitr::include_graphics('Images/histograms.png')
+knitr::include_graphics('Images/hist_w_out.png')
 ```
 
 ```{r echo=FALSE, include=FALSE}
@@ -300,7 +300,7 @@ specific observation can be discarded.
 
 The $99.99^{th}$ percentile of the data set sorted by the *table* shows the following
 data:
-```{r, include=FALSE}
+```{r}
 # Can you explain this inside Code.R file? 
 i <- 6 # table
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
@@ -313,7 +313,7 @@ For this reason, the row nr. 24933 of the data set will be canceled.
 
 As for the attribute *y* (width), it can be followed the same procedure by sorting
 the data set by the width and looking at the $99.99^{th}$ percentile:
-```{r, include=FALSE}
+```{r}
 # Can you explain this inside Code.R file? 
 i <- 9 # width (y)
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
@@ -327,7 +327,7 @@ two outliers will be canceled
 
 Finally, sorting the data set by the *z*-dimension, the $99.99^{th}$ percentile
 is composed by the following records:
-```{r, include=FALSE}
+```{r}
 # Can you explain this inside Code.R file? 
 i <- 10 # depth (z)
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
@@ -368,6 +368,10 @@ for (m in 1:M)
 }
 ```
 
+```{r echo=FALSE, fig.align='center', out.width='60%'}
+# Include images and pictures..
+knitr::include_graphics('Images/hist_wo_out.png')
+```
 From the graphs, some considerations about the distribution of each attribute
 can be listed:
 - attributes *depth* and *table* appear to be normally distributed since they
@@ -649,7 +653,7 @@ library(patchwork)
 (plot1 | plot2) /  (plot3 | plot4)
 ```
 
-```{r echo=FALSE, fig.align='center', out.width='60%'}
+```{r echo=FALSE, fig.align='center', out.width='80%'}
 # Include images and pictures..
 knitr::include_graphics('Images/PC_Image.png')
 ```
