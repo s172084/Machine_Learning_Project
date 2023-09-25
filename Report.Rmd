@@ -663,11 +663,27 @@ knitr::include_graphics('Images/PC_Image.png')
 
 
 # Exam Problems
+**Question 1** | Spring 2019 question 2
+Which of the following statements are true about the types of the attributes in the Urban Traffic dataset?
+
+Answer **B**: the attribute $x_1$ is ordinal because it can be said that time-interval number 5 is greater than
+the time-interval number 4 since it is later in the day but it makes no sense to sum and subtract them
+
 **Question 2** | Spring 2019 question 2
 Consider again the Urban Traffic dataset from table 1 and in particular the 14 and 18th observation .
 Which of the following statements about the p-norm distance dp (.,.) is correct ? 
 
-Answer **A** :The Maximum Norm Distance is 7.0 
+Answer **A**: The Maximum Norm Distance is 7.0 
+
+**Question 4** | Spring 2019 question 2
+Which one of the following statements is true?
+
+Answer **D**: PC2 has a negative coefficient multiplying $x_1$, so if an observation has a low value
+of $x_1$ it means that the PC2 decreases very little for the contribution of $x_1$. On the other hand,
+PC2 has positive coefficients multiplying $x_2$, $x_3$ and $x_5$ so if an observation has a high value
+of them, it means that the PC2 increases a lot thanks to their the contribution
+
+
 
 References
 ===
