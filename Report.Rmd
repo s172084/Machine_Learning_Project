@@ -211,7 +211,7 @@ Table 2.
 | Clarity       |            |            |                 |             |             |         |             |
 | Total Depth % |   53,940   |    61.749  |         2.052   |    1.433    |    61       |    61.8 |      62.5   |
 | Table         |   53,940   |    57.457  |         4.992   |    2.234    |    56       |    57.0 |      59.0   |
-| Price         |   53,940   |  3932.80   |  15915629       |    3.83     |    22.59    |   24.69 |      27.64  |
+| Price         |   53,940   |  3932.80   |  15915629       |  3989.44    |    22.59    |   24.69 |      27.64  |
 | Length(X)     |   53,940   |     5.731  |         1.258   |    1.122    |     4.71    |    5.70 |       6.54  |
 | Width (Y)     |   53,940   |     5.734  |         1.305   |    1.142    |     4.72    |    5.71 |       6.54  |
 | Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
@@ -587,7 +587,7 @@ heavier will be) more than quality ones;
 plan defined by the second and forth PCs. It can be seen that *color* varies
 with the forth PC, so it is correlated with *clarity*, *cut* and *table*.
 
-```{r, fig.ncol = 2, out.width = "75%"}
+```{r echo=FALSE, fig.ncol=2, fig.align='center', out.width='75%', include=FALSE}
 # CUT, PC 1-2
 Z <- S$u %*% diag(S$d)
 Z <- cbind(Z,diamonds$cut)
@@ -671,7 +671,7 @@ References
 
 2) Gemological Institute of America, Learn How a Diamond is Graded, (2009),  YouTube "https://www.youtube.com/watch?v=oqhaty0ny0g"
 
-3) Diamond Prices Index , “https://www.diamondse.info/diamonds-price-index.asp" Accessed 14 September 2023
+3) Diamond Prices Index, “https://www.diamondse.info/diamonds-price-index.asp" Accessed 14 September 2023
 
 4) Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” Journal of Open Source Software, 4(43), 1686. doi:10.21105/joss.01686
 
