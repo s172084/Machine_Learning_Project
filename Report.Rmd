@@ -248,6 +248,8 @@ attributeNames <- colnames(Dia)
 kable(head(Dia), caption = "Head of the diamonds dataset arranged for the PCA")
 ```
 
+### Issues with outliers in the data
+
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
 
@@ -286,7 +288,7 @@ the data set sorted by one of the attributes. If the values assumed by the
 attribute are not physical or are very different from the other values, the
 specific observation can be discarded.
 
-The 99.99th percentile of the data set sorted by the *table* shows the following
+The $99.99^{th}$ percentile of the data set sorted by the *table* shows the following
 data:
 ```{r}
 i <- 6 # table
@@ -294,8 +296,102 @@ IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
 ```
 The first row has a value of *table* very far from the other two rows. It is
-very unlikely that, considering a data set of 53940, there is a diamond with
+very unlikely that, considering a data set of 53940 diamonds, there is a diamond with
 the *table* 16 percentage points bigger than the second-biggest *table* diamond.
+For this reason, the row nr. 24933 of the data set will be canceled.
+
+As for the attribute *y* (width), it can be followed the same procedure by sorting
+the data set by the width and looking at the $99.99^{th}$ percentile:
+```{r}
+i <- 9 # width (y)
+IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
+(Outlier <- Dia[which(IdxOutlier), ])
+```
+It can be seen that the first and the last rows have very larger values of *y* with respect
+to the the other three rows belonging to the $99.99^{th}$ percentile. It is very
+unlikely that, considering such a big number of diamonds, there are two diamonds
+with dimensions so different from the others. So the two rows containing the
+two outliers will be canceled
+
+Finally, sorting the data set by the *z*-dimension, the $99.99^{th}$ percentile
+is composed by the following records:
+```{r}
+i <- 10 # depth (z)
+IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
+(Outlier <- Dia[which(IdxOutlier), ])
+```
+The last record has a value of *z* very far from the other ones, so it can be
+considered as an outlier and so it will be removed from the data set.
+
+### Possible distributions followd by the data
+
+Now that the data set is free from outliers, the histograms of the attributes
+will be more meaningful about the possible distribution the data follow for each
+variable:
+
+```{r}
+nr <- c(24068,49190,48411,24933)
+Dia <- Dia[-nr, ]
+N <- N - length(nr)
+
+yvals <- c()
+for (m in 1:M)
+{
+  res <- hist(Dia[, m], plot = FALSE)
+  yvals <- c(yvals, res$counts)
+}
+
+# The argument ylim ensures that all histograms are plotted on the same y-axis
+{
+  par(mfrow = c(2, 5))
+  hist(Dia[, 1], main = attributeNames[1], xlab = NULL, ylim = c(min(yvals), max(yvals)))
+  hist(Dia[, 2], main = attributeNames[2], xlab = NULL, ylim = c(min(yvals), max(yvals)), breaks=0.5+seq(0,5))
+  hist(Dia[, 3], main = attributeNames[3], xlab = NULL, ylim = c(min(yvals), max(yvals)), breaks=0.5+seq(0,7))
+  hist(Dia[, 4], main = attributeNames[4], xlab = NULL, ylim = c(min(yvals), max(yvals)), breaks=0.5+seq(0,8))
+  for (m in 5:M)
+  {
+    hist(Dia[, m], main = attributeNames[m], xlab = NULL, ylim = c(min(yvals), max(yvals)))
+  }
+}
+```
+
+From the graphs, some considerations about the distribution of each attribute
+can be listed:
+- attributes *depth* and *table* appear to be normally distributed since they
+follow quite well the gaussian bell curve and they are almost symmetric;
+- attributes *carat* and *price* seem to follow an exponential distribution,
+since each bin is smaller than the previous one and larger than the following one;
+- attributes *clarity*, *x*, *y* and *z* appear to follow a log-normal distribution,
+since they follow a asymmetric bell curve with the sample-mode smaller than the mean.
+
+### Correlation of variables
+
+Correlation between variables can be studied by producing the matrix of scatter 
+plots of each combination of two attributes against each other. Scatter plots
+are not so meaningful with ordinal data (*cut*, *color* and *clarity*), so they
+are removed from the data set and points of the plots are colored according to
+the attribute *cut* in the attempt of finding some pattern of the data. The matrix
+is shown below:
+
+```{r}
+Dia_qty <- Dia[,c(1:2,5:10)]
+Dia_qty <- Dia_qty[sample(nrow(Dia_qty), size=1000), ]
+Cut <- Dia_qty[,2]
+Dia_qty <- as.data.frame(Dia_qty[,c(1,3:8)])
+colnames(Dia_qty) <- c("carat","depth","table","price","x","y","z")
+observationColors <- c("blue", "green3", "red","orange","purple")[unclass(Cut)]
+classNames <- as.character(levels(diamonds$cut))
+{
+  par(xpd=TRUE)
+  pairs(Dia_qty, bg=observationColors, pch=21)
+  legend(0, 1, classNames, fill=unique(observationColors))
+}
+```
+The plots confirm the very high correlation between the variables *carat*, *x*,
+*y* and *z*, as already computed in the Table 3. In addition, also the *price*
+appears to be slightly correlated with the variables *carat*, *x*, *y* and *z*.
+The other variables do not show any specific pattern and also the *cut* does not
+seem to distinguish any cluster of the data.
 
 ## Principal component analysis
 
@@ -306,6 +402,15 @@ behavior of the diamonds' price.
 Below the standard deviations of the variables are shown:
 
 ```{r}
+Dia <- as.data.frame(diamonds)
+Dia$cut <- as.numeric(Dia$cut)
+Dia$color <- as.numeric(Dia$color)
+Dia$clarity <- as.numeric(Dia$clarity)
+
+N <- dim(Dia)[1] # number of rows of the new one-hot-encoded dataframe
+M <- dim(Dia)[2] # number of columns of the new one-hot-encoded dataframe
+attributeNames <- colnames(Dia)
+
 stds <- apply(Dia, 2, sd)
 print(round(stds,digits=2))
 ```
@@ -522,8 +627,9 @@ ggplot() +
   xlim(-5,10) + ylim(-5,7.5)
 ```
 
-
 # 4) Results: what data have shown
+
+
 
 # Exam Problems
 **Question 2** | Spring 2019 question 2

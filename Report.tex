@@ -112,8 +112,7 @@
 
 \newpage
 
-\hypertarget{contribution-table}{%
-\section{Contribution Table}\label{contribution-table}}
+\section{Contribution Table}\label{contribution-table}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -260,21 +259,17 @@ length (\textbf{X}) and diamond width (\textbf{Y}), the carat and the
 depth(\textbf{Z}). \\
 \end{longtable}
 
-\hypertarget{question-2}{%
-\section{Question 2}\label{question-2}}
+\section{Question 2}\label{question-2}
 
-\hypertarget{describe-if-the-attributes-are-discretecontinuous-nominalordinalintervalratio}{%
 \subsubsection{Describe if the attributes are discrete/continuous,
-Nominal/Ordinal/Interval/Ratio}\label{describe-if-the-attributes-are-discretecontinuous-nominalordinalintervalratio}}
+Nominal/Ordinal/Interval/Ratio}\label{describe-if-the-attributes-are-discretecontinuous-nominalordinalintervalratio}
 
 The table below shows the classification of the attributes. The cut,
 colour, and clarity are ordinal factor variables.
 
-\hypertarget{attribute-table}{%
-\subsubsection{Attribute Table}\label{attribute-table}}
+\subsubsection{Attribute Table}\label{attribute-table}
 
-\hypertarget{table-1.}{%
-\subsection{Table 1.}\label{table-1.}}
+\subsection{Table 1.}\label{table-1.}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0730}}
@@ -330,20 +325,18 @@ Ratio & Ratio & Ratio \\
   Categorical = Categ.
 \end{itemize}
 
-\hypertarget{give-an-account-of-whether-there-are-data-issues-i.e.-missing-values-or-corrupted-data}{%
 \subsubsection{Give an account of whether there are data issues
 (i.e.~missing values or corrupted
-data)}\label{give-an-account-of-whether-there-are-data-issues-i.e.-missing-values-or-corrupted-data}}
+data)}\label{give-an-account-of-whether-there-are-data-issues-i.e.-missing-values-or-corrupted-data}
 
 There are no missing values or NAs in any column of the dataset. The
 data is tidy from the TidyVerse. In the Premium cut group and Ideal cut
 group of diamonds, there are some diamonds that have an outlying width,
 which corresponds to the VS1 ad SI2 clarity groups.
 
-\hypertarget{include-basic-summary-statistics-of-the-attributes-including-correlation}{%
 \subsubsection{Include basic summary statistics of the attributes,
 including
-correlation}\label{include-basic-summary-statistics-of-the-attributes-including-correlation}}
+correlation}\label{include-basic-summary-statistics-of-the-attributes-including-correlation}
 
 There are many diamonds that have a carat between 0.2 and 1, with the
 average carat being 0.7. Therefore it may be interesting to narrow in on
@@ -365,11 +358,9 @@ Ideal cut diamonds, which makes this the most common category. One could
 choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds
 to focus on.
 
-\hypertarget{summary-statistics-table}{%
-\subsection{Summary Statistics Table}\label{summary-statistics-table}}
+\subsection{Summary Statistics Table}\label{summary-statistics-table}
 
-\hypertarget{table-2.}{%
-\subsection{Table 2.}\label{table-2.}}
+\subsection{Table 2.}\label{table-2.}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1442}}
@@ -414,11 +405,9 @@ Width (Y) & 53,940 & 5.734 & 1.305 & 1.142 & 4.72 & 5.71 & 6.54 \\
 Depth(Z) & 53,940 & 3.538 & 0.498 & 0.706 & 2.91 & 3.53 & 4.04 \\
 \end{longtable}
 
-\hypertarget{correlation-table}{%
-\subsubsection{Correlation Table}\label{correlation-table}}
+\subsubsection{Correlation Table}\label{correlation-table}
 
-\hypertarget{table-3.}{%
-\subsection{Table 3.}\label{table-3.}}
+\subsection{Table 3.}\label{table-3.}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
@@ -439,12 +428,10 @@ Width(\textbf{Y}) and Depth(\textbf{Z}).There is a positive correlation
 between Length(\textbf{X}) and Depth(\textbf{Z}). There is a positive
 correlation between carat and Length(\textbf{X})
 
-\hypertarget{data-visualization}{%
-\section{3) Data visualization}\label{data-visualization}}
+\section{3) Data visualization}\label{data-visualization}
 
-\hypertarget{representation-of-the-data-set}{%
 \subsection{Representation of the data
-set}\label{representation-of-the-data-set}}
+set}\label{representation-of-the-data-set}
 
 The data set is composed by different type of data as discussed above.
 In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
@@ -474,6 +461,9 @@ carat & cut & color & clarity & depth & table & price & x & y & z \\
 0.24 & 3 & 7 & 6 & 62.8 & 57 & 336 & 3.94 & 3.96 & 2.48 \\
 \end{longtable}
 
+\subsubsection{Issues with outliers in the
+data}\label{issues-with-outliers-in-the-data}
+
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
 
@@ -492,8 +482,8 @@ observations of the data set sorted by one of the attributes. If the
 values assumed by the attribute are not physical or are very different
 from the other values, the specific observation can be discarded.
 
-The 99.99th percentile of the data set sorted by the \emph{table} shows
-the following data:
+The \(99.99^{th}\) percentile of the data set sorted by the \emph{table}
+shows the following data:
 
 \begin{verbatim}
 ##       carat cut color clarity depth table price    x    y    z
@@ -503,13 +493,88 @@ the following data:
 \end{verbatim}
 
 The first row has a value of \emph{table} very far from the other two
-rows. It is very unlikely that, considering a data set of 53940, there
-is a diamond with the \emph{table} 16 percentage points bigger than the
-second-biggest \emph{table} diamond.
+rows. It is very unlikely that, considering a data set of 53940
+diamonds, there is a diamond with the \emph{table} 16 percentage points
+bigger than the second-biggest \emph{table} diamond. For this reason,
+the row nr. 24933 of the data set will be canceled.
 
-\hypertarget{principal-component-analysis}{%
+As for the attribute \emph{y} (width), it can be followed the same
+procedure by sorting the data set by the width and looking at the
+\(99.99^{th}\) percentile:
+
+\begin{verbatim}
+##       carat cut color clarity depth table price     x     y    z
+## 24068  2.00   4     5       2  58.9    57 12210  8.09 58.90 8.06
+## 25999  4.01   4     6       1  61.0    61 15223 10.14 10.10 6.17
+## 27416  5.01   1     7       1  65.5    59 18018 10.74 10.54 6.98
+## 27631  4.50   1     7       1  65.8    58 18531 10.23 10.16 6.72
+## 49190  0.51   5     2       5  61.8    55  2075  5.15 31.80 5.12
+\end{verbatim}
+
+It can be seen that the first and the last rows have very larger values
+of \emph{y} with respect to the the other three rows belonging to the
+\(99.99^{th}\) percentile. It is very unlikely that, considering such a
+big number of diamonds, there are two diamonds with dimensions so
+different from the others. So the two rows containing the two outliers
+will be canceled
+
+Finally, sorting the data set by the \emph{z}-dimension, the
+\(99.99^{th}\) percentile is composed by the following records:
+
+\begin{verbatim}
+##       carat cut color clarity depth table price     x     y     z
+## 23645  3.65   1     5       1  67.1  53.0 11668  9.53  9.48  6.38
+## 24068  2.00   4     5       2  58.9  57.0 12210  8.09 58.90  8.06
+## 27131  4.13   1     5       1  64.8  61.0 17329 10.00  9.85  6.43
+## 27416  5.01   1     7       1  65.5  59.0 18018 10.74 10.54  6.98
+## 27631  4.50   1     7       1  65.8  58.0 18531 10.23 10.16  6.72
+## 48411  0.51   3     2       5  61.8  54.7  1970  5.12  5.15 31.80
+\end{verbatim}
+
+The last record has a value of \emph{z} very far from the other ones, so
+it can be considered as an outlier and so it will be removed from the
+data set.
+
+\subsubsection{Possible distributions followd by the
+data}\label{possible-distributions-followd-by-the-data}
+
+Now that the data set is free from outliers, the histograms of the
+attributes will be more meaningful about the possible distribution the
+data follow for each variable:
+
+\includegraphics{Report_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+From the graphs, some considerations about the distribution of each
+attribute can be listed: - attributes \emph{depth} and \emph{table}
+appear to be normally distributed since they follow quite well the
+gaussian bell curve and they are almost symmetric; - attributes
+\emph{carat} and \emph{price} seem to follow an exponential
+distribution, since each bin is smaller than the previous one and larger
+than the following one; - attributes \emph{clarity}, \emph{x}, \emph{y}
+and \emph{z} appear to follow a log-normal distribution, since they
+follow a asymmetric bell curve with the sample-mode smaller than the
+mean.
+
+\subsubsection{Correlation of variables}\label{correlation-of-variables}
+
+Correlation between variables can be studied by producing the matrix of
+scatter plots of each combination of two attributes against each other.
+Scatter plots are not so meaningful with ordinal data (\emph{cut},
+\emph{color} and \emph{clarity}), so they are removed from the data set
+and points of the plots are colored according to the attribute
+\emph{cut} in the attempt of finding some pattern of the data. The
+matrix is shown below:
+
+\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf} The
+plots confirm the very high correlation between the variables
+\emph{carat}, \emph{x}, \emph{y} and \emph{z}, as already computed in
+the Table 3. In addition, also the \emph{price} appears to be slightly
+correlated with the variables \emph{carat}, \emph{x}, \emph{y} and
+\emph{z}. The other variables do not show any specific pattern and also
+the \emph{cut} does not seem to distinguish any cluster of the data.
+
 \subsection{Principal component
-analysis}\label{principal-component-analysis}}
+analysis}\label{principal-component-analysis}
 
 The aim of the Principal Component Analysis (``PCA'' from now on), is to
 simplify the problem dimension by reducing the number of variables which
@@ -530,7 +595,7 @@ set of observations of that variable.
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-8-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-12-1.pdf}
 
 \end{col}
 
@@ -558,7 +623,7 @@ explain little less than the 90\% of variance
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-13-1.pdf}
 
 \end{col}
 
@@ -586,7 +651,7 @@ focuses more on the quality characteristics (\emph{cut}, \emph{color},
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-10-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-14-1.pdf}
 
 \end{col}
 
@@ -645,17 +710,15 @@ below.
   with \emph{clarity}, \emph{cut} and \emph{table}.
 \end{itemize}
 
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-1}
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-2}
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-3}
-\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-11-4}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-15-1}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-15-2}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-15-3}
+\includegraphics[width=0.5\linewidth]{Report_files/figure-latex/unnamed-chunk-15-4}
 
-\hypertarget{results-what-data-have-shown}{%
 \section{4) Results: what data have
-shown}\label{results-what-data-have-shown}}
+shown}\label{results-what-data-have-shown}
 
-\hypertarget{exam-problems}{%
-\section{Exam Problems}\label{exam-problems}}
+\section{Exam Problems}\label{exam-problems}
 
 \textbf{Question 2} \textbar{} Spring 2019 question 2 Consider again the
 Urban Traffic dataset from table 1 and in particular the 14 and 18th
@@ -664,8 +727,7 @@ distance dp (.,.) is correct ?
 
 Answer \textbf{A} :The Maximum Norm Distance is 7.0
 
-\hypertarget{references}{%
-\section{References}\label{references}}
+\section{References}\label{references}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
