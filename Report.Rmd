@@ -41,6 +41,21 @@ knitr::include_graphics(c("Images/Universe2.png"))
 ```
 
 \newpage
+\newpage 
+\newpage
+\newpage 
+\newpage
+\newpage 
+\newpage
+\newpage
+\newpage 
+\newpage
+\newpage 
+\newpage
+\newpage
+\newpage
+\newpage
+\newpage
 
 Contribution Table 
 ===
@@ -77,13 +92,10 @@ Exam Prob 6   |       x       |               |
 knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
 ```
 
-\newpage
-
-------------------------------------------------------------
-Question 1
-===
+# Question 1
 
 ### Give an Overview and Introduction to the Dataset 
+
 The International Diamond Grading System, created by The Gemological Institute of America,focuses on the 4C’s as a means to categorise diamonds. The categories are explained on the Diamonds Search Engine, which contains information about how loose diamonds are graded. 
 
 The Diamonds dataset used in this report is based on the Diamonds Search Engine [1]. 
@@ -119,7 +131,6 @@ The depth (total depth percentage) is a continuous variable which is the total d
 The table is a continuous variable which is a measurement of the width of the top of a diamond in relation to the widest point.
 
 ### What is the Overall Statement of Interest ? 
-
 The idea is to analyse the dataset in order to determine relationships between variables. 
 More specifically, it may be interesting to discover the relationship between two attributes: i.e. the relationship between: 
 
@@ -132,11 +143,10 @@ More specifically, it may be interesting to discover the relationship between tw
 * The carat and the depth of a colourless diamond 
 * The price corresponding to the cut of a diamond
 
-### How to Transform Data?
-
+### How to Transform Data
 Ideally the price could be determined in Danish Kroner, Pounds Sterling or Euros, rather the US dollars. It may also be a good idea to transform carats into milligrams to represent the weight of the diamond. The attributes that are recorded in millimetres could also be converted to centimetres. 
 
-**What is the Conclusion of previous Analysis?**
+### What is the Conclusion of previous Analysis?
 
 In his R publication, Jon Ong has performed a brief analysis of this dataset looking at the relationship between Cut vs. Colour, Price vs. Cut, and Price vs. Clarity. The results show that diamonds with a Premium Cut have the highest carat [5]. 
 
@@ -150,18 +160,15 @@ It is possible to analyse the relationship between diamond length (**X**) and di
 
 It is possible to look at the relationship between carat and price for 1 specific colour, cut and clarity of diamond in our regression problem. One could observe the carat of the diamonds that are priced between $10,000 to $20,000 USD. 
 
-
 A classification problem requires a dataset to be classified into two or more categories. 
 One idea is to choose the category of cut and determine if the diamond is very good, premium cut or ideal cut? This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
 
 Another idea is to choose the category of colour and determine if the diamond is D or J. This can be also be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(z). 
 
-Finally , it is possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
+It is also possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
 
-------------------------------------------------------------
+# Question 2 
 
-Question 2 
-===
 ### Describe if the attributes are discrete/continuous, Nominal/Ordinal/Interval/Ratio
 
 The table below shows the classification of the attributes. 
@@ -196,7 +203,6 @@ It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 a
 
 Table 2. 
 ------------------------------------------------------------
-
  Variable       | No. Obs.   |  Mean      |  Variance       |Standard Dev | Lower Quart | Median  | Upper quart |
  ---------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
 | Carat.        |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
@@ -211,7 +217,6 @@ Table 2.
 | Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
 
 ### Correlation Table 
-
 Table 3. 
 ------------------------------------------------------------
 
@@ -253,7 +258,12 @@ kable(head(Dia), caption = "Head of the diamonds dataset arranged for the PCA")
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
 
-```{r}
+```{r echo=FALSE, fig.align='center', out.width='60%'}
+# Include images and pictures..
+knitr::include_graphics('Images/histograms.png')
+```
+
+```{r echo=FALSE, include=FALSE}
 # histogram
 yvals <- c()
 for (m in 1:M)
@@ -290,7 +300,8 @@ specific observation can be discarded.
 
 The $99.99^{th}$ percentile of the data set sorted by the *table* shows the following
 data:
-```{r}
+```{r, include=FALSE}
+# Can you explain this inside Code.R file? 
 i <- 6 # table
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
@@ -302,7 +313,8 @@ For this reason, the row nr. 24933 of the data set will be canceled.
 
 As for the attribute *y* (width), it can be followed the same procedure by sorting
 the data set by the width and looking at the $99.99^{th}$ percentile:
-```{r}
+```{r, include=FALSE}
+# Can you explain this inside Code.R file? 
 i <- 9 # width (y)
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
@@ -315,7 +327,8 @@ two outliers will be canceled
 
 Finally, sorting the data set by the *z*-dimension, the $99.99^{th}$ percentile
 is composed by the following records:
-```{r}
+```{r, include=FALSE}
+# Can you explain this inside Code.R file? 
 i <- 10 # depth (z)
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
@@ -323,13 +336,13 @@ IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 The last record has a value of *z* very far from the other ones, so it can be
 considered as an outlier and so it will be removed from the data set.
 
-### Possible distributions followd by the data
+### Possible distributions followed by the data
 
 Now that the data set is free from outliers, the histograms of the attributes
 will be more meaningful about the possible distribution the data follow for each
 variable:
 
-```{r}
+```{r echo=FALSE, include=FALSE}
 nr <- c(24068,49190,48411,24933)
 Dia <- Dia[-nr, ]
 N <- N - length(nr)
@@ -373,7 +386,12 @@ are removed from the data set and points of the plots are colored according to
 the attribute *cut* in the attempt of finding some pattern of the data. The matrix
 is shown below:
 
-```{r}
+```{r echo=FALSE, fig.align='center', out.width='60%'}
+# Include images and pictures..
+knitr::include_graphics('Images/scatterplots.png')
+```
+
+```{r echo=FALSE, include=FALSE}
 Dia_qty <- Dia[,c(1:2,5:10)]
 Dia_qty <- Dia_qty[sample(nrow(Dia_qty), size=1000), ]
 Cut <- Dia_qty[,2]
@@ -569,7 +587,7 @@ heavier will be) more than quality ones;
 plan defined by the second and forth PCs. It can be seen that *color* varies
 with the forth PC, so it is correlated with *clarity*, *cut* and *table*.
 
-```{r, fig.ncol = 2, out.width = "50%"}
+```{r, fig.ncol = 2, out.width = "75%"}
 # CUT, PC 1-2
 Z <- S$u %*% diag(S$d)
 Z <- cbind(Z,diamonds$cut)
@@ -577,7 +595,7 @@ Z <- cbind(Z,diamonds$cut)
 i <- 1
 j <- 2
 
-ggplot() +
+plot1 <- ggplot() +
   ggtitle('Cut') +
   geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
@@ -591,7 +609,7 @@ Z <- cbind(Z,diamonds$price)
 i <- 1
 j <- 2
 
-ggplot() +
+plot2 <-ggplot() +
   ggtitle('Price') +
   geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
@@ -605,7 +623,7 @@ Z <- cbind(Z,diamonds$carat)
 i <- 1
 j <- 2
 
-ggplot() +
+plot3<- ggplot() +
   ggtitle('Carat') +
   geom_point(aes(x = Z[, i], y = Z[, j], color=log(Z[,11])), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
@@ -619,12 +637,21 @@ Z <- cbind(Z,diamonds$color)
 i <- 2
 j <- 4
 
-ggplot() +
+plot4 <- ggplot() +
   ggtitle('Color') +
   geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
+
+library(patchwork)
+# Add plots together into 1 image. 
+(plot1 | plot2) /  (plot3 | plot4)
+```
+
+```{r echo=FALSE, fig.align='center', out.width='60%'}
+# Include images and pictures..
+knitr::include_graphics('Images/PC_Image.png')
 ```
 
 # 4) Results: what data have shown
