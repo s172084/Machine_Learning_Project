@@ -40,6 +40,12 @@ data(diamonds)
 knitr::include_graphics(c("Images/Universe2.png"))
 ```
 
+```{r echo=FALSE, fig.align='default', out.width='30%'}
+# Include images and pictures..
+
+knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
+```
+
 \newpage
 \newpage 
 \newpage
@@ -85,12 +91,6 @@ Exam Prob 5   |               |       x       |
 ------------- | ------------- | ------------- |
 Exam Prob 6   |       x       |               |
 
-
-```{r echo=FALSE, fig.align='default', out.width='30%'}
-# Include images and pictures..
-
-knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
-```
 
 # Question 1
 
@@ -229,6 +229,13 @@ Table 3.
 
 There is a positive correlation between Length(**X**) and Width(**Y**). There is a positive correlation between Width(**Y**) and Depth(**Z**).There is a positive correlation between Length(**X**) and Depth(**Z**). There is a positive correlation between carat and Length(**X**)
 
+*these are in italic* 
+
+$$ {X \~ N(sd, \mu) }$$
+
+
+
+
 # 3) Data visualization
 
 ## Representation of the data set
@@ -258,7 +265,7 @@ kable(head(Dia), caption = "Head of the diamonds dataset arranged for the PCA")
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
 
-```{r echo=FALSE, fig.align='center', out.width='60%'}
+```{r echo=FALSE, fig.align='center', out.width='100%'}
 # Include images and pictures..
 knitr::include_graphics('Images/hist_w_out.png')
 ```
