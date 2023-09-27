@@ -29,22 +29,17 @@ library(reshape2)
 library(rmarkdown)
 library(tidyverse)
 library(knitr)
-
 data(diamonds)
 # ctrl + alt + I
 ```
 
 
 ```{r echo=FALSE, fig.align='center', out.width='40%'}
-# Include images and pictures..
+# Include images and pictures using .png files in the Images folder..(only if you want to.. =))
 knitr::include_graphics(c("Images/Universe2.png"))
 ```
 
-```{r echo=FALSE, fig.align='default', out.width='30%'}
-# Include images and pictures..
 
-knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
-```
 
 \newpage
 \newpage 
@@ -91,6 +86,13 @@ Exam Prob 5   |               |       x       |
 ------------- | ------------- | ------------- |
 Exam Prob 6   |       x       |               |
 
+```{r echo=FALSE, fig.align='default', out.width='30%'}
+# Include images and pictures..
+
+knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
+```
+
+\newpage
 
 # Question 1
 
@@ -167,6 +169,7 @@ Another idea is to choose the category of colour and determine if the diamond is
 
 It is also possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
 
+\newpage
 # Question 2 
 
 ### Describe if the attributes are discrete/continuous, Nominal/Ordinal/Interval/Ratio
@@ -193,11 +196,13 @@ There are no missing values or NAs in any column of the dataset. The data is tid
 
 ### Include basic summary statistics of the attributes, including correlation
 
-There are many diamonds that have a carat between 0.2 and 1, with the average carat being 0.7.  Therefore it may be interesting to narrow in on the dataset and only look at diamonds that are between 1 and 5 carat, and exclude all diamonds below 1 carat.
+There are many diamonds that have a carat between 0.2 and 1, with the average carat being 0.7.  
+Therefore it may be interesting to narrow in on the dataset and only look at diamonds that are between 1 and 5 carat, and exclude all diamonds below 1 carat.
 The average length of a diamond (**X**) is 5.731 mm. It may be interesting to look at diamonds that are between 6 and 10 millimetres long.  
 The average price of a diamond in this dataset is $3,932.8 USD.  There is a lower quantile of $950 dollars and upper quantile of $5,324.5 USD.  It may be interesting to narrow down the price range and focus on diamonds that are between $326 - $5000 USD. However  $5000 - $15,000 USD or $10,000 -  £$20,000 USD may also be suitable ranges to focus on. 
 Many of the diamonds have the average table of approximately 61.7. Diamonds have an average depth of 3.5. It may be interesting to explore diamonds that have a depth (**Z**) between 5 and 10. 
 It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 and narrow down on the cut to look at only 1 type of cut. There are 21,000 Ideal cut diamonds, which makes this the most common category.  One could choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds to focus on.
+
 
 ## Summary Statistics Table 
 
@@ -206,9 +211,9 @@ Table 2.
  Variable       | No. Obs.   |  Mean      |  Variance       |Standard Dev | Lower Quart | Median  | Upper quart |
  ---------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
 | Carat.        |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
-| Cut.          |            |            |                 |             |             |         |             |
-| Colour        |            |            |                 |             |             |         |             |
-| Clarity       |            |            |                 |             |             |         |             |
+| Cut.          |   53,940   |            |                 |             |             |         |             |
+| Colour        |   53,940   |            |                 |             |             |         |             |
+| Clarity       |   53,940   |            |                 |             |             |         |             |
 | Total Depth % |   53,940   |    61.749  |         2.052   |    1.433    |    61       |    61.8 |      62.5   |
 | Table         |   53,940   |    57.457  |         4.992   |    2.234    |    56       |    57.0 |      59.0   |
 | Price         |   53,940   |  3932.80   |  15915629       |  3989.44    |    22.59    |   24.69 |      27.64  |
@@ -216,25 +221,22 @@ Table 2.
 | Width (Y)     |   53,940   |     5.734  |         1.305   |    1.142    |     4.72    |    5.71 |       6.54  |
 | Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
 
-### Correlation Table 
+## Correlation Table 
 Table 3. 
 ------------------------------------------------------------
+ | Correlation      | Value   |
+ |------------------|---------|
+ | X & Y            | 0.9747  |
+ | Y & Z            | 0.9520  |
+ | X & Z            | 0.9707  |
+ | carat & X        | 0.9750  |
+ 
+* There is a positive correlation between Length(**X**) and Width(**Y**).
+* There is a positive correlation between Width(**Y**) and Depth(**Z**).
+* There is a positive correlation between Length(**X**) and Depth(**Z**).
+* There is a positive correlation between carat and Length(**X**)
 
-| Correlation      | Value   |
-|------------------|---------|
-| X & Y            | 0.9747  |
-| Y & Z            | 0.9520  |
-| X & Z            | 0.9707  |
-| carat & X        | 0.9750  |
-
-There is a positive correlation between Length(**X**) and Width(**Y**). There is a positive correlation between Width(**Y**) and Depth(**Z**).There is a positive correlation between Length(**X**) and Depth(**Z**). There is a positive correlation between carat and Length(**X**)
-
-*these are in italic* 
-
-$$ {X \~ N(sd, \mu) }$$
-
-
-
+\newpage
 
 # 3) Data visualization
 
@@ -265,12 +267,8 @@ kable(head(Dia), caption = "Head of the diamonds dataset arranged for the PCA")
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
 
-```{r echo=FALSE, fig.align='center', out.width='100%'}
-# Include images and pictures..
-knitr::include_graphics('Images/hist_w_out.png')
-```
 
-```{r echo=FALSE, include=FALSE}
+```{r echo=FALSE}
 # histogram
 yvals <- c()
 for (m in 1:M)
@@ -308,7 +306,6 @@ specific observation can be discarded.
 The $99.99^{th}$ percentile of the data set sorted by the *table* shows the following
 data:
 ```{r}
-# Can you explain this inside Code.R file? 
 i <- 6 # table
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
@@ -321,7 +318,6 @@ For this reason, the row nr. 24933 of the data set will be canceled.
 As for the attribute *y* (width), it can be followed the same procedure by sorting
 the data set by the width and looking at the $99.99^{th}$ percentile:
 ```{r}
-# Can you explain this inside Code.R file? 
 i <- 9 # width (y)
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
@@ -335,7 +331,6 @@ two outliers will be canceled
 Finally, sorting the data set by the *z*-dimension, the $99.99^{th}$ percentile
 is composed by the following records:
 ```{r}
-# Can you explain this inside Code.R file? 
 i <- 10 # depth (z)
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
@@ -349,7 +344,7 @@ Now that the data set is free from outliers, the histograms of the attributes
 will be more meaningful about the possible distribution the data follow for each
 variable:
 
-```{r echo=FALSE, include=FALSE}
+```{r echo=FALSE}
 nr <- c(24068,49190,48411,24933)
 Dia <- Dia[-nr, ]
 N <- N - length(nr)
@@ -375,10 +370,7 @@ for (m in 1:M)
 }
 ```
 
-```{r echo=FALSE, fig.align='center', out.width='60%'}
-# Include images and pictures..
-knitr::include_graphics('Images/hist_wo_out.png')
-```
+
 From the graphs, some considerations about the distribution of each attribute
 can be listed:
 - attributes *depth* and *table* appear to be normally distributed since they
@@ -397,12 +389,7 @@ are removed from the data set and points of the plots are colored according to
 the attribute *cut* in the attempt of finding some pattern of the data. The matrix
 is shown below:
 
-```{r echo=FALSE, fig.align='center', out.width='60%'}
-# Include images and pictures..
-knitr::include_graphics('Images/scatterplots.png')
-```
-
-```{r echo=FALSE, include=FALSE}
+```{r echo=FALSE}
 Dia_qty <- Dia[,c(1:2,5:10)]
 Dia_qty <- Dia_qty[sample(nrow(Dia_qty), size=1000), ]
 Cut <- Dia_qty[,2]
@@ -598,7 +585,7 @@ heavier will be) more than quality ones;
 plan defined by the second and forth PCs. It can be seen that *color* varies
 with the forth PC, so it is correlated with *clarity*, *cut* and *table*.
 
-```{r echo=FALSE, fig.ncol=2, fig.align='center', out.width='75%', include=FALSE}
+```{r echo=FALSE, fig.ncol=2, fig.align='center', out.width='75%'}
 # CUT, PC 1-2
 Z <- S$u %*% diag(S$d)
 Z <- cbind(Z,diamonds$cut)
@@ -660,16 +647,13 @@ library(patchwork)
 (plot1 | plot2) /  (plot3 | plot4)
 ```
 
-```{r echo=FALSE, fig.align='center', out.width='80%'}
-# Include images and pictures..
-knitr::include_graphics('Images/PC_Image.png')
-```
-
+ 
 # 4) Results: what data have shown
 
-
+\newpage
 
 # Exam Problems
+
 **Question 1** | Spring 2019 question 2
 Which of the following statements are true about the types of the attributes in the Urban Traffic dataset?
 
@@ -690,7 +674,7 @@ of $x_1$ it means that the PC2 decreases very little for the contribution of $x_
 PC2 has positive coefficients multiplying $x_2$, $x_3$ and $x_5$ so if an observation has a high value
 of them, it means that the PC2 increases a lot thanks to their the contribution
 
-
+\newpage
 
 References
 ===

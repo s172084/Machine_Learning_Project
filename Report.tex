@@ -110,10 +110,6 @@
 
 \begin{center}\includegraphics[width=0.4\linewidth]{Images/Universe2} \end{center}
 
-\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
-\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
-\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
-
 \newpage
 \newpage 
 \newpage
@@ -165,6 +161,12 @@ Exam Prob 5 & & x \\
 ------------- & ------------- & ------------- \\
 Exam Prob 6 & x & \\
 \end{longtable}
+
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+
+\newpage
 
 \hypertarget{question-1}{%
 \section{Question 1}\label{question-1}}
@@ -329,6 +331,8 @@ the diamond is IF , VS1 or I1 . This can be done using the diamond
 length (\textbf{X}) and diamond width (\textbf{Y}), the carat and the
 depth(\textbf{Z}).
 
+\newpage
+
 \hypertarget{question-2}{%
 \section{Question 2}\label{question-2}}
 
@@ -415,11 +419,12 @@ including
 correlation}\label{include-basic-summary-statistics-of-the-attributes-including-correlation}}
 
 There are many diamonds that have a carat between 0.2 and 1, with the
-average carat being 0.7. Therefore it may be interesting to narrow in on
-the dataset and only look at diamonds that are between 1 and 5 carat,
-and exclude all diamonds below 1 carat. The average length of a diamond
-(\textbf{X}) is 5.731 mm. It may be interesting to look at diamonds that
-are between 6 and 10 millimetres long.\\
+average carat being 0.7.\\
+Therefore it may be interesting to narrow in on the dataset and only
+look at diamonds that are between 1 and 5 carat, and exclude all
+diamonds below 1 carat. The average length of a diamond (\textbf{X}) is
+5.731 mm. It may be interesting to look at diamonds that are between 6
+and 10 millimetres long.\\
 The average price of a diamond in this dataset is \$3,932.8 USD. There
 is a lower quantile of \$950 dollars and upper quantile of \$5,324.5
 USD. It may be interesting to narrow down the price range and focus on
@@ -472,9 +477,9 @@ Upper quart
 \bottomrule\noalign{}
 \endlastfoot
 Carat. & 53,940 & 0.797 & 0.2247 & 0.474 & 0.4 & 0.7 & 1.04 \\
-Cut. & & & & & & & \\
-Colour & & & & & & & \\
-Clarity & & & & & & & \\
+Cut. & 53,940 & & & & & & \\
+Colour & 53,940 & & & & & & \\
+Clarity & 53,940 & & & & & & \\
 Total Depth \% & 53,940 & 61.749 & 2.052 & 1.433 & 61 & 61.8 & 62.5 \\
 Table & 53,940 & 57.457 & 4.992 & 2.234 & 56 & 57.0 & 59.0 \\
 Price & 53,940 & 3932.80 & 15915629 & 3989.44 & 22.59 & 24.69 & 27.64 \\
@@ -484,7 +489,7 @@ Depth(Z) & 53,940 & 3.538 & 0.498 & 0.706 & 2.91 & 3.53 & 4.04 \\
 \end{longtable}
 
 \hypertarget{correlation-table}{%
-\subsubsection{Correlation Table}\label{correlation-table}}
+\subsection{Correlation Table}\label{correlation-table}}
 
 \hypertarget{table-3.}{%
 \subsection{Table 3.}\label{table-3.}}
@@ -502,15 +507,22 @@ X \& Z & 0.9707 \\
 carat \& X & 0.9750 \\
 \end{longtable}
 
-There is a positive correlation between Length(\textbf{X}) and
-Width(\textbf{Y}). There is a positive correlation between
-Width(\textbf{Y}) and Depth(\textbf{Z}).There is a positive correlation
-between Length(\textbf{X}) and Depth(\textbf{Z}). There is a positive
-correlation between carat and Length(\textbf{X})
+\begin{itemize}
+\tightlist
+\item
+  There is a positive correlation between Length(\textbf{X}) and
+  Width(\textbf{Y}).
+\item
+  There is a positive correlation between Width(\textbf{Y}) and
+  Depth(\textbf{Z}).
+\item
+  There is a positive correlation between Length(\textbf{X}) and
+  Depth(\textbf{Z}).
+\item
+  There is a positive correlation between carat and Length(\textbf{X})
+\end{itemize}
 
-\emph{these are in italic}
-
-\[ {X \~ N(sd, \mu) }\]
+\newpage
 
 \hypertarget{data-visualization}{%
 \section{3) Data visualization}\label{data-visualization}}
@@ -554,7 +566,7 @@ data}\label{issues-with-outliers-in-the-data}}
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
 
-\begin{center}\includegraphics[width=1\linewidth]{Images/hist_w_out} \end{center}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-4-1.pdf}
 
 Some of the histograms seem to be affected by outliers in the data. It
 can be seen by looking at the horizontal axis of each graph and by
@@ -630,7 +642,7 @@ Now that the data set is free from outliers, the histograms of the
 attributes will be more meaningful about the possible distribution the
 data follow for each variable:
 
-\begin{center}\includegraphics[width=0.6\linewidth]{Images/hist_wo_out} \end{center}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 From the graphs, some considerations about the distribution of each
 attribute can be listed: - attributes \emph{depth} and \emph{table}
@@ -655,9 +667,8 @@ and points of the plots are colored according to the attribute
 \emph{cut} in the attempt of finding some pattern of the data. The
 matrix is shown below:
 
-\begin{center}\includegraphics[width=0.6\linewidth]{Images/scatterplots} \end{center}
-
-The plots confirm the very high correlation between the variables
+\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf} The
+plots confirm the very high correlation between the variables
 \emph{carat}, \emph{x}, \emph{y} and \emph{z}, as already computed in
 the Table 3. In addition, also the \emph{price} appears to be slightly
 correlated with the variables \emph{carat}, \emph{x}, \emph{y} and
@@ -687,7 +698,7 @@ set of observations of that variable.
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-12-1.pdf}
 
 \end{col}
 
@@ -715,7 +726,7 @@ explain little less than the 90\% of variance
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-16-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-13-1.pdf}
 
 \end{col}
 
@@ -743,7 +754,7 @@ focuses more on the quality characteristics (\emph{cut}, \emph{color},
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{Report_files/figure-latex/unnamed-chunk-14-1.pdf}
 
 \end{col}
 
@@ -802,11 +813,13 @@ below.
   with \emph{clarity}, \emph{cut} and \emph{table}.
 \end{itemize}
 
-\begin{center}\includegraphics[width=0.8\linewidth]{Images/PC_Image} \end{center}
+\begin{center}\includegraphics[width=0.75\linewidth]{Report_files/figure-latex/unnamed-chunk-15-1} \end{center}
 
 \hypertarget{results-what-data-have-shown}{%
 \section{4) Results: what data have
 shown}\label{results-what-data-have-shown}}
+
+\newpage
 
 \hypertarget{exam-problems}{%
 \section{Exam Problems}\label{exam-problems}}
@@ -836,6 +849,8 @@ decreases very little for the contribution of \(x_1\). On the other
 hand, PC2 has positive coefficients multiplying \(x_2\), \(x_3\) and
 \(x_5\) so if an observation has a high value of them, it means that the
 PC2 increases a lot thanks to their the contribution
+
+\newpage
 
 \hypertarget{references}{%
 \section{References}\label{references}}
