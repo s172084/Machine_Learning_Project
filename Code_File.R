@@ -309,15 +309,21 @@ classNames <- as.character(levels(diamonds$cut))
 
 # PCA ##########################################################################
 
+# Manipulation of the dataset for the PCA
+D_pca <- as.data.frame(diamonds[,c(1,5:10)]) # drop categorical attibutes
+N <- dim(D_pca)[1] # number of rows
+M <- dim(D_pca)[2] # number of columns
+attributeNames <- colnames(D_pca)
+
 # Stardardization of the dataset
 
-stds <- apply(Dia, 2, sd)
+stds <- apply(D_pca, 2, sd)
 (round(stds,digits=2))
 par(mfrow = c(1, 1))
 barplot(stds, ylab = "Diamonds: attribute standard deviation")
 
 # For each column: subtract the mean (of the col) and divide by the std (of the col)
-D_pca <- t(apply(Dia, 1, "-", colMeans(Dia)))
+D_pca <- t(apply(D_pca, 1, "-", colMeans(D_pca)))
 D_pca <- t(apply(D_pca, 1, "*", 1 / stds))
 D_pca <- as.data.frame(D_pca)
 
@@ -356,9 +362,9 @@ legend("right", # Define position
 Z <- S$u %*% diag(S$d)
 V <- S$v
 
-pcs <- 1:4
+pcs <- 1:3
 test <- as.data.frame(melt(data.table(V[, pcs])))
-ggplot(test, aes(x = rep(1:10, length(pcs)), y = value, fill=variable)) +
+ggplot(test, aes(x = rep(1:7, length(pcs)), y = value, fill=variable)) +
   ggtitle("Principal directions interpreted in terms of features") +
   geom_bar(position="dodge", stat = "identity") +
   labs(fill="PC", x = "Attributes", y = "Component coefficients")
@@ -386,44 +392,41 @@ lines(cos(th), sin(th))
 
 # Data projected onto the first two principal components
 
-# COLOR
+# CUT
 Z <- S$u %*% diag(S$d)
-Z <- cbind(Z,diamonds$color)
 
 i <- 2
-j <- 4
+j <- 3
 
 ggplot() +
-  ggtitle('Color') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  ggtitle('Cut') +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=as.character(diamonds$cut)), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
 
-# CUT, PC 2-3, very evident also in PC 1-2
+# COLOR
 Z <- S$u %*% diag(S$d)
-Z <- cbind(Z,diamonds$cut)
 
-i <- 1
-j <- 2
+i <- 2
+j <- 3
 
 ggplot() +
-  ggtitle('Cut') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  ggtitle('Color') +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=as.character(diamonds$color)), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
 
 # CLARITY
 Z <- S$u %*% diag(S$d)
-Z <- cbind(Z,diamonds$clarity)
 
-i <- 2
-j <- 4
+i <- 1
+j <- 2
 
 ggplot() +
   ggtitle('Clarity') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
+  geom_point(aes(x = Z[, i], y = Z[, j], color=as.character(diamonds$clarity)), size = 1, alpha = 0.5) +
   theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
   labs(x = paste('PC ',i), y = paste('PC ',j)) +
   xlim(-5,10) + ylim(-5,7.5)
