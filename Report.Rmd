@@ -191,7 +191,7 @@ It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 a
 
 ## Summary Statistics Table 
 
- Variable       | No. Obs.   |  Mean      |  Variance       |Standard Dev | Lower Quart | Median  | Upper quart |
+ Variable       |No.Obs.$N$| Mean$\hat{\mu}$|  Variance    |Standard Dev $\hat{\sigma}$| Lower Quart | Median  | Upper quart |
  ---------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
 | Carat.        |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
 | Cut.          |   53,940   |            |                 |             |             |         |             |
