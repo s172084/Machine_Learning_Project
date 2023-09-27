@@ -7,11 +7,15 @@ author:
 date: "From: 2023-09-05 To: 2023-10-03"
 output:
   pdf_document:
+    toc: false
+    toc_depth: 3
     keep_tex: true
     extra_dependencies: "subfig"
     includes:
       in_header: columns.tex
   html_document:
+    toc: true
+    toc_depth: 3
     df_print: paged
     css: columns.css
 ---
@@ -39,25 +43,6 @@ data(diamonds)
 knitr::include_graphics(c("Images/Universe2.png"))
 ```
 
-
-
-\newpage
-\newpage 
-\newpage
-\newpage 
-\newpage
-\newpage 
-\newpage
-\newpage
-\newpage 
-\newpage
-\newpage 
-\newpage
-\newpage
-\newpage
-\newpage
-\newpage
-\newpage
 \newpage
 
 Contribution Table 
@@ -96,9 +81,15 @@ knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png',
 
 \newpage
 
+```{=latex}
+\setcounter{tocdepth}{4}
+\tableofcontents
+```
+\newpage
+
 # Question 1
 
-### Give an Overview and Introduction to the Dataset 
+### Introduction to the Dataset 
 
 The International Diamond Grading System, created by The Gemological Institute of America,focuses on the 4C’s as a means to categorise diamonds. The categories are explained on the Diamonds Search Engine, which contains information about how loose diamonds are graded. 
 
@@ -134,7 +125,7 @@ The depth (total depth percentage) is a continuous variable which is the total d
 
 The table is a continuous variable which is a measurement of the width of the top of a diamond in relation to the widest point.
 
-### What is the Overall Statement of Interest ? 
+### Statement of Interest
 The idea is to analyse the dataset in order to determine relationships between variables. 
 More specifically, it may be interesting to discover the relationship between two attributes: i.e. the relationship between: 
 
@@ -147,16 +138,16 @@ More specifically, it may be interesting to discover the relationship between tw
 * The carat and the depth of a colourless diamond 
 * The price corresponding to the cut of a diamond
 
-### How to Transform Data
+### Data Transformation
 Ideally the price could be determined in Danish Kroner, Pounds Sterling or Euros, rather the US dollars. It may also be a good idea to transform carats into milligrams to represent the weight of the diamond. The attributes that are recorded in millimetres could also be converted to centimetres. 
 
-### What is the Conclusion of previous Analysis?
+### Conclusion of previous Analysis
 
 In his R publication, Jon Ong has performed a brief analysis of this dataset looking at the relationship between Cut vs. Colour, Price vs. Cut, and Price vs. Clarity. The results show that diamonds with a Premium Cut have the highest carat [5]. 
 
 Poonam Rao has also performed a brief analysis of the diamonds dataset where she performs data visualisation using scatterplots , histograms and box-plots. She explains that diamonds that are categorised in the Ideal group with regard to cut, often have a low weight [6] .  
 
-### What do you aim to learn from the data using Classification and Regression?
+### Learning Aims using Classification and Regression
 
 A regression problem analyses the relationship between a dependent variable and an independent variable. The Regression can be linear regression or multiple linear regression. 
 
@@ -173,7 +164,8 @@ It is also possible to choose the category of clarity and determine if the diamo
 
 # Question 2 
 
-### Describe if the attributes are discrete/continuous, Nominal/Ordinal/Interval/Ratio
+## Description of Attributes
+**Describe if the attributes are discrete/continuous, Nominal/Ordinal/Interval/Ratio**
 
 The table below shows the classification of the attributes. 
 The cut, colour, and clarity are ordinal factor variables. In the table below, Cont. means continuous and Categ. means Categorical. 
@@ -187,7 +179,7 @@ Attribute |     Carat   |     Cut     |     Colour  |   Clarity.  |    Depth    
 
 There are no missing values or NAs in any column of the dataset. The data is tidy from the TidyVerse. In the Premium cut group and Ideal cut group of diamonds, there are some diamonds that have an outlying width, which corresponds to the VS1 ad SI2 clarity groups. 
 
-### Include basic summary statistics of the attributes, including correlation
+**Include basic summary statistics of the attributes, including correlation**
 
 There are many diamonds that have a carat between 0.2 and 1, with the average carat being 0.7.  
 Therefore it may be interesting to narrow in on the dataset and only look at diamonds that are between 1 and 5 carat, and exclude all diamonds below 1 carat.
