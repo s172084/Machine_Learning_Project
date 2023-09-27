@@ -57,6 +57,8 @@ knitr::include_graphics(c("Images/Universe2.png"))
 \newpage
 \newpage
 \newpage
+\newpage
+\newpage
 
 Contribution Table 
 ===
@@ -169,28 +171,19 @@ Another idea is to choose the category of colour and determine if the diamond is
 
 It is also possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
 
-\newpage
 # Question 2 
 
 ### Describe if the attributes are discrete/continuous, Nominal/Ordinal/Interval/Ratio
 
 The table below shows the classification of the attributes. 
-The cut, colour, and clarity are ordinal factor variables. 
+The cut, colour, and clarity are ordinal factor variables. In the table below, Cont. means continuous and Categ. means Categorical. 
 
-### Attribute Table 
-Table 1. 
-------------------------------------------------------------
+## Attribute Table 
 
 Attribute |     Carat   |     Cut     |     Colour  |   Clarity.  |    Depth    |   Table     |    Price   | Length (X)  | Width(Y)   | Depth  (Z)  |
 ----------|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:----------:|:-----------:|:---------: |:-----------:| 
 | Type    | Cont.       | Categ.      | Categ.      | Categ.      | Cont.       |  Cont.      | Discrete   | Cont.       | Cont.      | Cont.       |
 | Type    | Ratio       | Ordinal     | Ordinal     | Ordinal     | Ratio       | Ratio       | Interval   |   Ratio     |   Ratio    |    Ratio    |
-
-
-* Continuous = Cont
-* Categorical = Categ.
-
-### Give an account of whether there are data issues (i.e. missing values or corrupted data)
 
 There are no missing values or NAs in any column of the dataset. The data is tidy from the TidyVerse. In the Premium cut group and Ideal cut group of diamonds, there are some diamonds that have an outlying width, which corresponds to the VS1 ad SI2 clarity groups. 
 
@@ -206,8 +199,6 @@ It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 a
 
 ## Summary Statistics Table 
 
-Table 2. 
-------------------------------------------------------------
  Variable       | No. Obs.   |  Mean      |  Variance       |Standard Dev | Lower Quart | Median  | Upper quart |
  ---------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
 | Carat.        |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
@@ -222,8 +213,7 @@ Table 2.
 | Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
 
 ## Correlation Table 
-Table 3. 
-------------------------------------------------------------
+ 
  | Correlation      | Value   |
  |------------------|---------|
  | X & Y            | 0.9747  |
