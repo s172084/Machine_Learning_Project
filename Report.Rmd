@@ -229,8 +229,6 @@ to manage the ordinal attributes (*cut*, *color* and *clarity*), they can be
 converted into ordinal numbers (from 1 to the upper level number) according to 
 their ranking.
 
-After the conversion, the data set appears as below:
-
 ```{r}
 Dia <- as.data.frame(diamonds)
 Dia$cut <- as.numeric(Dia$cut)
@@ -240,8 +238,6 @@ Dia$clarity <- as.numeric(Dia$clarity)
 N <- dim(Dia)[1] # number of rows of the new one-hot-encoded dataframe
 M <- dim(Dia)[2] # number of columns of the new one-hot-encoded dataframe
 attributeNames <- colnames(Dia)
-
-kable(head(Dia), caption = "Head of the diamonds dataset arranged for the PCA")
 ```
 
 ### Issues with outliers in the data
@@ -301,11 +297,11 @@ As for the attribute *y* (width), it can be followed the same procedure by sorti
 the data set by the width and looking at the $99.99^{th}$ percentile:
 ```{r}
 i <- 9 # width (y)
-IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
+IdxOutlier <- Dia[,i] > quantile(Dia[,i],.99994)
 (Outlier <- Dia[which(IdxOutlier), ])
 ```
 It can be seen that the first and the last rows have very larger values of *y* with respect
-to the the other three rows belonging to the $99.99^{th}$ percentile. It is very
+to the the other two rows belonging to the $99.99^{th}$ percentile. It is very
 unlikely that, considering such a big number of diamonds, there are two diamonds
 with dimensions so different from the others. So the two rows containing the
 two outliers will be canceled
@@ -314,7 +310,7 @@ Finally, sorting the data set by the *z*-dimension, the $99.99^{th}$ percentile
 is composed by the following records:
 ```{r}
 i <- 10 # depth (z)
-IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
+IdxOutlier <- Dia[,i] > quantile(Dia[,i],.99995)
 (Outlier <- Dia[which(IdxOutlier), ])
 ```
 The last record has a value of *z* very far from the other ones, so it can be
@@ -394,30 +390,24 @@ seem to distinguish any cluster of the data.
 ## Principal component analysis
 
 The aim of the Principal Component Analysis ("PCA" from now on), is to simplify
-the problem dimension by reducing the number of variables which explains the
-behavior of the diamonds' price.
-
-Below the standard deviations of the variables are shown:
+the problem dimension by reducing the number of interval or ratio variables which explains the
+behavior of diamonds. So, for the PCA, the categorical attributes *cut*, *color* and *clarity*
+are removed from the data set.
 
 ```{r}
-Dia <- as.data.frame(diamonds)
-Dia$cut <- as.numeric(Dia$cut)
-Dia$color <- as.numeric(Dia$color)
-Dia$clarity <- as.numeric(Dia$clarity)
+D_pca <- as.data.frame(diamonds[,c(1,5:10)]) # drop categorical attibutes
+N <- dim(D_pca)[1] # number of rows
+M <- dim(D_pca)[2] # number of columns
+attributeNames <- colnames(D_pca)
 
-N <- dim(Dia)[1] # number of rows of the new one-hot-encoded dataframe
-M <- dim(Dia)[2] # number of columns of the new one-hot-encoded dataframe
-attributeNames <- colnames(Dia)
-
-stds <- apply(Dia, 2, sd)
-print(round(stds,digits=2))
+stds <- apply(D_pca, 2, sd)
 ```
 
-Since standard deviation of *price* is some orders of magnitude larger than the 
-others, the dataset has to be standardized by subtracting the mean and dividing
+Looking at the Table 2, standard deviation of *price* is some orders of magnitude larger than the 
+others, so the dataset has to be standardized by subtracting the mean and dividing
 by the standard deviation of the whole set of observations of that variable.
 ```{r}
-D_pca <- t(apply(Dia, 1, "-", colMeans(Dia)))
+D_pca <- t(apply(D_pca, 1, "-", colMeans(D_pca)))
 D_pca <- t(apply(D_pca, 1, "*", 1 / stds))
 D_pca <- as.data.frame(D_pca)
 ```
@@ -429,10 +419,11 @@ D_pca <- as.data.frame(D_pca)
 S <- svd(D_pca)
 diagS <- S$d
 rho <- diagS^2 / sum(diagS^2)
-
+rho
 threshold <- 0.9
 
 xlimits <- c(1, M)
+
 plot(rho,
      type = "o",
      main = "Variance explained by principal components",
@@ -467,8 +458,9 @@ it can be seen how much variance is explained by each principal component.
 The cumulative explained variance should reach the percentage of 90% in order
 to describe properly the main features of the dataset. 
 
-The figure on the left shows that the first 4 principal components explain 
-little less than the 90% of variance
+The figure on the left shows that the first 3 principal components explain 
+the 96% of variance, so the problem can be reduced from a seven-dimensional to a
+three-dimensional one.
 :::
 ::::::
 
@@ -479,9 +471,9 @@ little less than the 90% of variance
 Z <- S$u %*% diag(S$d)
 V <- S$v
 
-pcs <- 1:4
+pcs <- 1:3
 test <- as.data.frame(melt(data.table(V[, pcs])))
-ggplot(test, aes(x = rep(1:10, length(pcs)), y = value, fill=variable)) +
+ggplot(test, aes(x = rep(1:7, length(pcs)), y = value, fill=variable)) +
   ggtitle("Principal directions interpreted in terms of features") +
   geom_bar(position="dodge", stat = "identity") +
   labs(fill="PC", x = "Attributes", y = "Component coefficients")
@@ -493,14 +485,15 @@ ggplot(test, aes(x = rep(1:10, length(pcs)), y = value, fill=variable)) +
 :::
 
 ::: {.col data-latex="{0.40\textwidth}"}
-The matrix $V^T$ contains the ten deca-dimensional vectors defining the principal 
-components (PCs). Focusing on the first four PCs, they contains the weights
+The matrix $V^T$ contains the seven seven-dimensional vectors defining the principal 
+components (PCs). Focusing on the first three PCs, they contains the weights
 associated to each of original component. The figure on the left shows
-the valuea of the weights. It can be noticed that the first PC mainly describes
+the values of the weights. It can be noticed that the first PC mainly describes
 the dimensional quantities of the diamonds (*carat*, size in *x*, *y*, *z*) and
-the *price*. It seems that these five characteristics alone explain half of the
+the *price*. It seems that these five characteristics alone explain two-thirds of the
 variability of the diamonds. As for the second PC, it focuses more on the
-quality characteristics (*cut*, *color*, *clarity*) and on the *table*.
+cut characteristics (*depth* and *table*). The third PC mainly describes the cut characteristics
+as well, but considering them as contibuting to the same direction.
 :::
 ::::::
 
@@ -510,6 +503,8 @@ quality characteristics (*cut*, *color*, *clarity*) and on the *table*.
 ```{r, echo=FALSE, fig.width=5, fig.height=5}
 i <- 1
 j <- 2
+
+dev.new()
 par(mfcol = c(1, 1), pty = "s")
 plot(c(-1, 1), c(-1, 1),
      xlab = paste("PC", toString(i)), ylab = paste("PC", toString(j)),
@@ -521,7 +516,7 @@ arrows(integer(M), integer(M),
        length = .1,
        col = "blue"
 )
-text(V[, i] * 1.1, V[, j] * 1.1, attributeNames, cex = 0.8)
+text(V[, i] * 1.1, V[, j] * 1.1, attributeNames, cex = 1.5)
 # Add a unit circle
 th <- seq(0, 2.1 * pi, 0.1)
 lines(cos(th), sin(th))

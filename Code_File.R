@@ -262,10 +262,10 @@ i <- 6 # table
 IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
 (Outlier <- Dia[which(IdxOutlier), ])
 i <- 9 # width (y)
-IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
+IdxOutlier <- Dia[,i] > quantile(Dia[,i],.99994)
 (Outlier <- Dia[which(IdxOutlier), ])
 i <- 10 # depth (z)
-IdxOutlier <- Dia[,i] > quantile(Dia[,i],.9999)
+IdxOutlier <- Dia[,i] > quantile(Dia[,i],.99995)
 (Outlier <- Dia[which(IdxOutlier), ])
 
 nr <- c(24068,49190,48411,24933)
@@ -391,6 +391,8 @@ th <- seq(0, 2.1 * pi, 0.1)
 lines(cos(th), sin(th))
 
 # Data projected onto the first two principal components
+
+
 
 # CUT
 Z <- S$u %*% diag(S$d)

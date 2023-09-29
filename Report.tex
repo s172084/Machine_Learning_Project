@@ -111,26 +111,8 @@
 \begin{center}\includegraphics[width=0.4\linewidth]{Images/Universe2} \end{center}
 
 \newpage
-\newpage 
-\newpage
-\newpage 
-\newpage
-\newpage 
-\newpage
-\newpage
-\newpage 
-\newpage
-\newpage 
-\newpage
-\newpage
-\newpage
-\newpage
-\newpage
-\newpage
-\newpage
 
-\hypertarget{contribution-table}{%
-\section{Contribution Table}\label{contribution-table}}
+\section{Contribution Table}\label{contribution-table}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -170,12 +152,15 @@ Exam Prob 6 & x & \\
 
 \newpage
 
-\hypertarget{question-1}{%
-\section{Question 1}\label{question-1}}
+\setcounter{tocdepth}{4}
+\tableofcontents
 
-\hypertarget{give-an-overview-and-introduction-to-the-dataset}{%
-\subsubsection{Give an Overview and Introduction to the
-Dataset}\label{give-an-overview-and-introduction-to-the-dataset}}
+\newpage
+
+\section{Question 1}\label{question-1}
+
+\subsubsection{Introduction to the
+Dataset}\label{introduction-to-the-dataset}
 
 The International Diamond Grading System, created by The Gemological
 Institute of America,focuses on the 4C's as a means to categorise
@@ -247,9 +232,7 @@ length and width.
 The table is a continuous variable which is a measurement of the width
 of the top of a diamond in relation to the widest point.
 
-\hypertarget{what-is-the-overall-statement-of-interest}{%
-\subsubsection{What is the Overall Statement of Interest
-?}\label{what-is-the-overall-statement-of-interest}}
+\subsubsection{Statement of Interest}\label{statement-of-interest}
 
 The idea is to analyse the dataset in order to determine relationships
 between variables. More specifically, it may be interesting to discover
@@ -275,8 +258,7 @@ the relationship between two attributes: i.e.~the relationship between:
   The price corresponding to the cut of a diamond
 \end{itemize}
 
-\hypertarget{how-to-transform-data}{%
-\subsubsection{How to Transform Data}\label{how-to-transform-data}}
+\subsubsection{Data Transformation}\label{data-transformation}
 
 Ideally the price could be determined in Danish Kroner, Pounds Sterling
 or Euros, rather the US dollars. It may also be a good idea to transform
@@ -284,9 +266,8 @@ carats into milligrams to represent the weight of the diamond. The
 attributes that are recorded in millimetres could also be converted to
 centimetres.
 
-\hypertarget{what-is-the-conclusion-of-previous-analysis}{%
-\subsubsection{What is the Conclusion of previous
-Analysis?}\label{what-is-the-conclusion-of-previous-analysis}}
+\subsubsection{Conclusion of previous
+Analysis}\label{conclusion-of-previous-analysis}
 
 In his R publication, Jon Ong has performed a brief analysis of this
 dataset looking at the relationship between Cut vs.~Colour, Price
@@ -298,10 +279,8 @@ where she performs data visualisation using scatterplots , histograms
 and box-plots. She explains that diamonds that are categorised in the
 Ideal group with regard to cut, often have a low weight {[}6{]} .
 
-\hypertarget{what-do-you-aim-to-learn-from-the-data-using-classification-and-regression}{%
-\subsubsection{What do you aim to learn from the data using
-Classification and
-Regression?}\label{what-do-you-aim-to-learn-from-the-data-using-classification-and-regression}}
+\subsubsection{Learning Aims using Classification and
+Regression}\label{learning-aims-using-classification-and-regression}
 
 A regression problem analyses the relationship between a dependent
 variable and an independent variable. The Regression can be linear
@@ -333,19 +312,18 @@ the diamond is IF , VS1 or I1 . This can be done using the diamond
 length (\textbf{X}) and diamond width (\textbf{Y}), the carat and the
 depth(\textbf{Z}).
 
-\hypertarget{question-2}{%
-\section{Question 2}\label{question-2}}
+\section{Question 2}\label{question-2}
 
-\hypertarget{describe-if-the-attributes-are-discretecontinuous-nominalordinalintervalratio}{%
-\subsubsection{Describe if the attributes are discrete/continuous,
-Nominal/Ordinal/Interval/Ratio}\label{describe-if-the-attributes-are-discretecontinuous-nominalordinalintervalratio}}
+\subsection{Description of Attributes}\label{description-of-attributes}
+
+\textbf{Describe if the attributes are discrete/continuous,
+Nominal/Ordinal/Interval/Ratio}
 
 The table below shows the classification of the attributes. The cut,
 colour, and clarity are ordinal factor variables. In the table below,
 Cont. means continuous and Categ. means Categorical.
 
-\hypertarget{attribute-table}{%
-\subsection{Attribute Table}\label{attribute-table}}
+\subsection{Attribute Table}\label{attribute-table}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0730}}
@@ -398,10 +376,8 @@ data is tidy from the TidyVerse. In the Premium cut group and Ideal cut
 group of diamonds, there are some diamonds that have an outlying width,
 which corresponds to the VS1 ad SI2 clarity groups.
 
-\hypertarget{include-basic-summary-statistics-of-the-attributes-including-correlation}{%
-\subsubsection{Include basic summary statistics of the attributes,
-including
-correlation}\label{include-basic-summary-statistics-of-the-attributes-including-correlation}}
+\textbf{Include basic summary statistics of the attributes, including
+correlation}
 
 There are many diamonds that have a carat between 0.2 and 1, with the
 average carat being 0.7.\\
@@ -424,8 +400,7 @@ Ideal cut diamonds, which makes this the most common category. One could
 choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds
 to focus on.
 
-\hypertarget{summary-statistics-table}{%
-\subsection{Summary Statistics Table}\label{summary-statistics-table}}
+\subsection{Summary Statistics Table}\label{summary-statistics-table}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1442}}
@@ -440,13 +415,13 @@ to focus on.
 \begin{minipage}[b]{\linewidth}\raggedright
 Variable
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-No.~Obs.
+No.Obs.\(N\)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Mean
+Mean\(\hat{\mu}\)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Variance
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Standard Dev
+Standard Dev \(\hat{\sigma}\)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Lower Quart
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -470,8 +445,7 @@ Width (Y) & 53,940 & 5.734 & 1.305 & 1.142 & 4.72 & 5.71 & 6.54 \\
 Depth(Z) & 53,940 & 3.538 & 0.498 & 0.706 & 2.91 & 3.53 & 4.04 \\
 \end{longtable}
 
-\hypertarget{correlation-table}{%
-\subsection{Correlation Table}\label{correlation-table}}
+\subsection{Correlation Table}\label{correlation-table}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
@@ -503,12 +477,10 @@ carat \& X & 0.9750 \\
 
 \newpage
 
-\hypertarget{data-visualization}{%
-\section{3) Data visualization}\label{data-visualization}}
+\section{3) Data visualization}\label{data-visualization}
 
-\hypertarget{representation-of-the-data-set}{%
 \subsection{Representation of the data
-set}\label{representation-of-the-data-set}}
+set}\label{representation-of-the-data-set}
 
 The data set is composed by different type of data as discussed above.
 In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
@@ -538,9 +510,8 @@ carat & cut & color & clarity & depth & table & price & x & y & z \\
 0.24 & 3 & 7 & 6 & 62.8 & 57 & 336 & 3.94 & 3.96 & 2.48 \\
 \end{longtable}
 
-\hypertarget{issues-with-outliers-in-the-data}{%
 \subsubsection{Issues with outliers in the
-data}\label{issues-with-outliers-in-the-data}}
+data}\label{issues-with-outliers-in-the-data}
 
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
@@ -583,14 +554,13 @@ procedure by sorting the data set by the width and looking at the
 \begin{verbatim}
 ##       carat cut color clarity depth table price     x     y    z
 ## 24068  2.00   4     5       2  58.9    57 12210  8.09 58.90 8.06
-## 25999  4.01   4     6       1  61.0    61 15223 10.14 10.10 6.17
 ## 27416  5.01   1     7       1  65.5    59 18018 10.74 10.54 6.98
 ## 27631  4.50   1     7       1  65.8    58 18531 10.23 10.16 6.72
 ## 49190  0.51   5     2       5  61.8    55  2075  5.15 31.80 5.12
 \end{verbatim}
 
 It can be seen that the first and the last rows have very larger values
-of \emph{y} with respect to the the other three rows belonging to the
+of \emph{y} with respect to the the other two rows belonging to the
 \(99.99^{th}\) percentile. It is very unlikely that, considering such a
 big number of diamonds, there are two diamonds with dimensions so
 different from the others. So the two rows containing the two outliers
@@ -601,11 +571,8 @@ Finally, sorting the data set by the \emph{z}-dimension, the
 
 \begin{verbatim}
 ##       carat cut color clarity depth table price     x     y     z
-## 23645  3.65   1     5       1  67.1  53.0 11668  9.53  9.48  6.38
 ## 24068  2.00   4     5       2  58.9  57.0 12210  8.09 58.90  8.06
-## 27131  4.13   1     5       1  64.8  61.0 17329 10.00  9.85  6.43
 ## 27416  5.01   1     7       1  65.5  59.0 18018 10.74 10.54  6.98
-## 27631  4.50   1     7       1  65.8  58.0 18531 10.23 10.16  6.72
 ## 48411  0.51   3     2       5  61.8  54.7  1970  5.12  5.15 31.80
 \end{verbatim}
 
@@ -613,9 +580,8 @@ The last record has a value of \emph{z} very far from the other ones, so
 it can be considered as an outlier and so it will be removed from the
 data set.
 
-\hypertarget{possible-distributions-followed-by-the-data}{%
 \subsubsection{Possible distributions followed by the
-data}\label{possible-distributions-followed-by-the-data}}
+data}\label{possible-distributions-followed-by-the-data}
 
 Now that the data set is free from outliers, the histograms of the
 attributes will be more meaningful about the possible distribution the
@@ -634,9 +600,7 @@ and \emph{z} appear to follow a log-normal distribution, since they
 follow a asymmetric bell curve with the sample-mode smaller than the
 mean.
 
-\hypertarget{correlation-of-variables}{%
-\subsubsection{Correlation of
-variables}\label{correlation-of-variables}}
+\subsubsection{Correlation of variables}\label{correlation-of-variables}
 
 Correlation between variables can be studied by producing the matrix of
 scatter plots of each combination of two attributes against each other.
@@ -654,9 +618,8 @@ correlated with the variables \emph{carat}, \emph{x}, \emph{y} and
 \emph{z}. The other variables do not show any specific pattern and also
 the \emph{cut} does not seem to distinguish any cluster of the data.
 
-\hypertarget{principal-component-analysis}{%
 \subsection{Principal component
-analysis}\label{principal-component-analysis}}
+analysis}\label{principal-component-analysis}
 
 The aim of the Principal Component Analysis (``PCA'' from now on), is to
 simplify the problem dimension by reducing the number of variables which
@@ -794,14 +757,12 @@ below.
 
 \begin{center}\includegraphics[width=0.75\linewidth]{Report_files/figure-latex/unnamed-chunk-15-1} \end{center}
 
-\hypertarget{results-what-data-have-shown}{%
 \section{4) Results: what data have
-shown}\label{results-what-data-have-shown}}
+shown}\label{results-what-data-have-shown}
 
 \newpage
 
-\hypertarget{exam-problems}{%
-\section{Exam Problems}\label{exam-problems}}
+\section{Exam Problems}\label{exam-problems}
 
 \textbf{Question 1} \textbar{} Spring 2019 question 2 Which of the
 following statements are true about the types of the attributes in the
@@ -831,8 +792,7 @@ PC2 increases a lot thanks to their the contribution
 
 \newpage
 
-\hypertarget{references}{%
-\section{References}\label{references}}
+\section{References}\label{references}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -865,5 +825,9 @@ PC2 increases a lot thanks to their the contribution
   Paul Gian, Beyond 4C's - Real Insights to Buying Diamonds ,
   ``\url{https://beyond4cs.com/color/}'', Accessed 22 September 2023
 \end{enumerate}
+
+\newpage
+
+\section{Appendix}\label{appendix}
 
 \end{document}
