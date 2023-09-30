@@ -487,29 +487,6 @@ In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
 \emph{clarity}), they can be converted into ordinal numbers (from 1 to
 the upper level number) according to their ranking.
 
-After the conversion, the data set appears as below:
-
-\begin{longtable}[]{@{}rrrrrrrrrr@{}}
-\caption{Head of the diamonds dataset arranged for the
-PCA}\tabularnewline
-\toprule\noalign{}
-carat & cut & color & clarity & depth & table & price & x & y & z \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-carat & cut & color & clarity & depth & table & price & x & y & z \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-0.23 & 5 & 2 & 2 & 61.5 & 55 & 326 & 3.95 & 3.98 & 2.43 \\
-0.21 & 4 & 2 & 3 & 59.8 & 61 & 326 & 3.89 & 3.84 & 2.31 \\
-0.23 & 2 & 2 & 5 & 56.9 & 65 & 327 & 4.05 & 4.07 & 2.31 \\
-0.29 & 4 & 6 & 4 & 62.4 & 58 & 334 & 4.20 & 4.23 & 2.63 \\
-0.31 & 2 & 7 & 2 & 63.3 & 58 & 335 & 4.34 & 4.35 & 2.75 \\
-0.24 & 3 & 7 & 6 & 62.8 & 57 & 336 & 3.94 & 3.96 & 2.48 \\
-\end{longtable}
-
 \subsubsection{Issues with outliers in the
 data}\label{issues-with-outliers-in-the-data}
 
@@ -622,24 +599,25 @@ the \emph{cut} does not seem to distinguish any cluster of the data.
 analysis}\label{principal-component-analysis}
 
 The aim of the Principal Component Analysis (``PCA'' from now on), is to
-simplify the problem dimension by reducing the number of variables which
-explains the behavior of the diamonds' price.
+simplify the problem dimension by reducing the number of interval or
+ratio variables which explains the behavior of diamonds. So, for the
+PCA, the categorical attributes \emph{cut}, \emph{color} and
+\emph{clarity} are removed from the data set.
 
-Below the standard deviations of the variables are shown:
-
-\begin{verbatim}
-##   carat     cut   color clarity   depth   table   price       x       y       z 
-##    0.47    1.12    1.70    1.65    1.43    2.23 3989.44    1.12    1.14    0.71
-\end{verbatim}
-
-Since standard deviation of \emph{price} is some orders of magnitude
-larger than the others, the dataset has to be standardized by
-subtracting the mean and dividing by the standard deviation of the whole
-set of observations of that variable.
+Looking at the Table 2, standard deviation of \emph{price} is some
+orders of magnitude larger than the others, so the dataset has to be
+standardized by subtracting the mean and dividing by the standard
+deviation of the whole set of observations of that variable.
 
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
+
+\begin{verbatim}
+## [1] 0.680559258 0.183695440 0.098687323 0.024821905 0.005758174 0.004706656
+## [7] 0.001771245
+\end{verbatim}
+
 \includegraphics{Report_files/figure-latex/unnamed-chunk-12-1.pdf}
 
 \end{col}
@@ -658,8 +636,9 @@ principal component. The cumulative explained variance should reach the
 percentage of 90\% in order to describe properly the main features of
 the dataset.
 
-The figure on the left shows that the first 4 principal components
-explain little less than the 90\% of variance
+The figure on the left shows that the first 3 principal components
+explain the 96\% of variance, so the problem can be reduced from a
+seven-dimensional to a three-dimensional one.
 
 \end{col}
 
@@ -678,84 +657,31 @@ explain little less than the 90\% of variance
 \end{col}
 
 \begin{col}{0.40\textwidth}
-The matrix \(V^T\) contains the ten deca-dimensional vectors defining
-the principal components (PCs). Focusing on the first four PCs, they
+The matrix \(V^T\) contains the seven seven-dimensional vectors defining
+the principal components (PCs). Focusing on the first three PCs, they
 contains the weights associated to each of original component. The
-figure on the left shows the valuea of the weights. It can be noticed
+figure on the left shows the values of the weights. It can be noticed
 that the first PC mainly describes the dimensional quantities of the
 diamonds (\emph{carat}, size in \emph{x}, \emph{y}, \emph{z}) and the
 \emph{price}. It seems that these five characteristics alone explain
-half of the variability of the diamonds. As for the second PC, it
-focuses more on the quality characteristics (\emph{cut}, \emph{color},
-\emph{clarity}) and on the \emph{table}.
+two-thirds of the variability of the diamonds. As for the second PC, it
+focuses more on the cut characteristics (\emph{depth} and \emph{table}).
+The third PC mainly describes the cut characteristics as well, but
+considering them as contibuting to the same direction.
 
 \end{col}
 
 \end{cols}
 
-\begin{cols}
+Data can be projected in the three-dimensional space defined by the PCs.
+By projecting them, some interesting features can be observed, as shown
+by the 3D graph below. Data are colored by the attribute \emph{cut}
 
-\begin{col}{0.55\textwidth}
-\includegraphics{Report_files/figure-latex/unnamed-chunk-14-1.pdf}
-
-\end{col}
-
-\begin{col}{0.05\textwidth}
-~
-
-\end{col}
-
-\begin{col}{0.40\textwidth}
-Unfortunately, it is impossible to represent data in a four-dimensional
-space, so data are projected onto the bi-dimensional space defined by
-the first two PCs. Coefficients can be projected in this space as well,
-showing the directions followed by original attributes. It can clearly
-be seen that the first PC is eastward oriented, so that it collects very
-well the eastward attributes. Probably, the second PC is southward
-directed so that it collects the southward attributes (with the plus
-sign) and the northward \emph{table} attribute (with the minus sign)
-
-\end{col}
-
-\end{cols}
-
-Data can be projected in all the possible bi-dimensional spaces defined
-by each combination of two of the PCs. By projecting them, some
-insteresting features can be observed, as shown by the four graphs
-below.
-
-\begin{itemize}
-\tightlist
-\item
-  Variable \emph{cut} can assume five possible levels, so it is the
-  easiest one to be visualized. The graph shows that \emph{cut} varies
-  mostly in the direction of the second PC, so the \emph{cut} of
-  diamonds strongly depends on their quality features (the better are
-  \emph{color} and \emph{clarity}, the better will be the cut), and is
-  less affected by the size (\emph{x}, \emph{y} and \emph{z}) and the
-  \emph{carat} (weight);
-\item
-  variable \emph{price} is strongly asymmethrical towards low values,
-  and it is very evident also in the graph where cold blue is
-  predominant with respect to light blue. \emph{Price} strongly varies
-  with the first PC, so it depends on quantity factors of diamonds (the
-  bigger and heavier is the diamond, the more expensive will be) more
-  than on quality ones;
-\item
-  variable \emph{carat} is very concentrated between 0 and 1 and
-  widespread beyond 1. So, in order to have a better visualization, the
-  graph below represent the logarithm of the \emph{carat}. It can be
-  seen that it is correlated to the dimensional quantities explained by
-  the first PC (the more expensive and bigger is the diamond, the
-  heavier will be) more than quality ones;
-\item
-  variable \emph{color} has a better representation if data are
-  projected onto the plan defined by the second and forth PCs. It can be
-  seen that \emph{color} varies with the forth PC, so it is correlated
-  with \emph{clarity}, \emph{cut} and \emph{table}.
-\end{itemize}
-
-\begin{center}\includegraphics[width=0.75\linewidth]{Report_files/figure-latex/unnamed-chunk-15-1} \end{center}
+\begin{figure}
+\centering
+\includegraphics{Images/PC_Image.png}
+\caption{alt-text-1}
+\end{figure}
 
 \section{4) Results: what data have
 shown}\label{results-what-data-have-shown}

@@ -392,7 +392,39 @@ lines(cos(th), sin(th))
 
 # Data projected onto the first two principal components
 
+library(scatterplot3d)
+library(rgl)
+Z <- S$u %*% diag(S$d)
+Z <- cbind(Z,as.character(diamonds$cut))
+Z_sample <- Z[sample(nrow(Z),1000),]
 
+cols <- rep("black", times = length(Z_sample[,8]))
+cols[Z_sample[,8] == "Fair"] <- "purple"
+cols[Z_sample[,8] == "Good"] <- "blue"
+cols[Z_sample[,8] == "Very Good"] <- "green3"
+cols[Z_sample[,8] == "Premium"] <- "orange"
+cols[Z_sample[,8] == "Ideal"] <- "red"
+
+plot3d(Z_sample[, 1:3], col = cols, xlab="PC1", ylab="PC2", zlab="PC3", size = 4)
+
+Z <- S$u %*% diag(S$d)
+Z <- cbind(Z,as.character(diamonds$clarity))
+Z_sample <- Z[sample(nrow(Z),1000),]
+
+cols <- rep("black", times = length(Z_sample[,8]))
+cols[Z_sample[,8] == "I1"] <- "purple"
+cols[Z_sample[,8] == "SI2"] <- "azure"
+cols[Z_sample[,8] == "SI1"] <- "blue"
+cols[Z_sample[,8] == "VS2"] <- "green4"
+cols[Z_sample[,8] == "VS1"] <- "green1"
+cols[Z_sample[,8] == "VVS2"] <- "orange"
+cols[Z_sample[,8] == "VVS1"] <- "red"
+cols[Z_sample[,8] == "IF"] <- "brown"
+
+plot3d(Z_sample[, 1:3], col = cols, xlab="PC1", ylab="PC2", zlab="PC3", size = 4)
+
+# plot(1,1)
+# legend("topright",c("Fair","Good","Very Good","Premium","Ideal"),fill=c("purple","blue","green3","orange","red"))
 
 # CUT
 Z <- S$u %*% diag(S$d)

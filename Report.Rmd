@@ -497,134 +497,17 @@ as well, but considering them as contibuting to the same direction.
 :::
 ::::::
 
-:::::: {.cols data-latex=""}
+Data can be projected in the three-dimensional space defined by the PCs. 
+By projecting them, some interesting features can be observed, as shown by the 3D graph below.
+Data are colored by the attribute *cut* and, for visualization purposes, only a sample of 1000 data is plotted.
+It can be seen that data are layered following sloped planes. In addition, they are clustered according to
+the *cut*: borders of different classes are not so clear, in particular "very good" and "premium" diamonds
+are mixed together. "Ideal" diamonds are concentrated in a very visible cluster, as for "fair" diamonds that
+are very far from the rest of the diamonds. As it can be expected, the *cut* of diamonds is mainly explained by
+the second and third PCs, that are related to depth and table of diamonds.
 
-::: {.col data-latex="{0.55\textwidth}"}
-```{r, echo=FALSE, fig.width=5, fig.height=5}
-i <- 1
-j <- 2
+![alt-text-1](Images/PC_Image.png "Data projected onto the first three PC-defined space")
 
-dev.new()
-par(mfcol = c(1, 1), pty = "s")
-plot(c(-1, 1), c(-1, 1),
-     xlab = paste("PC", toString(i)), ylab = paste("PC", toString(j)),
-     type = "n",
-     main = "Coefficients in the PC-space"
-)
-arrows(integer(M), integer(M),
-       V[, i], V[, j],
-       length = .1,
-       col = "blue"
-)
-text(V[, i] * 1.1, V[, j] * 1.1, attributeNames, cex = 1.5)
-# Add a unit circle
-th <- seq(0, 2.1 * pi, 0.1)
-lines(cos(th), sin(th))
-```
-:::
-
-::: {.col data-latex="{0.05\textwidth}"}
-\ 
-:::
-
-::: {.col data-latex="{0.40\textwidth}"}
-Unfortunately, it is impossible to represent data in a four-dimensional space, so
-data are projected onto the bi-dimensional space defined by the first two PCs.
-Coefficients can be projected in this space as well, showing the directions
-followed by original attributes. It can clearly be seen that the first PC is
-eastward oriented, so that it collects very well the eastward attributes.
-Probably, the second PC is southward directed so that it collects the southward
-attributes (with the plus sign) and the northward *table* attribute (with the
-minus sign)
-:::
-::::::
-
-Data can be projected in all the possible bi-dimensional spaces defined by each
-combination of two of the PCs. By projecting them, some insteresting features
-can be observed, as shown by the four graphs below.
-
-- Variable *cut* can assume five possible levels, so it is the easiest one to be
-visualized. The graph shows that *cut* varies mostly in the direction of the
-second PC, so the *cut* of diamonds strongly depends on their quality features
-(the better are *color* and *clarity*, the better will be the cut), and is less 
-affected by the size (*x*, *y* and *z*) and the *carat* (weight);
-- variable *price* is strongly asymmethrical towards low values, and it is
-very evident also in the graph where cold blue is predominant with respect to
-light blue. *Price* strongly varies with the first PC, so it depends on
-quantity factors of diamonds (the bigger and heavier is the diamond, the more 
-expensive will be) more than on quality ones;
-- variable *carat* is very concentrated between 0 and 1 and widespread beyond 1.
-So, in order to have a better visualization, the graph below represent the logarithm
-of the *carat*. It can be seen that it is correlated to the dimensional quantities
-explained by the first PC (the more expensive and bigger is the diamond, the 
-heavier will be) more than quality ones;
-- variable *color* has a better representation if data are projected onto the
-plan defined by the second and forth PCs. It can be seen that *color* varies
-with the forth PC, so it is correlated with *clarity*, *cut* and *table*.
-
-```{r echo=FALSE, fig.ncol=2, fig.align='center', out.width='75%'}
-# CUT, PC 1-2
-Z <- S$u %*% diag(S$d)
-Z <- cbind(Z,diamonds$cut)
-
-i <- 1
-j <- 2
-
-plot1 <- ggplot() +
-  ggtitle('Cut') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
-  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
-  labs(x = paste('PC ',i), y = paste('PC ',j)) +
-  xlim(-5,10) + ylim(-5,7.5)
-
-# PRICE
-Z <- S$u %*% diag(S$d)
-Z <- cbind(Z,diamonds$price)
-
-i <- 1
-j <- 2
-
-plot2 <-ggplot() +
-  ggtitle('Price') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
-  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
-  labs(x = paste('PC ',i), y = paste('PC ',j)) +
-  xlim(-5,10) + ylim(-5,7.5)
-
-# CARAT
-Z <- S$u %*% diag(S$d)
-Z <- cbind(Z,diamonds$carat)
-
-i <- 1
-j <- 2
-
-plot3<- ggplot() +
-  ggtitle('Carat') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=log(Z[,11])), size = 1, alpha = 0.5) +
-  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
-  labs(x = paste('PC ',i), y = paste('PC ',j)) +
-  xlim(-5,10) + ylim(-5,7.5)
-
-# COLOR
-Z <- S$u %*% diag(S$d)
-Z <- cbind(Z,diamonds$color)
-
-i <- 2
-j <- 4
-
-plot4 <- ggplot() +
-  ggtitle('Color') +
-  geom_point(aes(x = Z[, i], y = Z[, j], color=Z[,11]), size = 1, alpha = 0.5) +
-  theme(legend.position = c(0.88, 0.8), legend.title = element_blank()) +
-  labs(x = paste('PC ',i), y = paste('PC ',j)) +
-  xlim(-5,10) + ylim(-5,7.5)
-
-library(patchwork)
-# Add plots together into 1 image. 
-(plot1 | plot2) /  (plot3 | plot4)
-```
-
- 
 # 4) Results: what data have shown
 
 \newpage
