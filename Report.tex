@@ -110,11 +110,9 @@
 
 \begin{center}\includegraphics[width=0.4\linewidth]{Images/Universe2} \end{center}
 
-\center
-
-\section{Contribution Table}\label{contribution-table}
-
-\center
+\begin{center}
+CONTRIBUTION TABLE
+\end{center}
 
 \begin{longtable}[]{@{}lcc@{}}
 \toprule\noalign{}
@@ -141,9 +139,9 @@ Exam Prob 3 & x & \\
 ------------- & ------------- & ------------- \\
 Exam Prob 4 & & x \\
 ------------- & ------------- & ------------- \\
-Exam Prob 5 & & x \\
+Exam Prob 5 & x & \\
 ------------- & ------------- & ------------- \\
-Exam Prob 6 & x & \\
+Exam Prob 6 & & x \\
 \end{longtable}
 
 \newpage
@@ -151,13 +149,15 @@ Exam Prob 6 & x & \\
 \setcounter{tocdepth}{4}
 \tableofcontents
 
+~ ~ ~ ~
+
 \includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
 \includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
 \includegraphics[width=0.3\linewidth]{Images/Diamond_Group} \newpage
 
 \section{Question 1}\label{question-1}
 
-\subsubsection{Introduction to the
+\subsection{Introduction to the
 Dataset}\label{introduction-to-the-dataset}
 
 The International Diamond Grading System, created by The Gemological
@@ -230,7 +230,9 @@ length and width.
 The table is a continuous variable which is a measurement of the width
 of the top of a diamond in relation to the widest point.
 
-\subsubsection{Statement of Interest}\label{statement-of-interest}
+\newpage
+
+\subsection{Statement of Interest}\label{statement-of-interest}
 
 The idea is to analyse the dataset in order to determine relationships
 between variables. More specifically, it may be interesting to discover
@@ -256,7 +258,7 @@ the relationship between two attributes: i.e.~the relationship between:
   The price corresponding to the cut of a diamond
 \end{itemize}
 
-\subsubsection{Data Transformation}\label{data-transformation}
+\subsection{Data Transformation}\label{data-transformation}
 
 Ideally the price could be determined in Danish Kroner, Pounds Sterling
 or Euros, rather the US dollars. It may also be a good idea to transform
@@ -264,7 +266,7 @@ carats into milligrams to represent the weight of the diamond. The
 attributes that are recorded in millimetres could also be converted to
 centimetres.
 
-\subsubsection{Conclusion of previous
+\subsection{Conclusion of previous
 Analysis}\label{conclusion-of-previous-analysis}
 
 In his R publication, Jon Ong has performed a brief analysis of this
@@ -277,7 +279,7 @@ where she performs data visualisation using scatterplots , histograms
 and box-plots. She explains that diamonds that are categorised in the
 Ideal group with regard to cut, often have a low weight {[}6{]} .
 
-\subsubsection{Learning Aims using Classification and
+\subsection{Learning Aims using Classification and
 Regression}\label{learning-aims-using-classification-and-regression}
 
 A regression problem analyses the relationship between a dependent
@@ -401,14 +403,14 @@ to focus on.
 \subsection{Summary Statistics Table}\label{summary-statistics-table}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1442}}
-  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1154}}
-  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1154}}
-  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1635}}
-  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0865}}
-  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1759}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1574}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1204}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1204}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0833}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1204}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Variable
@@ -510,6 +512,8 @@ attributes, a list of histograms can be displayed:
 
 \includegraphics{Report_files/figure-latex/unnamed-chunk-4-1.pdf}
 
+\newpage
+
 Some of the histograms seem to be affected by outliers in the data. It
 can be seen by looking at the horizontal axis of each graph and by
 noticing that bins do not cover all the axis values but only a limited
@@ -518,7 +522,7 @@ dimensions \emph{y} and \emph{z}. This attributes contain very extreme
 values that wrongly set the axis limits. In order to detect them, the
 data set can be sorted from the smallest value of a specific attribute
 to the largest value of the same attribute. By doing so, it can be
-selected the 99.99 percentile, which corresponds to the highest
+selected the \(99.99^{th}\) percentile, which corresponds to the highest
 observations of the data set sorted by one of the attributes. If the
 values assumed by the attribute are not physical or are very different
 from the other values, the specific observation can be discarded.
@@ -572,6 +576,8 @@ The last record has a value of \emph{z} very far from the other ones, so
 it can be considered as an outlier and so it will be removed from the
 data set.
 
+\newpage
+
 \subsubsection{Possible distributions followed by the
 data}\label{possible-distributions-followed-by-the-data}
 
@@ -582,15 +588,25 @@ data follow for each variable:
 \includegraphics{Report_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 From the graphs, some considerations about the distribution of each
-attribute can be listed: - attributes \emph{depth} and \emph{table}
-appear to be normally distributed since they follow quite well the
-gaussian bell curve and they are almost symmetric; - attributes
-\emph{carat} and \emph{price} seem to follow an exponential
-distribution, since each bin is smaller than the previous one and larger
-than the following one; - attributes \emph{clarity}, \emph{x}, \emph{y}
-and \emph{z} appear to follow a log-normal distribution, since they
-follow a asymmetric bell curve with the sample-mode smaller than the
-mean.
+attribute can be listed:
+
+\begin{itemize}
+\tightlist
+\item
+  attributes \emph{depth} and \emph{table} appear to be normally
+  distributed since they follow quite well the gaussian bell curve and
+  they are almost symmetric;
+\item
+  attributes \emph{carat} and \emph{price} seem to follow an exponential
+  distribution, since each bin is smaller than the previous one and
+  larger than the following one;
+\item
+  attributes \emph{clarity}, \emph{x}, \emph{y} and \emph{z} appear to
+  follow a log-normal distribution, since they follow a asymmetric bell
+  curve with the sample-mode smaller than the mean.
+\end{itemize}
+
+\newpage
 
 \subsubsection{Correlation of variables}\label{correlation-of-variables}
 
@@ -605,15 +621,18 @@ matrix is shown below:
 \includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf} The
 plots confirm the very high correlation between the variables
 \emph{carat}, \emph{x}, \emph{y} and \emph{z}, as already computed in
-the Table 3. In addition, also the \emph{price} appears to be slightly
-correlated with the variables \emph{carat}, \emph{x}, \emph{y} and
-\emph{z}. The other variables do not show any specific pattern and also
-the \emph{cut} does not seem to distinguish any cluster of the data.
+the Correlation Table (page 6). In addition, also the \emph{price}
+appears to be slightly correlated with the variables \emph{carat},
+\emph{x}, \emph{y} and \emph{z}. The other variables do not show any
+specific pattern and also the \emph{cut} does not seem to distinguish
+any cluster of the data.
+
+\newpage
 
 \subsection{Principal component
 analysis}\label{principal-component-analysis}
 
-The aim of the Principal Component Analysis (``PCA'' from now on), is to
+The aim of the Principal Component Analysis (``PCA'' from now on) is to
 simplify the problem dimension by reducing the number of interval or
 ratio variables which explains the behavior of diamonds. So, for the
 PCA, the categorical attributes \emph{cut}, \emph{color} and
@@ -628,12 +647,6 @@ variable.
 \begin{cols}
 
 \begin{col}{0.55\textwidth}
-
-\begin{verbatim}
-## [1] 0.680559258 0.183695440 0.098687323 0.024821905 0.005758174 0.004706656
-## [7] 0.001771245
-\end{verbatim}
-
 \includegraphics{Report_files/figure-latex/unnamed-chunk-12-1.pdf}
 
 \end{col}
@@ -644,15 +657,15 @@ variable.
 \end{col}
 
 \begin{col}{0.40\textwidth}
-The new standardized dataset can be now used to perform the Singular
+The new standardized data set can be now used to perform the Singular
 Value Decomposition (SVD), which gives rise to three different matrices:
 \(U\), \(\Sigma\) and \(V^T\). By the extraction of the diagonal of the
 matrix \(\Sigma\), it can be seen how much variance is explained by each
 principal component. The cumulative explained variance should reach the
 percentage of 90\% in order to describe properly the main features of
-the dataset.
+the data set.
 
-The figure on the left shows that the first 3 principal components
+The figure on the left shows that the first three principal components
 explain the 96\% of variance, so the problem can be reduced from a
 seven-dimensional to a three-dimensional one.
 
@@ -678,12 +691,13 @@ the principal components (PCs). Focusing on the first three PCs, they
 contains the weights associated to each of original component. The
 figure on the left shows the values of the weights. It can be noticed
 that the first PC mainly describes the dimensional quantities of the
-diamonds (\emph{carat}, size in \emph{x}, \emph{y}, \emph{z}) and the
-\emph{price}. It seems that these five characteristics alone explain
-two-thirds of the variability of the diamonds. As for the second PC, it
-focuses more on the cut characteristics (\emph{depth} and \emph{table}).
+diamonds (\emph{carat} (nr. 1 in the figure), size in \emph{x} (nr. 5),
+\emph{y} (nr. 6), \emph{z} (nr. 7)) and the \emph{price} (nr. 4). It
+seems that these five characteristics alone explain two-thirds of the
+variability of the diamonds. As for the second PC, it focuses more on
+the cut characteristics (\emph{depth} (nr. 2) and \emph{table} (nr. 3)).
 The third PC mainly describes the cut characteristics as well, but
-considering them as contibuting to the same direction.
+considering them as contributing to the same direction.
 
 \end{col}
 
@@ -691,7 +705,9 @@ considering them as contibuting to the same direction.
 
 Data can be projected in the three-dimensional space defined by the PCs.
 By projecting them, some interesting features can be observed, as shown
-by the 3D graph below.
+by the 3D graphs below.
+
+\newpage
 
 In the top-figure below, data are colored by the attribute \emph{cut}
 and, for visualization purposes, only a sample of 1000 data is plotted.
@@ -699,14 +715,14 @@ It can be seen that data are layered following sloped planes. In
 addition, they are clustered according to the \emph{cut}: borders of
 different classes are not so clear, in particular ``very good'' and
 ``premium'' diamonds are mixed together. ``Ideal'' diamonds are
-concentrated in a very visible cluster, as for ``fair'' diamonds that
-are very far from the rest of the diamonds. As it can be expected, the
-\emph{cut} of diamonds is mainly explained by the second and third PCs,
-that are related to depth and table of diamonds.
+concentrated in a very visible cluster, while ``fair'' diamonds are very
+far from the rest of the diamonds. As it can be expected, the \emph{cut}
+of diamonds is mainly explained by the second and third PCs, that are
+related to \emph{depth} and \emph{table} of diamonds.
 
 In the bottom-figures below, data are colored by \emph{color} (left) and
 \emph{clarity} (right) and, for visualization purposes, only a sample of
-1000 data is plotted. No pattern and clusters can be seen from the
+1000 data is plotted. No pattern or cluster can be seen from the
 figures, so it seems that \emph{color} and \emph{clarity} are more
 difficult to be predicted than \emph{cut}, also because there are more
 different levels that these attributes can assume.
@@ -716,8 +732,11 @@ different levels that these attributes can assume.
 \includegraphics[width=0.5\textwidth,height=\textheight]{Images/PCcolor_Image.png}
 \includegraphics[width=0.5\textwidth,height=\textheight]{Images/PCclarity_Image.png}
 
-\section{4) Results: what data have
-shown}\label{results-what-data-have-shown}
+\newpage
+
+\section{Question 4}\label{question-4}
+
+\subsection{What data have shown}\label{what-data-have-shown}
 
 The data set appears to be complete since each diamond is described by
 all the attributes and there are not missing values. This is a good
@@ -731,22 +750,24 @@ are more numerous than big ones (as it can be expected) and that the
 characteristics connected to the rarity of the diamond (so, \emph{carat}
 and \emph{price}) seems to be distributed exponentially, meaning that
 diamonds having low \emph{carat} and low \emph{price} are more numerous
-than the most expensive and heavy ones. In addition, a strong
+than the heavier and more expensive ones. In addition, a strong
 correlation between the dimensions of diamonds and their weight can be
 found, as it can be expected (bigger diamonds are also heavier). It is
 interesting the fact that the \emph{price} is positively correlated to
-the dimensions and the \emph{carat}, meaning that the bigger and heavier
-diamonds are also more expensive. All these connections reflect to the
-fact that the first PC (combining all these characteristics) alone
-explains the 68\% of the variability of non-categorical attributes. As
-for the \emph{table} and \emph{depth}, they appear to be normally
+the dimensions and to the \emph{carat}, meaning that the bigger and
+heavier diamonds are also more expensive. All these connections reflect
+to the fact that the first PC (combining all these characteristics)
+alone explains the 68\% of the variability of non-categorical
+attributes.
+
+As for the \emph{table} and \emph{depth}, they appear to be normally
 distributed, and so less subjected to governing rules. Indeed, they seem
 to be uncorrelated to the other attributes and they are described mainly
 by the second and third PCs. Nevertheless, they are fundamental in
 describing the \emph{cut} behavior, since it is clear that data
 projected in the 2nd-3rd PCs plane and colored by the \emph{cut} are
 somehow clustered. Unfortunately, the same is not valid for the other
-twp categorical attributes (\emph{color} and \emph{clarity}) that seem
+two categorical attributes (\emph{color} and \emph{clarity}) that seem
 to be not connected to any of the other attributes.
 
 In conclusion, regression problems involving diamonds dimensions,
@@ -761,24 +782,27 @@ hard to be predicted.
 
 \section{Exam Problems}\label{exam-problems}
 
-\textbf{Question 1} \textbar{} Spring 2019 question 2 Which of the
-following statements are true about the types of the attributes in the
-Urban Traffic dataset?
+\textbf{Question 1} \textbar{} Spring 2019 question 2
+
+Which of the following statements are true about the types of the
+attributes in the Urban Traffic dataset?
 
 Answer \textbf{B}: the attribute \(x_1\) is ordinal because it can be
 said that time-interval number 5 is greater than the time-interval
 number 4 since it is later in the day but it makes no sense to sum and
 subtract them
 
-\textbf{Question 2} \textbar{} Spring 2019 question 2 Consider again the
-Urban Traffic dataset from table 1 and in particular the 14 and 18th
-observation . Which of the following statements about the p-norm
-distance dp (.,.) is correct ?
+\textbf{Question 2} \textbar{} Spring 2019 question 2
+
+Consider again the Urban Traffic dataset from table 1 and in particular
+the 14 and 18th observation . Which of the following statements about
+the p-norm distance dp (.,.) is correct ?
 
 Answer \textbf{A}: The Maximum Norm Distance is 7.0
 
-\textbf{Question 4} \textbar{} Spring 2019 question 2 Which one of the
-following statements is true?
+\textbf{Question 4} \textbar{} Spring 2019 question 2
+
+Which one of the following statements is true?
 
 Answer \textbf{D}: PC2 has a negative coefficient multiplying \(x_1\),
 so if an observation has a low value of \(x_1\) it means that the PC2
@@ -787,16 +811,18 @@ hand, PC2 has positive coefficients multiplying \(x_2\), \(x_3\) and
 \(x_5\) so if an observation has a high value of them, it means that the
 PC2 increases a lot thanks to their the contribution
 
-\textbf{Question 6} \textbar{} Spring 2019 question 2 Which is the
-probability an observation had \(\hat{x}_2=0\) given light congestion?
+\textbf{Question 6} \textbar{} Spring 2019 question 2
+
+Which is the probability an observation had \(\hat{x}_2=0\) given light
+congestion?
 
 Answer \textbf{B}: according to the Sum Rule we know that
-\(p(x_2|y)=\sum_{i=0}^1 p(x_2,x_7=i|y)\), so a new Probability Table can
-be compiled:
+\(p(x_2|y)=\sum_{i=0}^1 p(x_2,x_7=i|y)\), so a new Probability Table for
+\(p(x_2|y)\) can be compiled:
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
-\(p(x_2\|y)\) & y=1 & y=2 & y=3 & y=4 \\
+\(p(x_2 |y)\) & y=1 & y=2 & y=3 & y=4 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -804,6 +830,9 @@ be compiled:
 \(x_2=0\) & 0.84 & 0.84 & 0.73 & 0.77 \\
 \(x_2=1\) & 0.16 & 0.16 & 0.27 & 0.23 \\
 \end{longtable}
+
+Looking at the node \(p(x_2=0|y=2)\), it can be seen that the
+probability is 0.84
 
 \newpage
 
@@ -840,9 +869,5 @@ be compiled:
   Paul Gian, Beyond 4C's - Real Insights to Buying Diamonds ,
   ``\url{https://beyond4cs.com/color/}'', Accessed 22 September 2023
 \end{enumerate}
-
-\newpage
-
-\section{Appendix}\label{appendix}
 
 \end{document}

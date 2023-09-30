@@ -43,9 +43,9 @@ data(diamonds)
 knitr::include_graphics(c("Images/Universe2.png"))
 ```
 
-\center
-# Contribution Table
-\center
+\begin{center}
+CONTRIBUTION TABLE
+\end{center}
 
 Task          |     Oriade    |     Pietro    |
 --------------|:-------------:|:-------------:|
@@ -77,7 +77,10 @@ Exam Prob 6   |               |       x       |
 \setcounter{tocdepth}{4}
 \tableofcontents
 ```
-
+\ 
+\ 
+\ 
+\ 
 ```{r echo=FALSE, fig.align='default', out.width='30%'}
 # Include images and pictures..
 
@@ -87,7 +90,7 @@ knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png',
 
 # Question 1
 
-### Introduction to the Dataset 
+## Introduction to the Dataset 
 
 The International Diamond Grading System, created by The Gemological Institute of America,focuses on the 4C’s as a means to categorise diamonds. The categories are explained on the Diamonds Search Engine, which contains information about how loose diamonds are graded. 
 
@@ -123,7 +126,8 @@ The depth (total depth percentage) is a continuous variable which is the total d
 
 The table is a continuous variable which is a measurement of the width of the top of a diamond in relation to the widest point.
 
-### Statement of Interest
+\newpage
+## Statement of Interest
 The idea is to analyse the dataset in order to determine relationships between variables. 
 More specifically, it may be interesting to discover the relationship between two attributes: i.e. the relationship between: 
 
@@ -136,16 +140,16 @@ More specifically, it may be interesting to discover the relationship between tw
 * The carat and the depth of a colourless diamond 
 * The price corresponding to the cut of a diamond
 
-### Data Transformation
+## Data Transformation
 Ideally the price could be determined in Danish Kroner, Pounds Sterling or Euros, rather the US dollars. It may also be a good idea to transform carats into milligrams to represent the weight of the diamond. The attributes that are recorded in millimetres could also be converted to centimetres. 
 
-### Conclusion of previous Analysis
+## Conclusion of previous Analysis
 
 In his R publication, Jon Ong has performed a brief analysis of this dataset looking at the relationship between Cut vs. Colour, Price vs. Cut, and Price vs. Clarity. The results show that diamonds with a Premium Cut have the highest carat [5]. 
 
 Poonam Rao has also performed a brief analysis of the diamonds dataset where she performs data visualisation using scatterplots , histograms and box-plots. She explains that diamonds that are categorised in the Ideal group with regard to cut, often have a low weight [6] .  
 
-### Learning Aims using Classification and Regression
+## Learning Aims using Classification and Regression
 
 A regression problem analyses the relationship between a dependent variable and an independent variable. The Regression can be linear regression or multiple linear regression. 
 
@@ -188,18 +192,18 @@ It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 a
 
 ## Summary Statistics Table 
 
- Variable       |No.Obs. $N$| Mean $\hat{\mu}$|  Variance    |Standard Dev $\hat{\sigma}$| Lower Quart | Median  | Upper quart |
- ---------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
-| Carat.        |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
-| Cut.          |   53,940   |            |                 |             |             |         |             |
-| Colour        |   53,940   |            |                 |             |             |         |             |
-| Clarity       |   53,940   |            |                 |             |             |         |             |
-| Total Depth % |   53,940   |    61.749  |         2.052   |    1.433    |    61       |    61.8 |      62.5   |
-| Table         |   53,940   |    57.457  |         4.992   |    2.234    |    56       |    57.0 |      59.0   |
-| Price         |   53,940   |  3932.80   |  15915629       |  3989.44    |   950       |   2401  |    5324.5   |
-| Length(X)     |   53,940   |     5.731  |         1.258   |    1.122    |     4.71    |    5.70 |       6.54  |
-| Width (Y)     |   53,940   |     5.734  |         1.305   |    1.142    |     4.72    |    5.71 |       6.54  |
-| Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
+ Variable           |No.Obs. $N$| Mean $\hat{\mu}$|  Variance    |Standard Dev $\hat{\sigma}$| Lower Quart | Median  | Upper quart |
+ -------------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
+| Carat.            |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
+| Cut.              |   53,940   |            |                 |             |             |         |             |
+| Colour            |   53,940   |            |                 |             |             |         |             |
+| Clarity           |   53,940   |            |                 |             |             |         |             |
+| Total Depth %     |   53,940   |    61.749  |         2.052   |    1.433    |    61       |    61.8 |      62.5   |
+| Table             |   53,940   |    57.457  |         4.992   |    2.234    |    56       |    57.0 |      59.0   |
+| Price             |   53,940   |  3932.80   |  15915629       |  3989.44    |   950       |   2401  |    5324.5   |
+| Length(X)         |   53,940   |     5.731  |         1.258   |    1.122    |     4.71    |    5.70 |       6.54  |
+| Width (Y)         |   53,940   |     5.734  |         1.305   |    1.142    |     4.72    |    5.71 |       6.54  |
+| Depth(Z)          |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
 
 :::::: {.cols data-latex=""}
 
@@ -277,6 +281,7 @@ for (m in 1:M)
 }
 ```
 
+\newpage
 Some of the histograms seem to be affected by outliers in the data. It can be
 seen by looking at the horizontal axis of each graph and by noticing that
 bins do not cover all the axis values but only a limited range. This is very
@@ -284,7 +289,7 @@ evident in the attributes *table* and in the dimensions *y* and *z*.
 This attributes contain very extreme values that wrongly set the axis limits. In order
 to detect them, the data set can be sorted from the smallest value of a specific
 attribute to the largest value of the same attribute. By doing so, it can be
-selected the 99.99 percentile, which corresponds to the highest observations of
+selected the $99.99^{th}$ percentile, which corresponds to the highest observations of
 the data set sorted by one of the attributes. If the values assumed by the
 attribute are not physical or are very different from the other values, the
 specific observation can be discarded.
@@ -324,6 +329,7 @@ IdxOutlier <- Dia[,i] > quantile(Dia[,i],.99995)
 The last record has a value of *z* very far from the other ones, so it can be
 considered as an outlier and so it will be removed from the data set.
 
+\newpage
 ### Possible distributions followed by the data
 
 Now that the data set is free from outliers, the histograms of the attributes
@@ -359,13 +365,15 @@ for (m in 1:M)
 
 From the graphs, some considerations about the distribution of each attribute
 can be listed:
-- attributes *depth* and *table* appear to be normally distributed since they
+
+* attributes *depth* and *table* appear to be normally distributed since they
 follow quite well the gaussian bell curve and they are almost symmetric;
-- attributes *carat* and *price* seem to follow an exponential distribution,
+* attributes *carat* and *price* seem to follow an exponential distribution,
 since each bin is smaller than the previous one and larger than the following one;
-- attributes *clarity*, *x*, *y* and *z* appear to follow a log-normal distribution,
+* attributes *clarity*, *x*, *y* and *z* appear to follow a log-normal distribution,
 since they follow a asymmetric bell curve with the sample-mode smaller than the mean.
 
+\newpage
 ### Correlation of variables
 
 Correlation between variables can be studied by producing the matrix of scatter 
@@ -390,14 +398,15 @@ classNames <- as.character(levels(diamonds$cut))
 }
 ```
 The plots confirm the very high correlation between the variables *carat*, *x*,
-*y* and *z*, as already computed in the Table 3. In addition, also the *price*
+*y* and *z*, as already computed in the Correlation Table (page 6). In addition, also the *price*
 appears to be slightly correlated with the variables *carat*, *x*, *y* and *z*.
 The other variables do not show any specific pattern and also the *cut* does not
 seem to distinguish any cluster of the data.
 
+\newpage
 ## Principal component analysis
 
-The aim of the Principal Component Analysis ("PCA" from now on), is to simplify
+The aim of the Principal Component Analysis ("PCA" from now on) is to simplify
 the problem dimension by reducing the number of interval or ratio variables which explains the
 behavior of diamonds. So, for the PCA, the categorical attributes *cut*, *color* and *clarity*
 are removed from the data set.
@@ -427,7 +436,6 @@ D_pca <- as.data.frame(D_pca)
 S <- svd(D_pca)
 diagS <- S$d
 rho <- diagS^2 / sum(diagS^2)
-rho
 threshold <- 0.9
 
 xlimits <- c(1, M)
@@ -459,14 +467,14 @@ legend("right", # Define position
 
 ::: {.col data-latex="{0.40\textwidth}"}
 
-The new standardized dataset can be now used to perform the Singular Value
+The new standardized data set can be now used to perform the Singular Value
 Decomposition (SVD), which gives rise to three different matrices: $U$, $\Sigma$ 
 and $V^T$. By the extraction of the diagonal of the matrix $\Sigma$,
 it can be seen how much variance is explained by each principal component.
 The cumulative explained variance should reach the percentage of 90% in order
-to describe properly the main features of the dataset. 
+to describe properly the main features of the data set. 
 
-The figure on the left shows that the first 3 principal components explain 
+The figure on the left shows that the first three principal components explain 
 the 96% of variance, so the problem can be reduced from a seven-dimensional to a
 three-dimensional one.
 :::
@@ -497,36 +505,41 @@ The matrix $V^T$ contains the seven seven-dimensional vectors defining the princ
 components (PCs). Focusing on the first three PCs, they contains the weights
 associated to each of original component. The figure on the left shows
 the values of the weights. It can be noticed that the first PC mainly describes
-the dimensional quantities of the diamonds (*carat*, size in *x*, *y*, *z*) and
-the *price*. It seems that these five characteristics alone explain two-thirds of the
+the dimensional quantities of the diamonds (*carat* (nr. 1 in the figure), size in *x* (nr. 5), *y* (nr. 6), *z* (nr. 7)) and
+the *price* (nr. 4). It seems that these five characteristics alone explain two-thirds of the
 variability of the diamonds. As for the second PC, it focuses more on the
-cut characteristics (*depth* and *table*). The third PC mainly describes the cut characteristics
-as well, but considering them as contibuting to the same direction.
+cut characteristics (*depth* (nr. 2) and *table* (nr. 3)). The third PC mainly describes the cut characteristics
+as well, but considering them as contributing to the same direction.
 :::
 ::::::
 
 Data can be projected in the three-dimensional space defined by the PCs. 
-By projecting them, some interesting features can be observed, as shown by the 3D graph below.
+By projecting them, some interesting features can be observed, as shown by the 3D graphs below.
 
+\newpage
 In the top-figure below, data are colored by the attribute *cut* and, for visualization purposes, only a sample of 1000 data is plotted.
 It can be seen that data are layered following sloped planes. In addition, they are clustered according to
 the *cut*: borders of different classes are not so clear, in particular "very good" and "premium" diamonds
-are mixed together. "Ideal" diamonds are concentrated in a very visible cluster, as for "fair" diamonds that
+are mixed together. "Ideal" diamonds are concentrated in a very visible cluster, while "fair" diamonds
 are very far from the rest of the diamonds. As it can be expected, the *cut* of diamonds is mainly explained by
-the second and third PCs, that are related to depth and table of diamonds.
+the second and third PCs, that are related to *depth* and *table* of diamonds.
 
 In the bottom-figures below, data are colored by *color* (left) and *clarity* (right) and, for visualization purposes, 
-only a sample of 1000 data is plotted. No pattern and clusters can be seen from the figures, so it seems that
+only a sample of 1000 data is plotted. No pattern or cluster can be seen from the figures, so it seems that
 *color* and *clarity* are more difficult to be predicted than *cut*, also because there are more different levels
 that these attributes can assume.
 
+
 ![](Images/PC_Image.png "Colored by *cut*"){width=80%}
+
 
 ![](Images/PCcolor_Image.png "Colored by *color*"){width=50%} 
 ![](Images/PCclarity_Image.png "Colored by *clarity*"){width=50%}
 
+\newpage
+# Question 4
 
-# 4) Results: what data have shown
+## What data have shown
 
 The data set appears to be complete since each diamond is described by all the attributes and there are not
 missing values. This is a good thing because there is no lack of information.
@@ -536,15 +549,16 @@ extreme values that are very far from the other data.
 By looking at the collection of diamonds,
 data show that small diamonds are more numerous than big ones (as it can be expected) and that the characteristics 
 connected to the rarity of the diamond (so, *carat* and *price*) seems to be distributed exponentially, meaning that
-diamonds having low *carat* and low *price* are more numerous than the most expensive and heavy ones.
+diamonds having low *carat* and low *price* are more numerous than the heavier and more expensive ones.
 In addition, a strong correlation between the dimensions of diamonds and their weight can be found, as it can be expected
 (bigger diamonds are also heavier). It is interesting the fact that the *price* is positively correlated to the dimensions
-and the *carat*, meaning that the bigger and heavier diamonds are also more expensive. All these connections reflect to
+and to the *carat*, meaning that the bigger and heavier diamonds are also more expensive. All these connections reflect to
 the fact that the first PC (combining all these characteristics) alone explains the 68% of the variability of non-categorical attributes.
+
 As for the *table* and *depth*, they appear to be normally distributed, and so less subjected to governing rules.
 Indeed, they seem to be uncorrelated to the other attributes and they are described mainly by the second and third PCs. Nevertheless, they are
 fundamental in describing the *cut* behavior, since it is clear that data projected in the 2nd-3rd PCs plane and colored by the *cut* are
-somehow clustered. Unfortunately, the same is not valid for the other twp categorical attributes (*color* and *clarity*) that seem to be
+somehow clustered. Unfortunately, the same is not valid for the other two categorical attributes (*color* and *clarity*) that seem to be
 not connected to any of the other attributes.
 
 In conclusion, regression problems involving diamonds dimensions, *carat* and *price* appear to be feasible but it seems to be hard
@@ -556,18 +570,23 @@ easily classified starting from *depth* and *table*, conversely *color* and *cla
 # Exam Problems
 
 **Question 1** | Spring 2019 question 2
+
 Which of the following statements are true about the types of the attributes in the Urban Traffic dataset?
 
 Answer **B**: the attribute $x_1$ is ordinal because it can be said that time-interval number 5 is greater than
 the time-interval number 4 since it is later in the day but it makes no sense to sum and subtract them
 
+
 **Question 2** | Spring 2019 question 2
+
 Consider again the Urban Traffic dataset from table 1 and in particular the 14 and 18th observation .
 Which of the following statements about the p-norm distance dp (.,.) is correct ? 
 
 Answer **A**: The Maximum Norm Distance is 7.0 
 
+
 **Question 4** | Spring 2019 question 2
+
 Which one of the following statements is true?
 
 Answer **D**: PC2 has a negative coefficient multiplying $x_1$, so if an observation has a low value
@@ -575,7 +594,9 @@ of $x_1$ it means that the PC2 decreases very little for the contribution of $x_
 PC2 has positive coefficients multiplying $x_2$, $x_3$ and $x_5$ so if an observation has a high value
 of them, it means that the PC2 increases a lot thanks to their the contribution
 
+
 **Question 6** | Spring 2019 question 2
+
 Which is the probability an observation had $\hat{x}_2=0$ given light congestion?
 
 Answer **B**: according to the Sum Rule we know that $p(x_2|y)=\sum_{i=0}^1 p(x_2,x_7=i|y)$, so
@@ -605,8 +626,3 @@ References
 6) Poonam Rao , Exploratory Data Analytics,  (2020), “https://medium.com/swlh/exploratory-data-analysis-21bbf3887e28" 
 
 7) Paul Gian, Beyond 4C’s  - Real Insights to Buying Diamonds , “https://beyond4cs.com/color/", Accessed 22 September 2023
- 
-\newpage
-
-Appendix
-===
