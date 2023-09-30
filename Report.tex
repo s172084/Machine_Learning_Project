@@ -110,11 +110,11 @@
 
 \begin{center}\includegraphics[width=0.4\linewidth]{Images/Universe2} \end{center}
 
-\newpage
+\center
 
 \section{Contribution Table}\label{contribution-table}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\center
 
 \begin{longtable}[]{@{}lcc@{}}
 \toprule\noalign{}
@@ -146,16 +146,14 @@ Exam Prob 5 & & x \\
 Exam Prob 6 & x & \\
 \end{longtable}
 
-\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
-\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
-\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
-
 \newpage
 
 \setcounter{tocdepth}{4}
 \tableofcontents
 
-\newpage
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
+\includegraphics[width=0.3\linewidth]{Images/Diamond_Group} \newpage
 
 \section{Question 1}\label{question-1}
 
@@ -299,7 +297,7 @@ One could observe the carat of the diamonds that are priced between
 
 A classification problem requires a dataset to be classified into two or
 more categories. One idea is to choose the category of cut and determine
-if the diamond is very good, premium cut or ideal cut? This can be done
+if the diamond is very good, premium cut or ideal cut. This can be done
 using the diamond length (\textbf{X}) and diamond width (\textbf{Y}),
 the carat and the depth(\textbf{Z}).
 
@@ -415,9 +413,9 @@ to focus on.
 \begin{minipage}[b]{\linewidth}\raggedright
 Variable
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-No.Obs.\(N\)
+No.Obs. \(N\)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Mean\(\hat{\mu}\)
+Mean \(\hat{\mu}\)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Variance
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -445,20 +443,11 @@ Width (Y) & 53,940 & 5.734 & 1.305 & 1.142 & 4.72 & 5.71 & 6.54 \\
 Depth(Z) & 53,940 & 3.538 & 0.498 & 0.706 & 2.91 & 3.53 & 4.04 \\
 \end{longtable}
 
-\subsection{Correlation Table}\label{correlation-table}
+\begin{cols}
 
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-Correlation & Value \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-X \& Y & 0.9747 \\
-Y \& Z & 0.9520 \\
-X \& Z & 0.9707 \\
-carat \& X & 0.9750 \\
-\end{longtable}
+\begin{col}{0.80\textwidth}
+
+From the Correlation Table it can be seen that:
 
 \begin{itemize}
 \tightlist
@@ -475,9 +464,35 @@ carat \& X & 0.9750 \\
   There is a positive correlation between carat and Length(\textbf{X})
 \end{itemize}
 
-\newpage
+\end{col}
 
-\section{3) Data visualization}\label{data-visualization}
+\begin{col}{0.05\textwidth}
+~
+
+\end{col}
+
+\begin{col}{0.15\textwidth}
+
+\subsection{Correlation Table}\label{correlation-table}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Correlation & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+X \& Y & 0.9747 \\
+Y \& Z & 0.9520 \\
+X \& Z & 0.9707 \\
+carat \& X & 0.9750 \\
+\end{longtable}
+
+\end{col}
+
+\end{cols}
+
+\section{Question 3}\label{question-3}
 
 \subsection{Representation of the data
 set}\label{representation-of-the-data-set}
@@ -604,10 +619,11 @@ ratio variables which explains the behavior of diamonds. So, for the
 PCA, the categorical attributes \emph{cut}, \emph{color} and
 \emph{clarity} are removed from the data set.
 
-Looking at the Table 2, standard deviation of \emph{price} is some
-orders of magnitude larger than the others, so the dataset has to be
-standardized by subtracting the mean and dividing by the standard
-deviation of the whole set of observations of that variable.
+Looking at the ``Summary Statistics Table'' (page 5), standard deviation
+of \emph{price} is some orders of magnitude larger than the others, so
+the dataset has to be standardized by subtracting the mean and dividing
+by the standard deviation of the whole set of observations of that
+variable.
 
 \begin{cols}
 
@@ -675,16 +691,71 @@ considering them as contibuting to the same direction.
 
 Data can be projected in the three-dimensional space defined by the PCs.
 By projecting them, some interesting features can be observed, as shown
-by the 3D graph below. Data are colored by the attribute \emph{cut}
+by the 3D graph below.
 
-\begin{figure}
-\centering
-\includegraphics{Images/PC_Image.png}
-\caption{alt-text-1}
-\end{figure}
+In the top-figure below, data are colored by the attribute \emph{cut}
+and, for visualization purposes, only a sample of 1000 data is plotted.
+It can be seen that data are layered following sloped planes. In
+addition, they are clustered according to the \emph{cut}: borders of
+different classes are not so clear, in particular ``very good'' and
+``premium'' diamonds are mixed together. ``Ideal'' diamonds are
+concentrated in a very visible cluster, as for ``fair'' diamonds that
+are very far from the rest of the diamonds. As it can be expected, the
+\emph{cut} of diamonds is mainly explained by the second and third PCs,
+that are related to depth and table of diamonds.
+
+In the bottom-figures below, data are colored by \emph{color} (left) and
+\emph{clarity} (right) and, for visualization purposes, only a sample of
+1000 data is plotted. No pattern and clusters can be seen from the
+figures, so it seems that \emph{color} and \emph{clarity} are more
+difficult to be predicted than \emph{cut}, also because there are more
+different levels that these attributes can assume.
+
+\includegraphics[width=0.8\textwidth,height=\textheight]{Images/PC_Image.png}
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{Images/PCcolor_Image.png}
+\includegraphics[width=0.5\textwidth,height=\textheight]{Images/PCclarity_Image.png}
 
 \section{4) Results: what data have
 shown}\label{results-what-data-have-shown}
+
+The data set appears to be complete since each diamond is described by
+all the attributes and there are not missing values. This is a good
+thing because there is no lack of information. It is a good data set
+also because observations are coherent one to each other in the sense
+that there are very few extreme values that are very far from the other
+data.
+
+By looking at the collection of diamonds, data show that small diamonds
+are more numerous than big ones (as it can be expected) and that the
+characteristics connected to the rarity of the diamond (so, \emph{carat}
+and \emph{price}) seems to be distributed exponentially, meaning that
+diamonds having low \emph{carat} and low \emph{price} are more numerous
+than the most expensive and heavy ones. In addition, a strong
+correlation between the dimensions of diamonds and their weight can be
+found, as it can be expected (bigger diamonds are also heavier). It is
+interesting the fact that the \emph{price} is positively correlated to
+the dimensions and the \emph{carat}, meaning that the bigger and heavier
+diamonds are also more expensive. All these connections reflect to the
+fact that the first PC (combining all these characteristics) alone
+explains the 68\% of the variability of non-categorical attributes. As
+for the \emph{table} and \emph{depth}, they appear to be normally
+distributed, and so less subjected to governing rules. Indeed, they seem
+to be uncorrelated to the other attributes and they are described mainly
+by the second and third PCs. Nevertheless, they are fundamental in
+describing the \emph{cut} behavior, since it is clear that data
+projected in the 2nd-3rd PCs plane and colored by the \emph{cut} are
+somehow clustered. Unfortunately, the same is not valid for the other
+twp categorical attributes (\emph{color} and \emph{clarity}) that seem
+to be not connected to any of the other attributes.
+
+In conclusion, regression problems involving diamonds dimensions,
+\emph{carat} and \emph{price} appear to be feasible but it seems to be
+hard to make a regression of one of those attributes starting from
+\emph{depth} and \emph{table}. As for classification problems,
+\emph{cut} appears to be easily classified starting from \emph{depth}
+and \emph{table}, conversely \emph{color} and \emph{clarity} seem to be
+hard to be predicted.
 
 \newpage
 
@@ -715,6 +786,24 @@ decreases very little for the contribution of \(x_1\). On the other
 hand, PC2 has positive coefficients multiplying \(x_2\), \(x_3\) and
 \(x_5\) so if an observation has a high value of them, it means that the
 PC2 increases a lot thanks to their the contribution
+
+\textbf{Question 6} \textbar{} Spring 2019 question 2 Which is the
+probability an observation had \(\hat{x}_2=0\) given light congestion?
+
+Answer \textbf{B}: according to the Sum Rule we know that
+\(p(x_2|y)=\sum_{i=0}^1 p(x_2,x_7=i|y)\), so a new Probability Table can
+be compiled:
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+\(p(x_2\|y)\) & y=1 & y=2 & y=3 & y=4 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(x_2=0\) & 0.84 & 0.84 & 0.73 & 0.77 \\
+\(x_2=1\) & 0.16 & 0.16 & 0.27 & 0.23 \\
+\end{longtable}
 
 \newpage
 

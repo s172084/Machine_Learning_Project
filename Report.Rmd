@@ -43,11 +43,9 @@ data(diamonds)
 knitr::include_graphics(c("Images/Universe2.png"))
 ```
 
-\newpage
-
-Contribution Table 
-===
-------------------------------------------------------------
+\center
+# Contribution Table
+\center
 
 Task          |     Oriade    |     Pietro    |
 --------------|:-------------:|:-------------:|
@@ -69,21 +67,21 @@ Exam Prob 3   |       x       |               |
 ------------- | ------------- | ------------- |
 Exam Prob 4   |               |       x       |
 ------------- | ------------- | ------------- |
-Exam Prob 5   |               |       x       |
+Exam Prob 5   |       x       |               |
 ------------- | ------------- | ------------- |
-Exam Prob 6   |       x       |               |
-
-```{r echo=FALSE, fig.align='default', out.width='30%'}
-# Include images and pictures..
-
-knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
-```
+Exam Prob 6   |               |       x       |
 
 \newpage
 
 ```{=latex}
 \setcounter{tocdepth}{4}
 \tableofcontents
+```
+
+```{r echo=FALSE, fig.align='default', out.width='30%'}
+# Include images and pictures..
+
+knitr::include_graphics(c('Images/Diamond_Group.png','Images/Diamond_Group.png','Images/Diamond_Group.png'))
 ```
 \newpage
 
@@ -156,7 +154,7 @@ It is possible to analyse the relationship between diamond length (**X**) and di
 It is possible to look at the relationship between carat and price for 1 specific colour, cut and clarity of diamond in our regression problem. One could observe the carat of the diamonds that are priced between $10,000 to $20,000 USD. 
 
 A classification problem requires a dataset to be classified into two or more categories. 
-One idea is to choose the category of cut and determine if the diamond is very good, premium cut or ideal cut? This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
+One idea is to choose the category of cut and determine if the diamond is very good, premium cut or ideal cut. This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
 
 Another idea is to choose the category of colour and determine if the diamond is D or J. This can be also be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(z). 
 
@@ -188,10 +186,9 @@ The average price of a diamond in this dataset is $3,932.8 USD.  There is a lowe
 Many of the diamonds have the average table of approximately 61.7. Diamonds have an average depth of 3.5. It may be interesting to explore diamonds that have a depth (**Z**) between 5 and 10. 
 It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 and narrow down on the cut to look at only 1 type of cut. There are 21,000 Ideal cut diamonds, which makes this the most common category.  One could choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds to focus on.
 
-
 ## Summary Statistics Table 
 
- Variable       |No.Obs.$N$| Mean$\hat{\mu}$|  Variance    |Standard Dev $\hat{\sigma}$| Lower Quart | Median  | Upper quart |
+ Variable       |No.Obs. $N$| Mean $\hat{\mu}$|  Variance    |Standard Dev $\hat{\sigma}$| Lower Quart | Median  | Upper quart |
  ---------------|:----------:|:----------:|:---------------:|:-----------:|:-----------:|:-------:|:-----------:|
 | Carat.        |   53,940   |     0.797  |         0.2247  |    0.474    |    0.4      |    0.7  |       1.04  |
 | Cut.          |   53,940   |            |                 |             |             |         |             |
@@ -204,6 +201,22 @@ It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 a
 | Width (Y)     |   53,940   |     5.734  |         1.305   |    1.142    |     4.72    |    5.71 |       6.54  |
 | Depth(Z)      |   53,940   |     3.538  |         0.498   |    0.706    |     2.91    |    3.53 |       4.04  |
 
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.80\textwidth}"}
+From the Correlation Table it can be seen that:
+
+* There is a positive correlation between Length(**X**) and Width(**Y**).
+* There is a positive correlation between Width(**Y**) and Depth(**Z**).
+* There is a positive correlation between Length(**X**) and Depth(**Z**).
+* There is a positive correlation between carat and Length(**X**)
+:::
+
+::: {.col data-latex="{0.05\textwidth}"}
+\ 
+:::
+
+::: {.col data-latex="{0.15\textwidth}"}
 ## Correlation Table 
  
  | Correlation      | Value   |
@@ -212,15 +225,10 @@ It may be interesting to choose diamonds with a specific clarity, IF, SI2, VS1 a
  | Y & Z            | 0.9520  |
  | X & Z            | 0.9707  |
  | carat & X        | 0.9750  |
- 
-* There is a positive correlation between Length(**X**) and Width(**Y**).
-* There is a positive correlation between Width(**Y**) and Depth(**Z**).
-* There is a positive correlation between Length(**X**) and Depth(**Z**).
-* There is a positive correlation between carat and Length(**X**)
+:::
+::::::
 
-\newpage
-
-# 3) Data visualization
+# Question 3
 
 ## Representation of the data set
 
@@ -403,7 +411,7 @@ attributeNames <- colnames(D_pca)
 stds <- apply(D_pca, 2, sd)
 ```
 
-Looking at the Table 2, standard deviation of *price* is some orders of magnitude larger than the 
+Looking at the "Summary Statistics Table" (page 5), standard deviation of *price* is some orders of magnitude larger than the 
 others, so the dataset has to be standardized by subtracting the mean and dividing
 by the standard deviation of the whole set of observations of that variable.
 ```{r}
@@ -499,16 +507,49 @@ as well, but considering them as contibuting to the same direction.
 
 Data can be projected in the three-dimensional space defined by the PCs. 
 By projecting them, some interesting features can be observed, as shown by the 3D graph below.
-Data are colored by the attribute *cut* and, for visualization purposes, only a sample of 1000 data is plotted.
+
+In the top-figure below, data are colored by the attribute *cut* and, for visualization purposes, only a sample of 1000 data is plotted.
 It can be seen that data are layered following sloped planes. In addition, they are clustered according to
 the *cut*: borders of different classes are not so clear, in particular "very good" and "premium" diamonds
 are mixed together. "Ideal" diamonds are concentrated in a very visible cluster, as for "fair" diamonds that
 are very far from the rest of the diamonds. As it can be expected, the *cut* of diamonds is mainly explained by
 the second and third PCs, that are related to depth and table of diamonds.
 
-![alt-text-1](Images/PC_Image.png "Data projected onto the first three PC-defined space")
+In the bottom-figures below, data are colored by *color* (left) and *clarity* (right) and, for visualization purposes, 
+only a sample of 1000 data is plotted. No pattern and clusters can be seen from the figures, so it seems that
+*color* and *clarity* are more difficult to be predicted than *cut*, also because there are more different levels
+that these attributes can assume.
+
+![](Images/PC_Image.png "Colored by *cut*"){width=80%}
+
+![](Images/PCcolor_Image.png "Colored by *color*"){width=50%} 
+![](Images/PCclarity_Image.png "Colored by *clarity*"){width=50%}
+
 
 # 4) Results: what data have shown
+
+The data set appears to be complete since each diamond is described by all the attributes and there are not
+missing values. This is a good thing because there is no lack of information.
+It is a good data set also because observations are coherent one to each other in the sense that there are very few
+extreme values that are very far from the other data.
+
+By looking at the collection of diamonds,
+data show that small diamonds are more numerous than big ones (as it can be expected) and that the characteristics 
+connected to the rarity of the diamond (so, *carat* and *price*) seems to be distributed exponentially, meaning that
+diamonds having low *carat* and low *price* are more numerous than the most expensive and heavy ones.
+In addition, a strong correlation between the dimensions of diamonds and their weight can be found, as it can be expected
+(bigger diamonds are also heavier). It is interesting the fact that the *price* is positively correlated to the dimensions
+and the *carat*, meaning that the bigger and heavier diamonds are also more expensive. All these connections reflect to
+the fact that the first PC (combining all these characteristics) alone explains the 68% of the variability of non-categorical attributes.
+As for the *table* and *depth*, they appear to be normally distributed, and so less subjected to governing rules.
+Indeed, they seem to be uncorrelated to the other attributes and they are described mainly by the second and third PCs. Nevertheless, they are
+fundamental in describing the *cut* behavior, since it is clear that data projected in the 2nd-3rd PCs plane and colored by the *cut* are
+somehow clustered. Unfortunately, the same is not valid for the other twp categorical attributes (*color* and *clarity*) that seem to be
+not connected to any of the other attributes.
+
+In conclusion, regression problems involving diamonds dimensions, *carat* and *price* appear to be feasible but it seems to be hard
+to make a regression of one of those attributes starting from *depth* and *table*. As for classification problems, *cut* appears to be
+easily classified starting from *depth* and *table*, conversely *color* and *clarity* seem to be hard to be predicted.
 
 \newpage
 
@@ -533,6 +574,19 @@ Answer **D**: PC2 has a negative coefficient multiplying $x_1$, so if an observa
 of $x_1$ it means that the PC2 decreases very little for the contribution of $x_1$. On the other hand,
 PC2 has positive coefficients multiplying $x_2$, $x_3$ and $x_5$ so if an observation has a high value
 of them, it means that the PC2 increases a lot thanks to their the contribution
+
+**Question 6** | Spring 2019 question 2
+Which is the probability an observation had $\hat{x}_2=0$ given light congestion?
+
+Answer **B**: according to the Sum Rule we know that $p(x_2|y)=\sum_{i=0}^1 p(x_2,x_7=i|y)$, so
+a new Probability Table for $p(x_2|y)$ can be compiled:
+
+| $p(x_2 |y)$ | y=1  | y=2  | y=3  | y=4  |
+|-------------|------|------|------|------|
+| $x_2=0$     | 0.84 | 0.84 | 0.73 | 0.77 |
+| $x_2=1$     | 0.16 | 0.16 | 0.27 | 0.23 |
+
+Looking at the node $p(x_2=0|y=2)$, it can be seen that the probability is 0.84
 
 \newpage
 

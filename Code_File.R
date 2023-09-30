@@ -423,8 +423,23 @@ cols[Z_sample[,8] == "IF"] <- "brown"
 
 plot3d(Z_sample[, 1:3], col = cols, xlab="PC1", ylab="PC2", zlab="PC3", size = 4)
 
-# plot(1,1)
-# legend("topright",c("Fair","Good","Very Good","Premium","Ideal"),fill=c("purple","blue","green3","orange","red"))
+Z <- S$u %*% diag(S$d)
+Z <- cbind(Z,as.character(diamonds$color))
+Z_sample <- Z[sample(nrow(Z),1000),]
+
+cols <- rep("black", times = length(Z_sample[,8]))
+cols[Z_sample[,8] == "D"] <- "purple"
+cols[Z_sample[,8] == "E"] <- "brown"
+cols[Z_sample[,8] == "F"] <- "blue"
+cols[Z_sample[,8] == "G"] <- "green4"
+cols[Z_sample[,8] == "H"] <- "green1"
+cols[Z_sample[,8] == "I"] <- "orange"
+cols[Z_sample[,8] == "J"] <- "red"
+
+plot3d(Z_sample[, 1:3], col = cols, xlab="PC1", ylab="PC2", zlab="PC3", size = 4)
+
+plot(1,1)
+legend("topright",c("I1","SI2","SI1","VS2","VS1","VVS2","VVS1","IF"),fill=c("purple","azure","blue","green4","green1","orange","red","brown"))
 
 # CUT
 Z <- S$u %*% diag(S$d)
