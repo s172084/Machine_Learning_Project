@@ -542,7 +542,9 @@ ggplot() +
 # -------------------------------- Exam Problems         ------------------------------------------------
 # -----------------------------------------------------------------------------------------------------------
 
-# Question 2 
+################################
+# -------  Question 2 ---------
+################################
 
 # Define your vectors
 a <- c(26, 0, 2, 0, 0, 0, 0)
@@ -553,7 +555,12 @@ a <- as.matrix(c(26, 0, 2, 0, 0, 0, 0))
 distanz <- norm(a - b, type = "M")
 cat("Maximum p-norm distance:", distanz, "\n")
 
-# Question 3 
+
+################################
+# -------  Question 3 ---------
+################################
+
+
 # Obtain the diagonal singular Values from Sigma (S)
 dee <- c(13.9, 12.47, 11.48, 10.03, 9.45)
 
@@ -569,8 +576,40 @@ dee^2/sum(dee^2) * 100
 28.81991 +  23.19508 + 19.65833 # D = False
 
 
+################################
+# -------  Question 5 ---------
+################################
 
-# Question 6 
+# Jaccard similarity
+
+# s1
+# the = 1
+# bag = 2
+# of = 3
+# words = 4
+# representation = 5
+# becomes = 6
+# less = 7
+# parsimonious = 8
+
+# s2
+# if = 9 
+# we = 10 
+# do = 11
+# not = 12
+# stem = 13
+# the = 1
+# words = 4
+
+# represent s1 and s2 as A and B. 
+A <- c(1,2,3,4,5,6,7,8)
+B <- c(9,10,11,12,13,1,4)
 
 
+intszctn <- length(intersect(A, B))
+intszctn
+yunion <- length(union(A, B))
+yunion
 
+the_answer <- intszctn/ yunion
+cat("The Jaccard similarity of s1 and s2 is:" , the_answer)
