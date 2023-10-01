@@ -44,7 +44,7 @@ knitr::include_graphics(c("Images/Universe2.png"))
 ```
 
 \begin{center}
-CONTRIBUTION TABLE
+CONTRIBUTION TABLE : Group 640
 \end{center}
 
 Task          |     Oriade    |     Pietro    |
@@ -141,7 +141,7 @@ More specifically, it may be interesting to discover the relationship between tw
 * The price corresponding to the cut of a diamond
 
 ## Data Transformation
-Ideally the price could be determined in Danish Kroner, Pounds Sterling or Euros, rather the US dollars. It may also be a good idea to transform carats into milligrams to represent the weight of the diamond. The attributes that are recorded in millimetres could also be converted to centimetres. 
+Ideally the price could be determined in Danish Kroner, Pounds Sterling or Euros, rather the US dollars. It may also be a good idea to transform carats into milligrams to represent the weight of the diamond. The attributes that are recorded in millimetres could also be converted to micrometers. 
 
 ## Conclusion of previous Analysis
 
@@ -163,6 +163,7 @@ One idea is to choose the category of cut and determine if the diamond is very g
 Another idea is to choose the category of colour and determine if the diamond is D or J. This can be also be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(z). 
 
 It is also possible to choose the category of clarity and determine if the diamond  is IF , VS1 or I1 . This can be done using the diamond length (**X**) and diamond width (**Y**), the carat and the depth(**Z**). 
+\newpage
 
 # Question 2 
 
@@ -177,14 +178,14 @@ The cut, colour, and clarity are ordinal factor variables. In the table below, C
 Attribute |     Carat   |     Cut     |     Colour  |   Clarity.  |    Depth    |   Table     |    Price   | Length (X)  | Width(Y)   | Depth  (Z)  |
 ----------|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:----------:|:-----------:|:---------: |:-----------:| 
 | Type    | Cont.       | Categ.      | Categ.      | Categ.      | Cont.       |  Cont.      | Discrete   | Cont.       | Cont.      | Cont.       |
-| Type    | Ratio       | Ordinal     | Ordinal     | Ordinal     | Ratio       | Ratio       | Interval   |   Ratio     |   Ratio    |    Ratio    |
+| Type    | Ratio       | Ordinal     | Ordinal     | Ordinal     | Ratio       | Ratio       | Ratio      |   Ratio     |   Ratio    |    Ratio    |
 
 There are no missing values or NAs in any column of the dataset. The data is tidy from the TidyVerse. In the Premium cut group and Ideal cut group of diamonds, there are some diamonds that have an outlying width, which corresponds to the VS1 ad SI2 clarity groups. 
 
 **Include basic summary statistics of the attributes, including correlation**
 
 There are many diamonds that have a carat between 0.2 and 1, with the average carat being 0.7.  
-Therefore it may be interesting to narrow in on the dataset and only look at diamonds that are between 1 and 5 carat, and exclude all diamonds below 1 carat.
+Therefore it may be interesting to narrow in on the dataset and only look at diamonds that are between 1 and 5 carats, and exclude all diamonds below 1 carat.
 The average length of a diamond (**X**) is 5.731 mm. It may be interesting to look at diamonds that are between 6 and 10 millimetres long.  
 The average price of a diamond in this dataset is $3,932.8 USD.  There is a lower quantile of $950 dollars and upper quantile of $5,324.5 USD.  It may be interesting to narrow down the price range and focus on diamonds that are between $326 - $5000 USD. However  $5000 - $15,000 USD or $10,000 -  £$20,000 USD may also be suitable ranges to focus on. 
 Many of the diamonds have the average table of approximately 61.7. Diamonds have an average depth of 3.5. It may be interesting to explore diamonds that have a depth (**Z**) between 5 and 10. 
@@ -216,7 +217,7 @@ From the Correlation Table it can be seen that:
 * There is a positive correlation between carat and Length(**X**)
 :::
 
-::: {.col data-latex="{0.05\textwidth}"}
+::: {.col data-latex="{0.02\textwidth}"}
 \ 
 :::
 
@@ -397,6 +398,7 @@ classNames <- as.character(levels(diamonds$cut))
   legend(0, 1, classNames, fill=unique(observationColors))
 }
 ```
+
 The plots confirm the very high correlation between the variables *carat*, *x*,
 *y* and *z*, as already computed in the Correlation Table (page 6). In addition, also the *price*
 appears to be slightly correlated with the variables *carat*, *x*, *y* and *z*.
@@ -404,7 +406,7 @@ The other variables do not show any specific pattern and also the *cut* does not
 seem to distinguish any cluster of the data.
 
 \newpage
-## Principal component analysis
+## Principal Component Analysis
 
 The aim of the Principal Component Analysis ("PCA" from now on) is to simplify
 the problem dimension by reducing the number of interval or ratio variables which explains the
@@ -601,12 +603,26 @@ of $x_1$ it means that the PC2 decreases very little for the contribution of $x_
 PC2 has positive coefficients multiplying $x_2$, $x_3$ and $x_5$ so if an observation has a high value
 of them, it means that the PC2 increases a lot thanks to their the contribution
 
+**Question 5** | Spring 2019 question 14: Suppose s1 and s2 are two text documents containing the text:
+
+s1 = {the bag of words representation becomes less parsimonious}
+
+s2 = {if we do not stem the words}
+
+The documents are encoded using a bag-of-words encoding assuming a total vocabulary size of M = 20000.
+No stop words lists or stemming is applied to the dataset. 
+
+What is the Jaccard similarity between documents s1 and s2?
+
+Answer **A**: The Jaccard similarity of s1 and s2 is 0.1538462  
+
+*see Code_File.R for calculation. 
 
 **Question 6** | Spring 2019 question 2
 
 Which is the probability an observation had $\hat{x}_2=0$ given light congestion?
 
-Answer **B**: according to the Sum Rule we know that $p(x_2|y)=\sum_{i=0}^1 p(x_2,x_7=i|y)$, so
+Answer **B**: according to the Sum Rule we know that $p(x_2|y)= \sum_{i=0}^{1} p(x_2,x_7=i|y)$, so
 a new Probability Table for $p(x_2|y)$ can be compiled:
 
 | $p(x_2 |y)$ | y=1  | y=2  | y=3  | y=4  |

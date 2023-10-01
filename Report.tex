@@ -111,7 +111,7 @@
 \begin{center}\includegraphics[width=0.4\linewidth]{Images/Universe2} \end{center}
 
 \begin{center}
-CONTRIBUTION TABLE
+CONTRIBUTION TABLE : Group 640
 \end{center}
 
 \begin{longtable}[]{@{}lcc@{}}
@@ -155,10 +155,12 @@ Exam Prob 6 & & x \\
 \includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
 \includegraphics[width=0.3\linewidth]{Images/Diamond_Group} \newpage
 
-\section{Question 1}\label{question-1}
+\hypertarget{question-1}{%
+\section{Question 1}\label{question-1}}
 
+\hypertarget{introduction-to-the-dataset}{%
 \subsection{Introduction to the
-Dataset}\label{introduction-to-the-dataset}
+Dataset}\label{introduction-to-the-dataset}}
 
 The International Diamond Grading System, created by The Gemological
 Institute of America,focuses on the 4C's as a means to categorise
@@ -232,7 +234,8 @@ of the top of a diamond in relation to the widest point.
 
 \newpage
 
-\subsection{Statement of Interest}\label{statement-of-interest}
+\hypertarget{statement-of-interest}{%
+\subsection{Statement of Interest}\label{statement-of-interest}}
 
 The idea is to analyse the dataset in order to determine relationships
 between variables. More specifically, it may be interesting to discover
@@ -258,16 +261,18 @@ the relationship between two attributes: i.e.~the relationship between:
   The price corresponding to the cut of a diamond
 \end{itemize}
 
-\subsection{Data Transformation}\label{data-transformation}
+\hypertarget{data-transformation}{%
+\subsection{Data Transformation}\label{data-transformation}}
 
 Ideally the price could be determined in Danish Kroner, Pounds Sterling
 or Euros, rather the US dollars. It may also be a good idea to transform
 carats into milligrams to represent the weight of the diamond. The
 attributes that are recorded in millimetres could also be converted to
-centimetres.
+micrometers.
 
+\hypertarget{conclusion-of-previous-analysis}{%
 \subsection{Conclusion of previous
-Analysis}\label{conclusion-of-previous-analysis}
+Analysis}\label{conclusion-of-previous-analysis}}
 
 In his R publication, Jon Ong has performed a brief analysis of this
 dataset looking at the relationship between Cut vs.~Colour, Price
@@ -279,8 +284,9 @@ where she performs data visualisation using scatterplots , histograms
 and box-plots. She explains that diamonds that are categorised in the
 Ideal group with regard to cut, often have a low weight {[}6{]} .
 
+\hypertarget{learning-aims-using-classification-and-regression}{%
 \subsection{Learning Aims using Classification and
-Regression}\label{learning-aims-using-classification-and-regression}
+Regression}\label{learning-aims-using-classification-and-regression}}
 
 A regression problem analyses the relationship between a dependent
 variable and an independent variable. The Regression can be linear
@@ -310,11 +316,13 @@ diamond is D or J. This can be also be done using the diamond length
 It is also possible to choose the category of clarity and determine if
 the diamond is IF , VS1 or I1 . This can be done using the diamond
 length (\textbf{X}) and diamond width (\textbf{Y}), the carat and the
-depth(\textbf{Z}).
+depth(\textbf{Z}). \newpage
 
-\section{Question 2}\label{question-2}
+\hypertarget{question-2}{%
+\section{Question 2}\label{question-2}}
 
-\subsection{Description of Attributes}\label{description-of-attributes}
+\hypertarget{description-of-attributes}{%
+\subsection{Description of Attributes}\label{description-of-attributes}}
 
 \textbf{Describe if the attributes are discrete/continuous,
 Nominal/Ordinal/Interval/Ratio}
@@ -323,7 +331,8 @@ The table below shows the classification of the attributes. The cut,
 colour, and clarity are ordinal factor variables. In the table below,
 Cont. means continuous and Categ. means Categorical.
 
-\subsection{Attribute Table}\label{attribute-table}
+\hypertarget{attribute-table}{%
+\subsection{Attribute Table}\label{attribute-table}}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0730}}
@@ -367,7 +376,7 @@ Depth (Z)
 \endlastfoot
 Type & Cont. & Categ. & Categ. & Categ. & Cont. & Cont. & Discrete &
 Cont. & Cont. & Cont. \\
-Type & Ratio & Ordinal & Ordinal & Ordinal & Ratio & Ratio & Interval &
+Type & Ratio & Ordinal & Ordinal & Ordinal & Ratio & Ratio & Ratio &
 Ratio & Ratio & Ratio \\
 \end{longtable}
 
@@ -382,7 +391,7 @@ correlation}
 There are many diamonds that have a carat between 0.2 and 1, with the
 average carat being 0.7.\\
 Therefore it may be interesting to narrow in on the dataset and only
-look at diamonds that are between 1 and 5 carat, and exclude all
+look at diamonds that are between 1 and 5 carats, and exclude all
 diamonds below 1 carat. The average length of a diamond (\textbf{X}) is
 5.731 mm. It may be interesting to look at diamonds that are between 6
 and 10 millimetres long.\\
@@ -400,7 +409,8 @@ Ideal cut diamonds, which makes this the most common category. One could
 choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds
 to focus on.
 
-\subsection{Summary Statistics Table}\label{summary-statistics-table}
+\hypertarget{summary-statistics-table}{%
+\subsection{Summary Statistics Table}\label{summary-statistics-table}}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1759}}
@@ -468,14 +478,15 @@ From the Correlation Table it can be seen that:
 
 \end{col}
 
-\begin{col}{0.05\textwidth}
+\begin{col}{0.02\textwidth}
 ~
 
 \end{col}
 
 \begin{col}{0.15\textwidth}
 
-\subsection{Correlation Table}\label{correlation-table}
+\hypertarget{correlation-table}{%
+\subsection{Correlation Table}\label{correlation-table}}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
@@ -494,18 +505,21 @@ carat \& X & 0.9750 \\
 
 \end{cols}
 
-\section{Question 3}\label{question-3}
+\hypertarget{question-3}{%
+\section{Question 3}\label{question-3}}
 
+\hypertarget{representation-of-the-data-set}{%
 \subsection{Representation of the data
-set}\label{representation-of-the-data-set}
+set}\label{representation-of-the-data-set}}
 
 The data set is composed by different type of data as discussed above.
 In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
 \emph{clarity}), they can be converted into ordinal numbers (from 1 to
 the upper level number) according to their ranking.
 
+\hypertarget{issues-with-outliers-in-the-data}{%
 \subsubsection{Issues with outliers in the
-data}\label{issues-with-outliers-in-the-data}
+data}\label{issues-with-outliers-in-the-data}}
 
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
@@ -578,8 +592,9 @@ data set.
 
 \newpage
 
+\hypertarget{possible-distributions-followed-by-the-data}{%
 \subsubsection{Possible distributions followed by the
-data}\label{possible-distributions-followed-by-the-data}
+data}\label{possible-distributions-followed-by-the-data}}
 
 Now that the data set is free from outliers, the histograms of the
 attributes will be more meaningful about the possible distribution the
@@ -608,7 +623,9 @@ attribute can be listed:
 
 \newpage
 
-\subsubsection{Correlation of variables}\label{correlation-of-variables}
+\hypertarget{correlation-of-variables}{%
+\subsubsection{Correlation of
+variables}\label{correlation-of-variables}}
 
 Correlation between variables can be studied by producing the matrix of
 scatter plots of each combination of two attributes against each other.
@@ -618,8 +635,9 @@ and points of the plots are colored according to the attribute
 \emph{cut} in the attempt of finding some pattern of the data. The
 matrix is shown below:
 
-\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf} The
-plots confirm the very high correlation between the variables
+\includegraphics{Report_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+The plots confirm the very high correlation between the variables
 \emph{carat}, \emph{x}, \emph{y} and \emph{z}, as already computed in
 the Correlation Table (page 6). In addition, also the \emph{price}
 appears to be slightly correlated with the variables \emph{carat},
@@ -629,8 +647,9 @@ any cluster of the data.
 
 \newpage
 
-\subsection{Principal component
-analysis}\label{principal-component-analysis}
+\hypertarget{principal-component-analysis}{%
+\subsection{Principal Component
+Analysis}\label{principal-component-analysis}}
 
 The aim of the Principal Component Analysis (``PCA'' from now on) is to
 simplify the problem dimension by reducing the number of interval or
@@ -734,9 +753,11 @@ different levels that these attributes can assume.
 
 \newpage
 
-\section{Question 4}\label{question-4}
+\hypertarget{question-4}{%
+\section{Question 4}\label{question-4}}
 
-\subsection{What data have shown}\label{what-data-have-shown}
+\hypertarget{what-data-have-shown}{%
+\subsection{What data have shown}\label{what-data-have-shown}}
 
 The data set appears to be complete since each diamond is described by
 all the attributes and there are not missing values. This is a good
@@ -780,7 +801,8 @@ hard to be predicted.
 
 \newpage
 
-\section{Exam Problems}\label{exam-problems}
+\hypertarget{exam-problems}{%
+\section{Exam Problems}\label{exam-problems}}
 
 \textbf{Question 1} \textbar{} Spring 2019 question 2
 
@@ -800,6 +822,20 @@ the p-norm distance dp (.,.) is correct ?
 
 Answer \textbf{A}: The Maximum Norm Distance is 7.0
 
+\textbf{Question 3} \textbar{} Spring 2019 question 3: A Principal
+Component Analysis (PCA) is carried out on the Urban Traffic dataset in
+table 1 based on the attributes \({x_1}, {x_2}, {x_3}, {x_4}, {x_5}\).
+The data is standardized by (i) subtracting the mean and (ii) dividing
+each column by its standard deviation to obtain the standardized data
+matrix \(\tilde{X}\). A singular value decomposition is then carried out
+on the standardized data matrix to obtain the decomposition
+\(US{V^T} = {\tilde{X}}\).
+
+Which one of the following statements is true?
+
+Answer \textbf{A}: The variance explained by the first four principal
+components is greater than 0.8
+
 \textbf{Question 4} \textbar{} Spring 2019 question 2
 
 Which one of the following statements is true?
@@ -811,14 +847,31 @@ hand, PC2 has positive coefficients multiplying \(x_2\), \(x_3\) and
 \(x_5\) so if an observation has a high value of them, it means that the
 PC2 increases a lot thanks to their the contribution
 
+\textbf{Question 5} \textbar{} Spring 2019 question 14: Suppose s1 and
+s2 are two text documents containing the text:
+
+s1 = \{the bag of words representation becomes less parsimonious\}
+
+s2 = \{if we do not stem the words\}
+
+The documents are encoded using a bag-of-words encoding assuming a total
+vocabulary size of M = 20000. No stop words lists or stemming is applied
+to the dataset.
+
+What is the Jaccard similarity between documents s1 and s2?
+
+Answer \textbf{A}: The Jaccard similarity of s1 and s2 is 0.1538462
+
+*see Code\_File.R for calculation.
+
 \textbf{Question 6} \textbar{} Spring 2019 question 2
 
 Which is the probability an observation had \(\hat{x}_2=0\) given light
 congestion?
 
 Answer \textbf{B}: according to the Sum Rule we know that
-\(p(x_2|y)=\sum_{i=0}^1 p(x_2,x_7=i|y)\), so a new Probability Table for
-\(p(x_2|y)\) can be compiled:
+\(p(x_2|y)= \sum_{i=0}^{1} p(x_2,x_7=i|y)\), so a new Probability Table
+for \(p(x_2|y)\) can be compiled:
 
 \begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
@@ -836,7 +889,8 @@ probability is 0.84
 
 \newpage
 
-\section{References}\label{references}
+\hypertarget{references}{%
+\section{References}\label{references}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
