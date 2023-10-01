@@ -555,6 +555,20 @@ distanz <- norm(a - b, type = "M")
 cat("Maximum p-norm distance:", distanz, "\n")
 
 # Question 3 
+# Obtain the diagonal singular Values from Sigma (S)
+dee <- c(13.9, 12.47, 11.48, 10.03, 9.45)
+
+# Calculate rho as a percentage. 
+dee^2/sum(dee^2) * 100
+
+28.81991 + 23.19508 + 19.65833 + 15.00600  # A = True. 
+
+19.65833 +  15.00600  + 13.32069 # B = False
+
+28.81991 + 23.19508 # C = False
+
+28.81991 +  23.19508 + 19.65833 # D = False
+
 
 
 # Question 6 
