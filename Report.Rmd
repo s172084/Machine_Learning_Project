@@ -622,7 +622,7 @@ Answer **A**: The Jaccard similarity of s1 and s2 is 0.1538462
 
 Which is the probability an observation had $\hat{x}_2=0$ given light congestion?
 
-Answer **B**: according to the Sum Rule we know that $p(x_2|y)= \sum_{i=0}^{1} p(x_2,x_7=i|y)$, so
+Answer **D**: according to the Sum Rule we know that $p(x_2|y)= \sum_{i=0}^{1} p(x_2,x_7=i|y)$, so
 a new Probability Table for $p(x_2|y)$ can be compiled:
 
 | $p(x_2 |y)$ | y=1  | y=2  | y=3  | y=4  |
@@ -630,7 +630,8 @@ a new Probability Table for $p(x_2|y)$ can be compiled:
 | $x_2=0$     | 0.84 | 0.84 | 0.73 | 0.77 |
 | $x_2=1$     | 0.16 | 0.16 | 0.27 | 0.23 |
 
-Looking at the node $p(x_2=0|y=2)$, it can be seen that the probability is 0.84
+Looking at the node $p(x_2=0|y=2)$, it can be seen that the probability is 0.84, but it has to be normalized
+by the p(y). So we can divide it by p(y=2), getting 0.193
 
 \newpage
 
