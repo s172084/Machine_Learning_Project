@@ -788,10 +788,11 @@ hard to be predicted.
 Which of the following statements are true about the types of the
 attributes in the Urban Traffic dataset?
 
-Answer \textbf{B}: the attribute \(x_1\) is ordinal because it can be
-said that time-interval number 5 is greater than the time-interval
-number 4 since it is later in the day but it makes no sense to sum and
-subtract them
+Answer \textbf{D}: the attribute \(x_1\) is interval because it is
+measured along a scale and each time-interval is placed at equal
+distance from the previous / following one
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \textbf{Question 2} \textbar{} Spring 2019 question 2
 
@@ -800,6 +801,8 @@ the 14 and 18th observation . Which of the following statements about
 the p-norm distance dp (.,.) is correct ?
 
 Answer \textbf{A}: The Maximum Norm Distance is 7.0
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \textbf{Question 3} \textbar{} Spring 2019 question 3: A Principal
 Component Analysis (PCA) is carried out on the Urban Traffic dataset in
@@ -848,7 +851,7 @@ Answer \textbf{A}: The Jaccard similarity of s1 and s2 is 0.1538462
 Which is the probability an observation had \(\hat{x}_2=0\) given light
 congestion?
 
-Answer \textbf{B}: according to the Sum Rule we know that
+Answer \textbf{D}: according to the Sum Rule we know that
 \(p(x_2|y)= \sum_{i=0}^{1} p(x_2,x_7=i|y)\), so a new Probability Table
 for \(p(x_2|y)\) can be compiled:
 
@@ -864,7 +867,8 @@ for \(p(x_2|y)\) can be compiled:
 \end{longtable}
 
 Looking at the node \(p(x_2=0|y=2)\), it can be seen that the
-probability is 0.84
+probability is 0.84, but it has to be normalized by the p(y). So we can
+divide it by p(y=2), getting 0.193
 
 \newpage
 

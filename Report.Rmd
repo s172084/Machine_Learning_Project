@@ -578,6 +578,7 @@ Which of the following statements are true about the types of the attributes in 
 Answer **D**: the attribute $x_1$ is interval because it is measured along a scale and each time-interval is placed
 at equal distance from the previous / following one
 
+*** 
 
 **Question 2** | Spring 2019 question 2
 
@@ -585,6 +586,8 @@ Consider again the Urban Traffic dataset from table 1 and in particular the 14 a
 Which of the following statements about the p-norm distance dp (.,.) is correct ? 
 
 Answer **A**: The Maximum Norm Distance is 7.0 
+
+*** 
 
 **Question 3** | Spring 2019 question 3: A Principal Component Analysis (PCA) is carried out on the Urban Traffic dataset in table 1 based on the attributes ${x_1}, {x_2}, {x_3}, {x_4}, {x_5}$.
 The data is standardized by (i) subtracting the mean and (ii) dividing each column by its standard deviation to obtain the standardized data matrix $\tilde{X}$. A singular value decomposition is then carried out on the standardized data matrix to obtain the decomposition $US{V^T} = {\tilde{X}}$.  
