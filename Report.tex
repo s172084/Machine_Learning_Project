@@ -155,12 +155,10 @@ Exam Prob 6 & & x \\
 \includegraphics[width=0.3\linewidth]{Images/Diamond_Group}
 \includegraphics[width=0.3\linewidth]{Images/Diamond_Group} \newpage
 
-\hypertarget{question-1}{%
-\section{Question 1}\label{question-1}}
+\section{Question 1}\label{question-1}
 
-\hypertarget{introduction-to-the-dataset}{%
 \subsection{Introduction to the
-Dataset}\label{introduction-to-the-dataset}}
+Dataset}\label{introduction-to-the-dataset}
 
 The International Diamond Grading System, created by The Gemological
 Institute of America,focuses on the 4C's as a means to categorise
@@ -234,8 +232,7 @@ of the top of a diamond in relation to the widest point.
 
 \newpage
 
-\hypertarget{statement-of-interest}{%
-\subsection{Statement of Interest}\label{statement-of-interest}}
+\subsection{Statement of Interest}\label{statement-of-interest}
 
 The idea is to analyse the dataset in order to determine relationships
 between variables. More specifically, it may be interesting to discover
@@ -261,8 +258,7 @@ the relationship between two attributes: i.e.~the relationship between:
   The price corresponding to the cut of a diamond
 \end{itemize}
 
-\hypertarget{data-transformation}{%
-\subsection{Data Transformation}\label{data-transformation}}
+\subsection{Data Transformation}\label{data-transformation}
 
 Ideally the price could be determined in Danish Kroner, Pounds Sterling
 or Euros, rather the US dollars. It may also be a good idea to transform
@@ -270,9 +266,8 @@ carats into milligrams to represent the weight of the diamond. The
 attributes that are recorded in millimetres could also be converted to
 micrometers.
 
-\hypertarget{conclusion-of-previous-analysis}{%
 \subsection{Conclusion of previous
-Analysis}\label{conclusion-of-previous-analysis}}
+Analysis}\label{conclusion-of-previous-analysis}
 
 In his R publication, Jon Ong has performed a brief analysis of this
 dataset looking at the relationship between Cut vs.~Colour, Price
@@ -284,9 +279,8 @@ where she performs data visualisation using scatterplots , histograms
 and box-plots. She explains that diamonds that are categorised in the
 Ideal group with regard to cut, often have a low weight {[}6{]} .
 
-\hypertarget{learning-aims-using-classification-and-regression}{%
 \subsection{Learning Aims using Classification and
-Regression}\label{learning-aims-using-classification-and-regression}}
+Regression}\label{learning-aims-using-classification-and-regression}
 
 A regression problem analyses the relationship between a dependent
 variable and an independent variable. The Regression can be linear
@@ -318,11 +312,9 @@ the diamond is IF , VS1 or I1 . This can be done using the diamond
 length (\textbf{X}) and diamond width (\textbf{Y}), the carat and the
 depth(\textbf{Z}). \newpage
 
-\hypertarget{question-2}{%
-\section{Question 2}\label{question-2}}
+\section{Question 2}\label{question-2}
 
-\hypertarget{description-of-attributes}{%
-\subsection{Description of Attributes}\label{description-of-attributes}}
+\subsection{Description of Attributes}\label{description-of-attributes}
 
 \textbf{Describe if the attributes are discrete/continuous,
 Nominal/Ordinal/Interval/Ratio}
@@ -331,8 +323,7 @@ The table below shows the classification of the attributes. The cut,
 colour, and clarity are ordinal factor variables. In the table below,
 Cont. means continuous and Categ. means Categorical.
 
-\hypertarget{attribute-table}{%
-\subsection{Attribute Table}\label{attribute-table}}
+\subsection{Attribute Table}\label{attribute-table}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0730}}
@@ -409,8 +400,7 @@ Ideal cut diamonds, which makes this the most common category. One could
 choose the very good (12,082) , premium ( 13,791) or ideal cut diamonds
 to focus on.
 
-\hypertarget{summary-statistics-table}{%
-\subsection{Summary Statistics Table}\label{summary-statistics-table}}
+\subsection{Summary Statistics Table}\label{summary-statistics-table}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1759}}
@@ -485,8 +475,7 @@ From the Correlation Table it can be seen that:
 
 \begin{col}{0.15\textwidth}
 
-\hypertarget{correlation-table}{%
-\subsection{Correlation Table}\label{correlation-table}}
+\subsection{Correlation Table}\label{correlation-table}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
@@ -505,21 +494,18 @@ carat \& X & 0.9750 \\
 
 \end{cols}
 
-\hypertarget{question-3}{%
-\section{Question 3}\label{question-3}}
+\section{Question 3}\label{question-3}
 
-\hypertarget{representation-of-the-data-set}{%
 \subsection{Representation of the data
-set}\label{representation-of-the-data-set}}
+set}\label{representation-of-the-data-set}
 
 The data set is composed by different type of data as discussed above.
 In order to manage the ordinal attributes (\emph{cut}, \emph{color} and
 \emph{clarity}), they can be converted into ordinal numbers (from 1 to
 the upper level number) according to their ranking.
 
-\hypertarget{issues-with-outliers-in-the-data}{%
 \subsubsection{Issues with outliers in the
-data}\label{issues-with-outliers-in-the-data}}
+data}\label{issues-with-outliers-in-the-data}
 
 To have a general idea of the distribution of the values assumed by the
 attributes, a list of histograms can be displayed:
@@ -592,9 +578,8 @@ data set.
 
 \newpage
 
-\hypertarget{possible-distributions-followed-by-the-data}{%
 \subsubsection{Possible distributions followed by the
-data}\label{possible-distributions-followed-by-the-data}}
+data}\label{possible-distributions-followed-by-the-data}
 
 Now that the data set is free from outliers, the histograms of the
 attributes will be more meaningful about the possible distribution the
@@ -623,9 +608,7 @@ attribute can be listed:
 
 \newpage
 
-\hypertarget{correlation-of-variables}{%
-\subsubsection{Correlation of
-variables}\label{correlation-of-variables}}
+\subsubsection{Correlation of variables}\label{correlation-of-variables}
 
 Correlation between variables can be studied by producing the matrix of
 scatter plots of each combination of two attributes against each other.
@@ -647,9 +630,8 @@ any cluster of the data.
 
 \newpage
 
-\hypertarget{principal-component-analysis}{%
 \subsection{Principal Component
-Analysis}\label{principal-component-analysis}}
+Analysis}\label{principal-component-analysis}
 
 The aim of the Principal Component Analysis (``PCA'' from now on) is to
 simplify the problem dimension by reducing the number of interval or
@@ -753,11 +735,9 @@ different levels that these attributes can assume.
 
 \newpage
 
-\hypertarget{question-4}{%
-\section{Question 4}\label{question-4}}
+\section{Question 4}\label{question-4}
 
-\hypertarget{what-data-have-shown}{%
-\subsection{What data have shown}\label{what-data-have-shown}}
+\subsection{What data have shown}\label{what-data-have-shown}
 
 The data set appears to be complete since each diamond is described by
 all the attributes and there are not missing values. This is a good
@@ -801,8 +781,7 @@ hard to be predicted.
 
 \newpage
 
-\hypertarget{exam-problems}{%
-\section{Exam Problems}\label{exam-problems}}
+\section{Exam Problems}\label{exam-problems}
 
 \textbf{Question 1} \textbar{} Spring 2019 question 2
 
@@ -889,8 +868,7 @@ probability is 0.84
 
 \newpage
 
-\hypertarget{references}{%
-\section{References}\label{references}}
+\section{References}\label{references}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}

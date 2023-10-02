@@ -575,8 +575,8 @@ easily classified starting from *depth* and *table*, conversely *color* and *cla
 
 Which of the following statements are true about the types of the attributes in the Urban Traffic dataset?
 
-Answer **B**: the attribute $x_1$ is ordinal because it can be said that time-interval number 5 is greater than
-the time-interval number 4 since it is later in the day but it makes no sense to sum and subtract them
+Answer **D**: the attribute $x_1$ is interval because it is measured along a scale and each time-interval is placed
+at equal distance from the previous / following one
 
 
 **Question 2** | Spring 2019 question 2
