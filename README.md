@@ -11,6 +11,8 @@
 This repository contains the details, project description, code and
 contents for Report 1.
 
+The actual report can be found and read in the file Report.pdf
+
 ### The Objective
 
 The objective of this project is to apply the methods learned in the
